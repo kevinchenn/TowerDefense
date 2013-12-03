@@ -55,7 +55,7 @@
         CGSize winSize = [CCDirector sharedDirector].winSize;
         
         // 2 - set background
-        CCSprite* background = [CCSprite spriteWithFile:@"bg.png"];
+        CCSprite* background = [CCSprite spriteWithFile:@"bg1.png"];
         [self addChild:background];
         [background setPosition:ccp(winSize.width/2, winSize.height/2)];
         
@@ -95,7 +95,7 @@
         [ui_gold_lbl setAnchorPoint:ccp(0,0.5)];
         
         // 10 - sound
-        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"8bitDungeonLevel.mp3" loop:YES];
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"POL-turtle-blues-short.wav" loop:YES];
 	}
 	return self;
 }
@@ -159,29 +159,37 @@
 -(void)addWaypoints
 {
     waypoints = [[NSMutableArray alloc] init];
-    
-    Waypoint * waypoint1 = [Waypoint nodeWithTheGame:self location:ccp(420,35)];
+
+    Waypoint * waypoint1 = [Waypoint nodeWithTheGame:self location:ccp(480,175)];
     [waypoints addObject:waypoint1];
     
-    Waypoint * waypoint2 = [Waypoint nodeWithTheGame:self location:ccp(35,35)];
+    Waypoint * waypoint2 = [Waypoint nodeWithTheGame:self location:ccp(305,175)];
     [waypoints addObject:waypoint2];
     waypoint2.nextWaypoint =waypoint1;
     
-    Waypoint * waypoint3 = [Waypoint nodeWithTheGame:self location:ccp(35,130)];
+    Waypoint * waypoint3 = [Waypoint nodeWithTheGame:self location:ccp(305,112)];
     [waypoints addObject:waypoint3];
     waypoint3.nextWaypoint =waypoint2;
     
-    Waypoint * waypoint4 = [Waypoint nodeWithTheGame:self location:ccp(445,130)];
+    Waypoint * waypoint4 = [Waypoint nodeWithTheGame:self location:ccp(175,112)];
     [waypoints addObject:waypoint4];
     waypoint4.nextWaypoint =waypoint3;
     
-    Waypoint * waypoint5 = [Waypoint nodeWithTheGame:self location:ccp(445,220)];
+    Waypoint * waypoint5 = [Waypoint nodeWithTheGame:self location:ccp(175,235)];
     [waypoints addObject:waypoint5];
     waypoint5.nextWaypoint =waypoint4;
     
-    Waypoint * waypoint6 = [Waypoint nodeWithTheGame:self location:ccp(-40,220)];
+    Waypoint * waypoint6 = [Waypoint nodeWithTheGame:self location:ccp(78,235)];
     [waypoints addObject:waypoint6];
     waypoint6.nextWaypoint =waypoint5;
+    
+    Waypoint * waypoint7 = [Waypoint nodeWithTheGame:self location:ccp(78,140)];
+    [waypoints addObject:waypoint7];
+    waypoint7.nextWaypoint =waypoint6;
+    
+    Waypoint * waypoint8 = [Waypoint nodeWithTheGame:self location:ccp(-40,140)];
+    [waypoints addObject:waypoint8];
+    waypoint8.nextWaypoint =waypoint7;
 }
 
 -(BOOL)circle:(CGPoint) circlePoint withRadius:(float) radius collisionWithCircle:(CGPoint) circlePointTwo collisionCircleRadius:(float) radiusTwo
