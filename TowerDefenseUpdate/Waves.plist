@@ -8,6 +8,14 @@
 			<string></string>
 			<key>spawnTime</key>
 			<real>0.1</real>
+			<key>maxHP</key>
+			<string>50</string>
+			<key>walkingSpeed</key>
+			<string>2</string>
+			<key>attackPower</key>
+			<string>1</string>
+			<key>spriteFile</key>
+			<string>spaceInvader.png</string>
 		</dict>
 		<dict>
 			<key>data</key>
