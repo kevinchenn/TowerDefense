@@ -2,7 +2,7 @@
 //  Enemy.m
 //  TowerDefenseUpdate
 //
-//  Created by Kevin Chen on 12/1/13.
+//  Created by Vincent Oe on 12/1/13.
 //  Copyright (c) 2013 Brian Broom. All rights reserved.
 //
 
@@ -10,7 +10,6 @@
 #import "Tower.h"
 #import "Waypoint.h"
 #import "SimpleAudioEngine.h"
-
 
 #define HEALTH_BAR_WIDTH 20
 #define HEALTH_BAR_ORIGIN -10
@@ -25,34 +24,55 @@
 
 -(id)initWithTheGame:(HelloWorldLayer *)_game {
 	if ((self=[super init])) {
-        attackedBy = [[NSMutableArray alloc] initWithCapacity:5];
 		theGame = _game;
         maxHp = 40;
         currentHp = maxHp;
-        
-        active = NO;
-        
         walkingSpeed = 0.5;
-        
+        attackedBy = [[NSMutableArray alloc] initWithCapacity:5];
+        active = NO;
         mySprite = [CCSprite spriteWithFile:@"enemy.png"];
 		[self addChild:mySprite];
         
-        Waypoint * waypoint = (Waypoint *)[theGame.waypoints
-                                           objectAtIndex:([theGame.waypoints count]-1)];
-        
+        Waypoint * waypoint = (Waypoint *)[theGame.waypoints objectAtIndex:([theGame.waypoints count]-1)];
         destinationWaypoint = waypoint.nextWaypoint;
-        
         CGPoint pos = waypoint.myPosition;
         myPosition = pos;
         
         [mySprite setPosition:pos];
-        
         [theGame addChild:self];
-        
         [self scheduleUpdate];
-        
 	}
-    
+	return self;
+}
+
++(id)nodeWithTheGame:(HelloWorldLayer *)_game andMaxHP:(int)hp andWalkingSpeed:(float)speed andAttackPower:(int)power andSpriteFile:(NSString*)file
+{
+    return [[self alloc] initWithTheGame:_game andMaxHP:hp andWalkingSpeed:speed andAttackPower:power andSpriteFile:file];
+}
+
+-(id)initWithTheGame:(HelloWorldLayer *)_game andMaxHP:(int)hp andWalkingSpeed:(float)speed andAttackPower:(int)power andSpriteFile:(NSString*)file
+{
+    if ((self=[super init])) {
+		theGame = _game;
+        maxHp = hp;
+        walkingSpeed = speed;
+        attackPower = power;
+        currentHp = maxHp;
+        attackedBy = [[NSMutableArray alloc] initWithCapacity:5];
+        active = NO;
+        mySprite = [CCSprite spriteWithFile:file];
+        
+		[self addChild:mySprite];
+        
+        Waypoint * waypoint = (Waypoint *)[theGame.waypoints objectAtIndex:([theGame.waypoints count]-1)];
+        destinationWaypoint = waypoint.nextWaypoint;
+        CGPoint pos = waypoint.myPosition;
+        myPosition = pos;
+        
+        [mySprite setPosition:pos];
+        [theGame addChild:self];
+        [self scheduleUpdate];
+	}
 	return self;
 }
 
@@ -107,20 +127,7 @@
     [theGame enemyGotKilled];
 }
 
--(void)draw
-{
-    ccDrawSolidRect(ccp(myPosition.x+HEALTH_BAR_ORIGIN,
-                        myPosition.y+16),
-                    ccp(myPosition.x+HEALTH_BAR_ORIGIN+HEALTH_BAR_WIDTH,
-                        myPosition.y+14),
-                    ccc4f(1.0, 0, 0, 1.0));
-    
-    ccDrawSolidRect(ccp(myPosition.x+HEALTH_BAR_ORIGIN,
-                        myPosition.y+16),
-                    ccp(myPosition.x+HEALTH_BAR_ORIGIN + (float)(currentHp * HEALTH_BAR_WIDTH)/maxHp,
-                        myPosition.y+14),
-                    ccc4f(0, 1.0, 0, 1.0));
-}
+// Add the following methods
 -(void)getAttacked:(Tower *)attacker
 {
     [attackedBy addObject:attacker];
@@ -140,6 +147,21 @@
         [theGame awardGold:200];
         [self getRemoved];
     }
+}
+
+-(void)draw
+{
+    ccDrawSolidRect(ccp(myPosition.x+HEALTH_BAR_ORIGIN,
+                        myPosition.y+16),
+                    ccp(myPosition.x+HEALTH_BAR_ORIGIN+HEALTH_BAR_WIDTH,
+                        myPosition.y+14),
+                    ccc4f(1.0, 0, 0, 1.0));
+    
+    ccDrawSolidRect(ccp(myPosition.x+HEALTH_BAR_ORIGIN,
+                        myPosition.y+16),
+                    ccp(myPosition.x+HEALTH_BAR_ORIGIN + (float)(currentHp * HEALTH_BAR_WIDTH)/maxHp,
+                        myPosition.y+14),
+                    ccc4f(0, 1.0, 0, 1.0));
 }
 
 @end

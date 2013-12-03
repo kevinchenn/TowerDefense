@@ -2,11 +2,10 @@
 //  Enemy.h
 //  TowerDefenseUpdate
 //
-//  Created by Kevin Chen on 12/1/13.
+//  Created by Vincent Oe on 12/1/13.
 //  Copyright (c) 2013 Brian Broom. All rights reserved.
 //
 
-#import "CCNode.h"
 #import "cocos2d.h"
 #import "HelloWorldLayer.h"
 
@@ -15,11 +14,13 @@
 @interface Enemy: CCNode {
     CGPoint myPosition;
     int maxHp;
-    int currentHp;
     float walkingSpeed;
+    int attackPower;
+    int currentHp;
     Waypoint *destinationWaypoint;
     BOOL active;
     NSMutableArray *attackedBy;
+    NSString* spriteFile;
 }
 
 @property (nonatomic,assign) HelloWorldLayer *theGame;
@@ -27,11 +28,12 @@
 
 +(id)nodeWithTheGame:(HelloWorldLayer*)_game;
 -(id)initWithTheGame:(HelloWorldLayer *)_game;
++(id)nodeWithTheGame:(HelloWorldLayer *)_game andMaxHP:(int)hp andWalkingSpeed:(float)speed andAttackPower:(int)power andSpriteFile:(NSString*)file;
+-(id)initWithTheGame:(HelloWorldLayer *)_game andMaxHP:(int)hp andWalkingSpeed:(float)speed andAttackPower:(int)power andSpriteFile:(NSString*)file;
 -(void)doActivate;
 -(void)getRemoved;
 -(void)getAttacked:(Tower *)attacker;
 -(void)gotLostSight:(Tower *)attacker;
 -(void)getDamaged:(int)damage;
-
 
 @end

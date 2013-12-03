@@ -2,7 +2,7 @@
 //  Tower.m
 //  TowerDefenseUpdate
 //
-//  Created by Kevin Chen on 12/1/13.
+//  Created by Vincent Oe on 11/30/13.
 //  Copyright (c) 2013 Brian Broom. All rights reserved.
 //
 
@@ -13,6 +13,7 @@
 
 @synthesize mySprite,theGame;
 
+//need way to pick a tower with specific values
 +(id) nodeWithTheGame:(HelloWorldLayer*)_game location:(CGPoint)location
 {
     return [[self alloc] initWithTheGame:_game location:location];
@@ -20,28 +21,48 @@
 
 -(id) initWithTheGame:(HelloWorldLayer *)_game location:(CGPoint)location
 {
-	if( (self=[super init])) {
-        
+	if(self=[super init]) {
 		theGame = _game;
         attackRange = 70;
-        damage = 10;
+        damagePower = 10;
         fireRate = 1;
         
         mySprite = [CCSprite spriteWithFile:@"tower.png"];
 		[self addChild:mySprite];
         
         [mySprite setPosition:location];
-        
         [theGame addChild:self];
-        
         [self scheduleUpdate];
-        
 	}
-    
 	return self;
 }
 
--(void)update:(ccTime)dt {
++(id) nodeWithTheGame:(HelloWorldLayer *)_game location:(CGPoint)location andAttackRange:(int)range andDamagePower:(int)power andFireRate:(float)rate andTowerCost:(int)cost andSpriteFile:(NSString *)file
+{
+    return [[self alloc] initWithTheGame:_game location:location andAttackRange:range andDamagePower:power andFireRate:rate andTowerCost:cost andSpriteFile:file];
+}
+
+-(id) initWithTheGame:(HelloWorldLayer *)_game location:(CGPoint)location andAttackRange:(int)range andDamagePower:(int)power andFireRate:(float)rate andTowerCost:(int)cost andSpriteFile:(NSString *)file
+{
+    if(self=[super init]) {
+		theGame = _game;
+        attackRange = range;
+        damagePower = power;
+        fireRate = rate;
+        towerCost = cost;
+        
+        mySprite = [CCSprite spriteWithFile:file];
+		[self addChild:mySprite];
+        
+        [mySprite setPosition:location];
+        [theGame addChild:self];
+        [self scheduleUpdate];
+	}
+	return self;
+}
+
+-(void)update:(ccTime)dt
+{
     if (chosenEnemy){
         
         //We make it turn to target the enemy chosen
@@ -50,7 +71,7 @@
         mySprite.rotation = CC_RADIANS_TO_DEGREES(atan2(normalized.y,-normalized.x))+90;
         
         if(![theGame circle:mySprite.position withRadius:attackRange
-        collisionWithCircle:chosenEnemy.mySprite.position collisionCircleRadius:1])
+            collisionWithCircle:chosenEnemy.mySprite.position collisionCircleRadius:1])
         {
             [self lostSightOfEnemy];
         }
@@ -58,7 +79,7 @@
         for(Enemy * enemy in theGame.enemies)
         {
             if([theGame circle:mySprite.position withRadius:attackRange
-           collisionWithCircle:enemy.mySprite.position collisionCircleRadius:1])
+                collisionWithCircle:enemy.mySprite.position collisionCircleRadius:1])
             {
                 [self chosenEnemyForAttack:enemy];
                 break;
@@ -67,12 +88,6 @@
     }
 }
 
--(void)draw
-{
-    ccDrawColor4B(255, 255, 255, 255);
-    ccDrawCircle(mySprite.position, attackRange, 360, 30, false);
-    [super draw];
-}
 -(void)attackEnemy
 {
     [self schedule:@selector(shootWeapon) interval:fireRate];
@@ -95,8 +110,6 @@
                        [CCMoveTo actionWithDuration:0.1 position:chosenEnemy.mySprite.position],
                        [CCCallFunc actionWithTarget:self selector:@selector(damageEnemy)],
                        [CCCallFuncN actionWithTarget:self selector:@selector(removeBullet:)], nil]];
-    
-    
 }
 
 -(void)removeBullet:(CCSprite *)bullet
@@ -106,7 +119,7 @@
 
 -(void)damageEnemy
 {
-    [chosenEnemy getDamaged:damage];
+    [chosenEnemy getDamaged:damagePower];
 }
 
 -(void)targetKilled
@@ -126,5 +139,16 @@
     [self unschedule:@selector(shootWeapon)];
 }
 
+-(int)towerCost
+{
+    return towerCost;
+}
+
+-(void)draw
+{
+    ccDrawColor4B(255, 255, 255, 255);
+    ccDrawCircle(mySprite.position, attackRange, 360, 30, false);
+    [super draw];
+}
 
 @end

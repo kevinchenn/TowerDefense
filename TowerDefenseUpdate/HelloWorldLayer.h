@@ -11,31 +11,36 @@
 
 // When you import this file, you import all the cocos2d classes
 #import "cocos2d.h"
+//#import "Enemy.h"
 
 // HelloWorldLayer
 @interface HelloWorldLayer : CCLayer 
 {
-    NSMutableArray *towerBases;
-    int wave;
-    CCLabelBMFont *ui_wave_lbl;
-    int playerHp;
+    NSMutableArray* towerBases;
+    
+    CCLabelBMFont* ui_wave_lbl;
     CCLabelBMFont *ui_hp_lbl;
-    BOOL gameEnded;
-    int playerGold;
     CCLabelBMFont *ui_gold_lbl;
+    
+    int wave;
+    int playerHP;
+    int playerGold;
+    
+    BOOL gameEnded;
 }
 
-@property (nonatomic,strong) NSMutableArray *towers;
-@property (nonatomic,strong) NSMutableArray *waypoints;
-@property (nonatomic,strong) NSMutableArray *enemies;
+@property (nonatomic, strong) NSMutableArray *towers;
+@property (nonatomic, strong) NSMutableArray *waypoints;
+@property (nonatomic, strong) NSMutableArray *enemies;
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
 +(CCScene *) scene;
 -(BOOL)circle:(CGPoint)circlePoint withRadius:(float)radius
-collisionWithCircle:(CGPoint)circlePointTwo collisionCircleRadius:(float)radiusTwo;
-void ccFillPoly(CGPoint *poli, int points, BOOL closePolygon);
+    collisionWithCircle:(CGPoint)circlePointTwo collisionCircleRadius:(float)radiusTwo;
+//void ccFillPoly(CGPoint *poli, int points, BOOL closePolygon);
 -(void) enemyGotKilled;
 -(void) getHpDamage;
--(void)doGameOver;
--(void)awardGold:(int)gold;
+-(void) doGameOver;
+-(void) awardGold:(int)gold;
+
 @end

@@ -12,15 +12,18 @@
 
 // Needed to obtain the Navigation Controller
 #import "AppDelegate.h"
-#import "Tower.h"
-#import "Waypoint.h"
-#import "Enemy.h"
-#import "SimpleAudioEngine.h"
 
 #pragma mark - HelloWorldLayer
 
+#import "Tower.h"
+#import "Waypoint.h"
+#import "Enemy.h"
+
+#import "SimpleAudioEngine.h"
+
 // HelloWorldLayer implementation
 @implementation HelloWorldLayer
+
 @synthesize towers;
 @synthesize waypoints;
 @synthesize enemies;
@@ -50,92 +53,106 @@
 		// 1 - initialize
         self.touchEnabled = YES;
         CGSize winSize = [CCDirector sharedDirector].winSize;
+        
         // 2 - set background
-        CCSprite * background = [CCSprite spriteWithFile:@"bg1.png"];
+        CCSprite* background = [CCSprite spriteWithFile:@"bg.png"];
         [self addChild:background];
         [background setPosition:ccp(winSize.width/2, winSize.height/2)];
-        // 3 - Load tower positions
+        
+        // 3 - load tower positions
         [self loadTowerPositions];
         
-        // 4 - add waypoints
+        // 4 - load menu with usable towers
+        
+        
+        // 5 - add waypoints
         [self addWaypoints];
-        // 5 - add enemies
+        
+        // 6 - add enemies
         enemies = [[NSMutableArray alloc] init];
         [self loadWave];
-        // 6 - create wave label
-        ui_wave_lbl = [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"WAVE: %d",wave]
+        
+        // 7 - create wave label
+        ui_wave_lbl = [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"WAVE: %d", wave]
                                              fntFile:@"font_red_14.fnt"];
-        [self addChild:ui_wave_lbl z:10];
-        [ui_wave_lbl setPosition:ccp(400,winSize.height-12)];
+        [self addChild:ui_wave_lbl z:100];
+        [ui_wave_lbl setPosition:ccp(400, winSize.height-12)];
         [ui_wave_lbl setAnchorPoint:ccp(0,0.5)];
-        // 7 - player lives
-        playerHp = 5;
-        ui_hp_lbl = [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"HP: %d",playerHp]
+        
+        // 8 - player lives
+        playerHP = 5;
+        ui_hp_lbl = [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"HP: %d",playerHP]
                                            fntFile:@"font_red_14.fnt"];
         [self addChild:ui_hp_lbl z:10];
         [ui_hp_lbl setPosition:ccp(35,winSize.height-12)];
         
-        // 8 - gold
+        // 9 - gold
         playerGold = 1000;
         ui_gold_lbl = [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"GOLD: %d",playerGold]
                                              fntFile:@"font_red_14.fnt"];
         [self addChild:ui_gold_lbl z:10];
         [ui_gold_lbl setPosition:ccp(135,winSize.height-12)];
         [ui_gold_lbl setAnchorPoint:ccp(0,0.5)];
-        // 9 - sound
-        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"POL-turtle-blues-short.wav" loop:YES];
+        
+        // 10 - sound
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"8bitDungeonLevel.mp3" loop:YES];
 	}
 	return self;
 }
 
-//Add a new method
 -(void)loadTowerPositions
 {
     NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"TowersPosition" ofType:@"plist"];
     NSArray * towerPositions = [NSArray arrayWithContentsOfFile:plistPath];
-    towerBases = [[NSMutableArray alloc] initWithCapacity:10];
+    towerBases = [[NSMutableArray alloc] initWithCapacity:25];
     
     for(NSDictionary * towerPos in towerPositions)
     {
+        
+        //CAN MAKE THE BASE A TRANSPARENT BOX TO MAKE A GRID?
         CCSprite * towerBase = [CCSprite spriteWithFile:@"open_spot.png"];
         [self addChild:towerBase];
         [towerBase setPosition:ccp([[towerPos objectForKey:@"x"] intValue],
                                    [[towerPos objectForKey:@"y"] intValue])];
         [towerBases addObject:towerBase];
     }
-    
 }
 
-//Add the following methods:
--(BOOL)canBuyTower {
+-(BOOL)canBuyTower
+{
     if (playerGold - kTOWER_COST >=0)
         return YES;
     return NO;
 }
 
-- (void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+-(BOOL)canBuyTower:(Tower *) tower {
+    if (playerGold - [tower towerCost] >=0)
+        return YES;
+    return NO;
+}
+
+//NEED TO MAKE THIS BRING UP A MENU
+-(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    for (UITouch *touch in touches) {
+        CGPoint location = [touch locationInView:[touch view]];
+        
+        location = [[CCDirector sharedDirector] convertToGL:location];
     
-	for( UITouch *touch in touches ) {
-		CGPoint location = [touch locationInView: [touch view]];
-        
-		location = [[CCDirector sharedDirector] convertToGL: location];
-        
-        for(CCSprite * tb in towerBases)
-        {
-            if( CGRectContainsPoint([tb boundingBox],location) &&
-               [self canBuyTower] && !tb.userData)
-			{
-                //We will spend our gold later.
-                playerGold -= kTOWER_COST;
+        for(CCSprite * tb in towerBases) {
+            if (CGRectContainsPoint([tb boundingBox], location) && [self canBuyTower] && !tb.userData) {
+                
+                //INSTANTIATE THE TOWER
+                Tower* tower = [Tower nodeWithTheGame:self location:tb.position];
+                playerGold -= kTOWER_COST; //NEEDS TO BE ABSTRACTED AWAY
+                
                 [ui_gold_lbl setString:[NSString stringWithFormat:@"GOLD: %d",playerGold]];
                 [[SimpleAudioEngine sharedEngine] playEffect:@"tower_place.wav"];
-                Tower * tower = [Tower nodeWithTheGame:self location:tb.position];
+                
                 [towers addObject:tower];
-                tb.userData = (__bridge void *)(tower);
-			}
-		}
-        
+                tb.userData = (__bridge void*)(tower);
+            }
+        }
     }
 }
 
@@ -143,41 +160,32 @@
 {
     waypoints = [[NSMutableArray alloc] init];
     
-    Waypoint * waypoint1 = [Waypoint nodeWithTheGame:self location:ccp(480,175)];
+    Waypoint * waypoint1 = [Waypoint nodeWithTheGame:self location:ccp(420,35)];
     [waypoints addObject:waypoint1];
     
-    Waypoint * waypoint2 = [Waypoint nodeWithTheGame:self location:ccp(305,175)];
+    Waypoint * waypoint2 = [Waypoint nodeWithTheGame:self location:ccp(35,35)];
     [waypoints addObject:waypoint2];
     waypoint2.nextWaypoint =waypoint1;
     
-    Waypoint * waypoint3 = [Waypoint nodeWithTheGame:self location:ccp(305,112)];
+    Waypoint * waypoint3 = [Waypoint nodeWithTheGame:self location:ccp(35,130)];
     [waypoints addObject:waypoint3];
     waypoint3.nextWaypoint =waypoint2;
     
-    Waypoint * waypoint4 = [Waypoint nodeWithTheGame:self location:ccp(175,112)];
+    Waypoint * waypoint4 = [Waypoint nodeWithTheGame:self location:ccp(445,130)];
     [waypoints addObject:waypoint4];
     waypoint4.nextWaypoint =waypoint3;
     
-    Waypoint * waypoint5 = [Waypoint nodeWithTheGame:self location:ccp(175,235)];
+    Waypoint * waypoint5 = [Waypoint nodeWithTheGame:self location:ccp(445,220)];
     [waypoints addObject:waypoint5];
     waypoint5.nextWaypoint =waypoint4;
     
-    Waypoint * waypoint6 = [Waypoint nodeWithTheGame:self location:ccp(78,235)];
+    Waypoint * waypoint6 = [Waypoint nodeWithTheGame:self location:ccp(-40,220)];
     [waypoints addObject:waypoint6];
     waypoint6.nextWaypoint =waypoint5;
-    
-    Waypoint * waypoint7 = [Waypoint nodeWithTheGame:self location:ccp(78,140)];
-    [waypoints addObject:waypoint7];
-    waypoint7.nextWaypoint =waypoint6;
-    
-    Waypoint * waypoint8 = [Waypoint nodeWithTheGame:self location:ccp(-40,140)];
-    [waypoints addObject:waypoint8];
-    waypoint8.nextWaypoint =waypoint7;
-    
 }
 
--(BOOL)circle:(CGPoint) circlePoint withRadius:(float) radius
-collisionWithCircle:(CGPoint) circlePointTwo collisionCircleRadius:(float) radiusTwo {
+-(BOOL)circle:(CGPoint) circlePoint withRadius:(float) radius collisionWithCircle:(CGPoint) circlePointTwo collisionCircleRadius:(float) radiusTwo
+{
     float xdif = circlePoint.x - circlePointTwo.x;
     float ydif = circlePoint.y - circlePointTwo.y;
     
@@ -189,33 +197,41 @@ collisionWithCircle:(CGPoint) circlePointTwo collisionCircleRadius:(float) radiu
     return NO;
 }
 
--(BOOL)loadWave {
+-(BOOL)loadWave
+{
     NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"Waves" ofType:@"plist"];
-    NSArray * waveData = [NSArray arrayWithContentsOfFile:plistPath];
+    NSArray* waveData = [NSArray arrayWithContentsOfFile:plistPath];
     
     if(wave >= [waveData count])
     {
         return NO;
     }
     
-    NSArray * currentWaveData =[NSArray arrayWithArray:[waveData objectAtIndex:wave]];
+    NSArray* currentWaveData =[NSArray arrayWithArray:[waveData objectAtIndex:wave]];
     
-    for(NSDictionary * enemyData in currentWaveData)
+    for(NSDictionary* enemyData in currentWaveData)
     {
-        Enemy * enemy = [Enemy nodeWithTheGame:self];
-        [enemies addObject:enemy];
-        [enemy schedule:@selector(doActivate)
-               interval:[[enemyData objectForKey:@"spawnTime"]floatValue]];
+        if ([[enemyData allKeys] count] == 2) {
+            
+            Enemy* enemy = [Enemy nodeWithTheGame:self];
+            [enemies addObject:enemy];
+            [enemy schedule:@selector(doActivate)
+                   interval:[[enemyData objectForKey:@"spawnTime"]floatValue]];
+        } else {
+            Enemy* enemy = [Enemy nodeWithTheGame:self andMaxHP:[[enemyData objectForKey:@"maxHP"]integerValue] andWalkingSpeed:[[enemyData objectForKey:@"walkingSpeed"]floatValue] andAttackPower:[[enemyData objectForKey:@"attackPower"]integerValue] andSpriteFile:[enemyData valueForKey:@"spriteFile"]];
+            [enemies addObject:enemy];
+            [enemy schedule:@selector(doActivate)
+                   interval:[[enemyData objectForKey:@"spawnTime"]floatValue]];
+        }
     }
     
     wave++;
     [ui_wave_lbl setString:[NSString stringWithFormat:@"WAVE: %d",wave]];
     
     return YES;
-    
 }
 
--(void)enemyGotKilled {
+-(void) enemyGotKilled {
     if ([enemies count]<=0) //If there are no more enemies.
     {
         if(![self loadWave])
@@ -228,11 +244,22 @@ collisionWithCircle:(CGPoint) circlePointTwo collisionCircleRadius:(float) radiu
     }
 }
 
--(void)getHpDamage {
+//CHANGE CALL TO GETHPDAMAGE
+-(void)getHpDamage:(int) value {
     [[SimpleAudioEngine sharedEngine] playEffect:@"life_lose.wav"];
-    playerHp--;
-    [ui_hp_lbl setString:[NSString stringWithFormat:@"HP: %d",playerHp]];
-    if (playerHp <=0) {
+    playerHP = playerHP - value;
+    [ui_hp_lbl setString:[NSString stringWithFormat:@"HP: %d",playerHP]];
+    if (playerHP <=0) {
+        [self doGameOver];
+    }
+}
+
+-(void)getHpDamage
+{
+    [[SimpleAudioEngine sharedEngine] playEffect:@"life_lose.wav"];
+    playerHP--;
+    [ui_hp_lbl setString:[NSString stringWithFormat:@"HP: %d",playerHP]];
+    if (playerHP <=0) {
         [self doGameOver];
     }
 }
@@ -245,8 +272,11 @@ collisionWithCircle:(CGPoint) circlePointTwo collisionCircleRadius:(float) radiu
                                                              scene:[HelloWorldLayer scene]]];
     }
 }
--(void)awardGold:(int)gold {
-    playerGold += gold;
-    [ui_gold_lbl setString:[NSString stringWithFormat:@"GOLD: %d",playerGold]];
+
+-(void)awardGold:(int)gold
+{
+    playerGold = playerGold + gold;
+    [ui_gold_lbl setString:[NSString stringWithFormat:@"HP: %d",playerGold]];
 }
+
 @end
