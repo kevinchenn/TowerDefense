@@ -26,6 +26,12 @@
         attackRange = 70;
         damagePower = 10;
         fireRate = 1;
+        towerCost = 300;
+        splashRadius = 0;
+        slowEffect = 0;
+        spriteName = @"tower.png";
+        bulletName = @"bullet.png";
+        bulletSpeed = .01;
         
         mySprite = [CCSprite spriteWithFile:@"tower.png"];
 		[self addChild:mySprite];
@@ -37,12 +43,12 @@
 	return self;
 }
 
-+(id) nodeWithTheGame:(HelloWorldLayer *)_game location:(CGPoint)location andAttackRange:(int)range andDamagePower:(int)power andFireRate:(float)rate andTowerCost:(int)cost andSpriteFile:(NSString *)file
++(id)nodeWithTheGame:(HelloWorldLayer *)_game location:(CGPoint)location andAttackRange:(int)range andDamagePower:(int)power andFireRate:(float)rate andTowerCost:(int)cost andSplashRadius:(float)radius andSlowEffect:(float)slow andSpriteFile:(NSString*)sFile andBulletFile:(NSString*)bFile andBulletSpeed:(float)bSpeed
 {
-    return [[self alloc] initWithTheGame:_game location:location andAttackRange:range andDamagePower:power andFireRate:rate andTowerCost:cost andSpriteFile:file];
+    return [[self alloc] initWithTheGame:_game location:location andAttackRange:range andDamagePower:power andFireRate:rate andTowerCost:cost andSplashRadius:radius andSlowEffect:slow andSpriteFile:sFile andBulletFile:bFile andBulletSpeed:bSpeed];
 }
 
--(id) initWithTheGame:(HelloWorldLayer *)_game location:(CGPoint)location andAttackRange:(int)range andDamagePower:(int)power andFireRate:(float)rate andTowerCost:(int)cost andSpriteFile:(NSString *)file
+-(id)initWithTheGame:(HelloWorldLayer *)_game location:(CGPoint)location andAttackRange:(int)range andDamagePower:(int)power andFireRate:(float)rate andTowerCost:(int)cost andSplashRadius:(float)radius andSlowEffect:(float)slow andSpriteFile:(NSString*)sFile andBulletFile:(NSString*)bFile andBulletSpeed:(float)bSpeed
 {
     if(self=[super init]) {
 		theGame = _game;
@@ -50,8 +56,13 @@
         damagePower = power;
         fireRate = rate;
         towerCost = cost;
+        splashRadius = radius;
+        slowEffect = slow;
+        spriteName = sFile;
+        bulletName = bFile;
+        bulletSpeed = bSpeed;
         
-        mySprite = [CCSprite spriteWithFile:file];
+        mySprite = [CCSprite spriteWithFile:spriteName];
 		[self addChild:mySprite];
         
         [mySprite setPosition:location];
@@ -103,7 +114,7 @@
 
 -(void)shootWeapon
 {
-    CCSprite * bullet = [CCSprite spriteWithFile:@"bullet.png"];
+    CCSprite * bullet = [CCSprite spriteWithFile:bulletName];
     [theGame addChild:bullet];
     [bullet setPosition:mySprite.position];
     [bullet runAction:[CCSequence actions:
@@ -119,13 +130,29 @@
 
 -(void)damageEnemy
 {
+    // look within the circle radius and also damage those enemies
+    NSMutableArray* inRange = [[NSMutableArray alloc] init];
+    if (splashRadius > 0) {
+        for (Enemy* e in theGame.enemies) {
+            if([theGame circle:chosenEnemy.mySprite.position withRadius:splashRadius collisionWithCircle:e.mySprite.position collisionCircleRadius:1]) {
+                [inRange addObject:e];
+            }
+        }
+        for (Enemy* e in inRange) {
+            [e getDamaged:damagePower];
+        }
+    } else {
+    
     [chosenEnemy getDamaged:damagePower];
+        
+    }
+    // if slow effect !0 and they are not already slowed: slow them
 }
 
 -(void)targetKilled
 {
     if(chosenEnemy)
-        chosenEnemy =nil;
+        chosenEnemy = nil;
     
     [self unschedule:@selector(shootWeapon)];
 }

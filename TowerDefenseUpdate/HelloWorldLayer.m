@@ -143,7 +143,23 @@
             if (CGRectContainsPoint([tb boundingBox], location) && [self canBuyTower] && !tb.userData) {
                 
                 //INSTANTIATE THE TOWER
-                Tower* tower = [Tower nodeWithTheGame:self location:tb.position];
+                //List of all the towers and their attributes in towers.plist
+                
+                NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"testTower" ofType:@"plist"];
+                NSDictionary* towerData = [NSDictionary dictionaryWithContentsOfFile:plistPath];
+                                
+                //Tower* tower = [Tower nodeWithTheGame:self location:tb.position];
+                Tower* tower = [Tower nodeWithTheGame:self location:tb.position
+                                       andAttackRange:[[towerData objectForKey:@"attackRange"]integerValue]
+                                       andDamagePower:[[towerData objectForKey:@"damagePower"]integerValue]
+                                          andFireRate:[[towerData objectForKey:@"fireRate"]floatValue]
+                                         andTowerCost:[[towerData objectForKey:@"towerCost"]integerValue]
+                                      andSplashRadius:[[towerData objectForKey:@"splashRadius"]floatValue]
+                                        andSlowEffect:[[towerData objectForKey:@"slowEffect"]floatValue]
+                                        andSpriteFile:[towerData valueForKey:@"spriteFile"]
+                                        andBulletFile:[towerData valueForKey:@"bulletFile"]
+                                       andBulletSpeed:[[towerData objectForKey:@"bulletSpeed"]floatValue]];
+                
                 playerGold -= kTOWER_COST; //NEEDS TO BE ABSTRACTED AWAY
                 
                 [ui_gold_lbl setString:[NSString stringWithFormat:@"GOLD: %d",playerGold]];
@@ -192,7 +208,7 @@
     waypoint8.nextWaypoint =waypoint7;
 }
 
--(BOOL)circle:(CGPoint) circlePoint withRadius:(float) radius collisionWithCircle:(CGPoint) circlePointTwo collisionCircleRadius:(float) radiusTwo
+-(BOOL)circle:(CGPoint)circlePoint withRadius:(float)radius collisionWithCircle:(CGPoint)circlePointTwo collisionCircleRadius:(float)radiusTwo
 {
     float xdif = circlePoint.x - circlePointTwo.x;
     float ydif = circlePoint.y - circlePointTwo.y;
@@ -207,7 +223,8 @@
 
 -(BOOL)loadWave
 {
-    NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"Waves" ofType:@"plist"];
+    //NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"Waves" ofType:@"plist"];
+    NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"testWaves" ofType:@"plist"];
     NSArray* waveData = [NSArray arrayWithContentsOfFile:plistPath];
     
     if(wave >= [waveData count])
@@ -226,7 +243,11 @@
             [enemy schedule:@selector(doActivate)
                    interval:[[enemyData objectForKey:@"spawnTime"]floatValue]];
         } else {
-            Enemy* enemy = [Enemy nodeWithTheGame:self andMaxHP:[[enemyData objectForKey:@"maxHP"]integerValue] andWalkingSpeed:[[enemyData objectForKey:@"walkingSpeed"]floatValue] andAttackPower:[[enemyData objectForKey:@"attackPower"]integerValue] andSpriteFile:[enemyData valueForKey:@"spriteFile"]];
+            Enemy* enemy = [Enemy nodeWithTheGame:self
+                                         andMaxHP:[[enemyData objectForKey:@"maxHP"]integerValue]
+                                  andWalkingSpeed:[[enemyData objectForKey:@"walkingSpeed"]floatValue]
+                                   andAttackPower:[[enemyData objectForKey:@"attackPower"]integerValue]
+                                    andSpriteFile:[enemyData valueForKey:@"spriteFile"]];
             [enemies addObject:enemy];
             [enemy schedule:@selector(doActivate)
                    interval:[[enemyData objectForKey:@"spawnTime"]floatValue]];

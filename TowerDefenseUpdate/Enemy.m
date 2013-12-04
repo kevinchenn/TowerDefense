@@ -115,14 +115,12 @@
 
 -(void)getRemoved
 {
-    for(Tower * attacker in attackedBy)
+    for(Tower* attacker in attackedBy)
     {
         [attacker targetKilled];
     }
-    
     [self.parent removeChild:self cleanup:YES];
     [theGame.enemies removeObject:self];
-    
     //Notify the game that we killed an enemy so we can check if we can send another wave
     [theGame enemyGotKilled];
 }
@@ -142,6 +140,7 @@
 {
     [[SimpleAudioEngine sharedEngine] playEffect:@"laser_shoot.wav"];
     currentHp -=damage;
+    NSLog([NSString stringWithFormat:@"%d", currentHp]);
     if(currentHp <=0)
     {
         [theGame awardGold:200];

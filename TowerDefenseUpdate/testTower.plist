@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>attackRange</key>
+	<string>75</string>
+	<key>damagePower</key>
+	<string>10</string>
+	<key>fireRate</key>
+	<string>1</string>
+	<key>towerCost</key>
+	<string>300</string>
+	<key>splashRadius</key>
+	<string>50</string>
+	<key>slowEffect</key>
+	<string>0</string>
+	<key>spriteFile</key>
+	<string>tower.png</string>
+	<key>bulletFile</key>
+	<string>bullet.png</string>
+	<key>bulletSpeed</key>
+	<string>.1</string>
+</dict>
+</plist>
