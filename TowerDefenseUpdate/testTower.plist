@@ -11,7 +11,7 @@
 	<key>towerCost</key>
 	<string>300</string>
 	<key>splashRadius</key>
-	<string>50</string>
+	<string>0</string>
 	<key>slowEffect</key>
 	<string>0</string>
 	<key>spriteFile</key>

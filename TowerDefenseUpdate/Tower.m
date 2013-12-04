@@ -139,13 +139,18 @@
             }
         }
         for (Enemy* e in inRange) {
+            if (slowEffect > 0) {
+                [e changeSpeed:slowEffect];
+            }
             [e getDamaged:damagePower];
         }
     } else {
-    
-    [chosenEnemy getDamaged:damagePower];
-        
+        if (slowEffect > 0) {
+            [chosenEnemy changeSpeed:slowEffect];
+        }
+        [chosenEnemy getDamaged:damagePower];
     }
+    
     // if slow effect !0 and they are not already slowed: slow them
 }
 

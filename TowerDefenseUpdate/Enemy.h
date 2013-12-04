@@ -21,6 +21,8 @@
     BOOL active;
     NSMutableArray *attackedBy;
     NSString* spriteFile;
+    float currentSpeed;
+    NSTimer* slowTimer;
 }
 
 @property (nonatomic,assign) HelloWorldLayer *theGame;
@@ -35,5 +37,7 @@
 -(void)getAttacked:(Tower *)attacker;
 -(void)gotLostSight:(Tower *)attacker;
 -(void)getDamaged:(int)damage;
+-(void)changeSpeed:(float)difference;
+-(void)resetSpeed;
 
 @end

@@ -28,10 +28,14 @@
         maxHp = 40;
         currentHp = maxHp;
         walkingSpeed = 0.5;
+        currentSpeed = walkingSpeed;
         attackedBy = [[NSMutableArray alloc] initWithCapacity:5];
         active = NO;
+        slowTimer = Nil;
+        
         mySprite = [CCSprite spriteWithFile:@"enemy.png"];
 		[self addChild:mySprite];
+       
         
         Waypoint * waypoint = (Waypoint *)[theGame.waypoints objectAtIndex:([theGame.waypoints count]-1)];
         destinationWaypoint = waypoint.nextWaypoint;
@@ -56,12 +60,14 @@
 		theGame = _game;
         maxHp = hp;
         walkingSpeed = speed;
+        currentSpeed = walkingSpeed;
         attackPower = power;
         currentHp = maxHp;
         attackedBy = [[NSMutableArray alloc] initWithCapacity:5];
         active = NO;
-        mySprite = [CCSprite spriteWithFile:file];
+        slowTimer = Nil;
         
+        mySprite = [CCSprite spriteWithFile:file];
 		[self addChild:mySprite];
         
         Waypoint * waypoint = (Waypoint *)[theGame.waypoints objectAtIndex:([theGame.waypoints count]-1)];
@@ -100,7 +106,7 @@
     }
     
     CGPoint targetPoint = destinationWaypoint.myPosition;
-    float movementSpeed = walkingSpeed;
+    float movementSpeed = currentSpeed;
     
     CGPoint normalized = ccpNormalize(ccp(targetPoint.x-myPosition.x,targetPoint.y-myPosition.y));
     mySprite.rotation = CC_RADIANS_TO_DEGREES(atan2(normalized.y,-normalized.x));
@@ -140,12 +146,35 @@
 {
     [[SimpleAudioEngine sharedEngine] playEffect:@"laser_shoot.wav"];
     currentHp -=damage;
-    NSLog([NSString stringWithFormat:@"%d", currentHp]);
     if(currentHp <=0)
     {
         [theGame awardGold:200];
         [self getRemoved];
     }
+}
+
+-(void)changeSpeed:(float)difference
+{
+    if ((walkingSpeed - difference) < currentSpeed)
+    {
+        currentSpeed = (walkingSpeed - difference);
+        //set the timer
+        if (slowTimer) {
+            slowTimer = Nil;
+        }
+        slowTimer = [NSTimer scheduledTimerWithTimeInterval:8.0 target:self selector:@selector(resetSpeed) userInfo:nil repeats:NO];
+    } else {
+        if (slowTimer) {
+            slowTimer = Nil;
+        }
+        slowTimer = [NSTimer scheduledTimerWithTimeInterval:8.0 target:self selector:@selector(resetSpeed) userInfo:nil repeats:NO];
+    }
+}
+
+-(void)resetSpeed
+{
+    currentSpeed = walkingSpeed;
+    slowTimer = Nil;
 }
 
 -(void)draw

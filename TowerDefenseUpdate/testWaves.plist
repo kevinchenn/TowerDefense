@@ -9,12 +9,6 @@
 			<key>spawnTime</key>
 			<real>0.2</real>
 		</dict>
-		<dict>
-			<key>data</key>
-			<string></string>
-			<key>spawnTime</key>
-			<real>0.4</real>
-		</dict>
 	</array>
 </array>
 </plist>
