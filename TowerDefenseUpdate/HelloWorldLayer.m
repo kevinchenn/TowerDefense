@@ -110,7 +110,7 @@
     {
         
         //CAN MAKE THE BASE A TRANSPARENT BOX TO MAKE A GRID?
-        CCSprite * towerBase = [CCSprite spriteWithFile:@"open_spot.png"];
+        CCSprite * towerBase = [CCSprite spriteWithFile:@"gridSpot.png"];
         [self addChild:towerBase];
         [towerBase setPosition:ccp([[towerPos objectForKey:@"x"] intValue],
                                    [[towerPos objectForKey:@"y"] intValue])];
@@ -145,8 +145,16 @@
                 //INSTANTIATE THE TOWER
                 //List of all the towers and their attributes in towers.plist
                 
-                NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"testTower" ofType:@"plist"];
-                NSDictionary* towerData = [NSDictionary dictionaryWithContentsOfFile:plistPath];
+                NSString* towerListPath = [[NSBundle mainBundle] pathForResource:@"towers" ofType:@"plist"];
+                NSDictionary* towersList = [NSDictionary dictionaryWithContentsOfFile:towerListPath];
+                
+                //NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"testTower" ofType:@"plist"];
+                //NSDictionary* towerData = [NSDictionary dictionaryWithContentsOfFile:plistPath];
+                
+                // MAKE MENU TO RETURN AN NSSTRING OF THE SELECTED TOWER
+                
+                NSString* tName = @"slowTower";
+                NSDictionary* towerData =[towersList valueForKey:tName];
                                 
                 //Tower* tower = [Tower nodeWithTheGame:self location:tb.position];
                 Tower* tower = [Tower nodeWithTheGame:self location:tb.position
@@ -236,22 +244,17 @@
     
     for(NSDictionary* enemyData in currentWaveData)
     {
-        if ([[enemyData allKeys] count] == 2) {
-            
-            Enemy* enemy = [Enemy nodeWithTheGame:self];
-            [enemies addObject:enemy];
-            [enemy schedule:@selector(doActivate)
-                   interval:[[enemyData objectForKey:@"spawnTime"]floatValue]];
-        } else {
-            Enemy* enemy = [Enemy nodeWithTheGame:self
-                                         andMaxHP:[[enemyData objectForKey:@"maxHP"]integerValue]
-                                  andWalkingSpeed:[[enemyData objectForKey:@"walkingSpeed"]floatValue]
-                                   andAttackPower:[[enemyData objectForKey:@"attackPower"]integerValue]
-                                    andSpriteFile:[enemyData valueForKey:@"spriteFile"]];
-            [enemies addObject:enemy];
-            [enemy schedule:@selector(doActivate)
-                   interval:[[enemyData objectForKey:@"spawnTime"]floatValue]];
-        }
+        NSString* enemyType = [[NSBundle mainBundle] pathForResource:[enemyData valueForKey:@"enemyType"] ofType:@"plist"];
+        NSDictionary* e = [NSDictionary dictionaryWithContentsOfFile:enemyType];
+        
+        Enemy* enemy = [Enemy nodeWithTheGame:self
+                                     andMaxHP:[[e objectForKey:@"maxHP"]integerValue]
+                              andWalkingSpeed:[[e objectForKey:@"walkingSpeed"]floatValue]
+                               andAttackPower:[[e objectForKey:@"attackPower"]integerValue]
+                                andSpriteFile:[e valueForKey:@"spriteFile"]];
+        [enemies addObject:enemy];
+        [enemy schedule:@selector(doActivate)
+        interval:[[enemyData objectForKey:@"spawnTime"]floatValue]];
     }
     
     wave++;

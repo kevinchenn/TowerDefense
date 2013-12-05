@@ -7,7 +7,41 @@
 			<key>data</key>
 			<string></string>
 			<key>spawnTime</key>
+			<string>.5</string>
+			<key>enemyType</key>
+			<string>basicAnt</string>
+		</dict>
+		<dict>
+			<key>data</key>
+			<string></string>
+			<key>spawnTime</key>
+			<string>1</string>
+			<key>enemyType</key>
+			<string>fireAnt</string>
+		</dict>
+		<dict>
+			<key>data</key>
+			<string></string>
+			<key>spawnTime</key>
 			<real>0.2</real>
+			<key>enemyType</key>
+			<string>basicAnt</string>
+		</dict>
+		<dict>
+			<key>data</key>
+			<string></string>
+			<key>spawnTime</key>
+			<string>1.5</string>
+			<key>enemyType</key>
+			<string>tankAnt</string>
+		</dict>
+		<dict>
+			<key>data</key>
+			<string></string>
+			<key>spawnTime</key>
+			<string>2</string>
+			<key>enemyType</key>
+			<string>queenAnt</string>
 		</dict>
 	</array>
 </array>

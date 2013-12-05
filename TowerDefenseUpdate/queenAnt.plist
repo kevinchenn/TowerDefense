@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>maxHP</key>
+	<string>250</string>
+	<key>walkingSpeed</key>
+	<string>.5</string>
+	<key>attackPower</key>
+	<string>5</string>
+	<key>spriteFile</key>
+	<string>queenAnt.png</string>
+</dict>
+</plist>

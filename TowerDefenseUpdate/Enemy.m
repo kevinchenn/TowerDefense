@@ -155,16 +155,18 @@
 
 -(void)changeSpeed:(float)difference
 {
-    if ((walkingSpeed - difference) < currentSpeed)
+    if ((walkingSpeed * difference) < currentSpeed)
     {
-        currentSpeed = (walkingSpeed - difference);
-        //set the timer
+        currentSpeed = (walkingSpeed * difference);
         if (slowTimer) {
+            [slowTimer invalidate];
             slowTimer = Nil;
+            
         }
         slowTimer = [NSTimer scheduledTimerWithTimeInterval:8.0 target:self selector:@selector(resetSpeed) userInfo:nil repeats:NO];
     } else {
         if (slowTimer) {
+            [slowTimer invalidate];
             slowTimer = Nil;
         }
         slowTimer = [NSTimer scheduledTimerWithTimeInterval:8.0 target:self selector:@selector(resetSpeed) userInfo:nil repeats:NO];

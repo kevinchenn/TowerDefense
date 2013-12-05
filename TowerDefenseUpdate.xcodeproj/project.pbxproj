@@ -15,9 +15,27 @@
 		0A4517CF184C7B5D0036477B /* bg1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A4517CE184C7B5D0036477B /* bg1-hd.png */; };
 		CB844E43184D8E0600229721 /* spaceInvader.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E42184D8E0600229721 /* spaceInvader.png */; };
 		CB844E45184D8E4B00229721 /* Waves.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB844E44184D8E4B00229721 /* Waves.plist */; };
-		CB844E47184D924E00229721 /* testTower.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB844E46184D924E00229721 /* testTower.plist */; };
 		CB844E49184ED93B00229721 /* towers.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB844E48184ED93A00229721 /* towers.plist */; };
 		CB844E4B184EE1A400229721 /* testWaves.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB844E4A184EE1A200229721 /* testWaves.plist */; };
+		CB844E4F184F460700229721 /* basicAnt.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E4E184F460600229721 /* basicAnt.png */; };
+		CB844E51184F464600229721 /* fireAnt.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E50184F464500229721 /* fireAnt.png */; };
+		CB844E53184F465200229721 /* tankAnt.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E52184F465200229721 /* tankAnt.png */; };
+		CB844E55184FCFC600229721 /* basicAnt.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB844E54184FCFC500229721 /* basicAnt.plist */; };
+		CB844E57184FCFD200229721 /* fireAnt.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB844E56184FCFD200229721 /* fireAnt.plist */; };
+		CB844E59184FCFE000229721 /* tankAnt.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB844E58184FCFDF00229721 /* tankAnt.plist */; };
+		CB844E5F184FDA6800229721 /* queenAnt.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB844E5E184FDA6800229721 /* queenAnt.plist */; };
+		CB844E61184FDBDE00229721 /* queenAnt.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E60184FDBDD00229721 /* queenAnt.png */; };
+		CB844E65184FE10A00229721 /* basicTower.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E64184FE10A00229721 /* basicTower.png */; };
+		CB844E67184FE38B00229721 /* slowTower.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E66184FE38A00229721 /* slowTower.png */; };
+		CB844E69184FE6A100229721 /* splashTower.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E68184FE6A000229721 /* splashTower.png */; };
+		CB844E6B184FEB5500229721 /* rapidTower.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E6A184FEB5500229721 /* rapidTower.png */; };
+		CB844E71184FF39A00229721 /* basicBullet.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E6D184FF39900229721 /* basicBullet.png */; };
+		CB844E72184FF39A00229721 /* rapidBullet.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E6E184FF39900229721 /* rapidBullet.png */; };
+		CB844E73184FF39A00229721 /* slowBullet.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E6F184FF39A00229721 /* slowBullet.png */; };
+		CB844E74184FF39A00229721 /* splashBullet.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E70184FF39A00229721 /* splashBullet.png */; };
+		CB844E76184FFECF00229721 /* rangeTower.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E75184FFECF00229721 /* rangeTower.png */; };
+		CB844E78184FFFC500229721 /* rangeBullet.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E77184FFFC500229721 /* rangeBullet.png */; };
+		CB844E8018500C6300229721 /* gridSpot.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E7F18500C6300229721 /* gridSpot.png */; };
 		D34464491712363800255FA3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D34464481712363800255FA3 /* QuartzCore.framework */; };
 		D344644B1712363800255FA3 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D344644A1712363800255FA3 /* OpenGLES.framework */; };
 		D344644D1712363800255FA3 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D344644C1712363800255FA3 /* OpenAL.framework */; };
@@ -189,9 +207,27 @@
 		0A4517CE184C7B5D0036477B /* bg1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg1-hd.png"; sourceTree = "<group>"; };
 		CB844E42184D8E0600229721 /* spaceInvader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spaceInvader.png; sourceTree = "<group>"; };
 		CB844E44184D8E4B00229721 /* Waves.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Waves.plist; sourceTree = "<group>"; };
-		CB844E46184D924E00229721 /* testTower.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testTower.plist; sourceTree = "<group>"; };
 		CB844E48184ED93A00229721 /* towers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = towers.plist; sourceTree = "<group>"; };
 		CB844E4A184EE1A200229721 /* testWaves.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testWaves.plist; sourceTree = "<group>"; };
+		CB844E4E184F460600229721 /* basicAnt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = basicAnt.png; path = ../basicAnt.png; sourceTree = "<group>"; };
+		CB844E50184F464500229721 /* fireAnt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fireAnt.png; sourceTree = "<group>"; };
+		CB844E52184F465200229721 /* tankAnt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tankAnt.png; sourceTree = "<group>"; };
+		CB844E54184FCFC500229721 /* basicAnt.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = basicAnt.plist; sourceTree = "<group>"; };
+		CB844E56184FCFD200229721 /* fireAnt.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = fireAnt.plist; sourceTree = "<group>"; };
+		CB844E58184FCFDF00229721 /* tankAnt.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tankAnt.plist; sourceTree = "<group>"; };
+		CB844E5E184FDA6800229721 /* queenAnt.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = queenAnt.plist; sourceTree = "<group>"; };
+		CB844E60184FDBDD00229721 /* queenAnt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = queenAnt.png; path = ../queenAnt.png; sourceTree = "<group>"; };
+		CB844E64184FE10A00229721 /* basicTower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = basicTower.png; path = ../basicTower.png; sourceTree = "<group>"; };
+		CB844E66184FE38A00229721 /* slowTower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slowTower.png; sourceTree = "<group>"; };
+		CB844E68184FE6A000229721 /* splashTower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splashTower.png; sourceTree = "<group>"; };
+		CB844E6A184FEB5500229721 /* rapidTower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rapidTower.png; sourceTree = "<group>"; };
+		CB844E6D184FF39900229721 /* basicBullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = basicBullet.png; sourceTree = "<group>"; };
+		CB844E6E184FF39900229721 /* rapidBullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rapidBullet.png; sourceTree = "<group>"; };
+		CB844E6F184FF39A00229721 /* slowBullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slowBullet.png; sourceTree = "<group>"; };
+		CB844E70184FF39A00229721 /* splashBullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splashBullet.png; sourceTree = "<group>"; };
+		CB844E75184FFECF00229721 /* rangeTower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rangeTower.png; sourceTree = "<group>"; };
+		CB844E77184FFFC500229721 /* rangeBullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rangeBullet.png; sourceTree = "<group>"; };
+		CB844E7F18500C6300229721 /* gridSpot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gridSpot.png; path = ../gridSpot.png; sourceTree = "<group>"; };
 		D34464451712363800255FA3 /* TowerDefenseUpdate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TowerDefenseUpdate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D34464481712363800255FA3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D344644A1712363800255FA3 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -517,6 +553,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CB844E6C184FF07A00229721 /* art */ = {
+			isa = PBXGroup;
+			children = (
+				CB844E4E184F460600229721 /* basicAnt.png */,
+				CB844E50184F464500229721 /* fireAnt.png */,
+				CB844E52184F465200229721 /* tankAnt.png */,
+				CB844E60184FDBDD00229721 /* queenAnt.png */,
+				CB844E64184FE10A00229721 /* basicTower.png */,
+				CB844E6A184FEB5500229721 /* rapidTower.png */,
+				CB844E66184FE38A00229721 /* slowTower.png */,
+				CB844E68184FE6A000229721 /* splashTower.png */,
+				CB844E75184FFECF00229721 /* rangeTower.png */,
+				CB844E6D184FF39900229721 /* basicBullet.png */,
+				CB844E6E184FF39900229721 /* rapidBullet.png */,
+				CB844E6F184FF39A00229721 /* slowBullet.png */,
+				CB844E70184FF39A00229721 /* splashBullet.png */,
+				CB844E77184FFFC500229721 /* rangeBullet.png */,
+				CB844E7F18500C6300229721 /* gridSpot.png */,
+			);
+			name = art;
+			sourceTree = "<group>";
+		};
 		D344643C1712363800255FA3 = {
 			isa = PBXGroup;
 			children = (
@@ -575,6 +633,7 @@
 		D344645B1712363800255FA3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CB844E6C184FF07A00229721 /* art */,
 				0A4517CE184C7B5D0036477B /* bg1-hd.png */,
 				CB844E42184D8E0600229721 /* spaceInvader.png */,
 				0A4517CC184C76CE0036477B /* POL-turtle-blues-short.wav */,
@@ -606,8 +665,11 @@
 				CB844E4A184EE1A200229721 /* testWaves.plist */,
 				CB844E44184D8E4B00229721 /* Waves.plist */,
 				CB844E48184ED93A00229721 /* towers.plist */,
-				CB844E46184D924E00229721 /* testTower.plist */,
 				D34465FF1712365100255FA3 /* TowersPosition.plist */,
+				CB844E54184FCFC500229721 /* basicAnt.plist */,
+				CB844E56184FCFD200229721 /* fireAnt.plist */,
+				CB844E58184FCFDF00229721 /* tankAnt.plist */,
+				CB844E5E184FDA6800229721 /* queenAnt.plist */,
 				D344645C1712363800255FA3 /* Default.png */,
 				D344645E1712363800255FA3 /* Default@2x.png */,
 				D34464601712363800255FA3 /* Default-568h@2x.png */,
@@ -1077,9 +1139,27 @@
 				D3FD2735171E3D19007DD3F6 /* tower-hd.png in Resources */,
 				CB844E43184D8E0600229721 /* spaceInvader.png in Resources */,
 				CB844E45184D8E4B00229721 /* Waves.plist in Resources */,
-				CB844E47184D924E00229721 /* testTower.plist in Resources */,
 				CB844E49184ED93B00229721 /* towers.plist in Resources */,
 				CB844E4B184EE1A400229721 /* testWaves.plist in Resources */,
+				CB844E4F184F460700229721 /* basicAnt.png in Resources */,
+				CB844E51184F464600229721 /* fireAnt.png in Resources */,
+				CB844E53184F465200229721 /* tankAnt.png in Resources */,
+				CB844E55184FCFC600229721 /* basicAnt.plist in Resources */,
+				CB844E57184FCFD200229721 /* fireAnt.plist in Resources */,
+				CB844E59184FCFE000229721 /* tankAnt.plist in Resources */,
+				CB844E5F184FDA6800229721 /* queenAnt.plist in Resources */,
+				CB844E61184FDBDE00229721 /* queenAnt.png in Resources */,
+				CB844E65184FE10A00229721 /* basicTower.png in Resources */,
+				CB844E67184FE38B00229721 /* slowTower.png in Resources */,
+				CB844E69184FE6A100229721 /* splashTower.png in Resources */,
+				CB844E6B184FEB5500229721 /* rapidTower.png in Resources */,
+				CB844E71184FF39A00229721 /* basicBullet.png in Resources */,
+				CB844E72184FF39A00229721 /* rapidBullet.png in Resources */,
+				CB844E73184FF39A00229721 /* slowBullet.png in Resources */,
+				CB844E74184FF39A00229721 /* splashBullet.png in Resources */,
+				CB844E76184FFECF00229721 /* rangeTower.png in Resources */,
+				CB844E78184FFFC500229721 /* rangeBullet.png in Resources */,
+				CB844E8018500C6300229721 /* gridSpot.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

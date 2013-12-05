@@ -118,7 +118,7 @@
     [theGame addChild:bullet];
     [bullet setPosition:mySprite.position];
     [bullet runAction:[CCSequence actions:
-                       [CCMoveTo actionWithDuration:0.1 position:chosenEnemy.mySprite.position],
+                       [CCMoveTo actionWithDuration:bulletSpeed position:chosenEnemy.mySprite.position],
                        [CCCallFunc actionWithTarget:self selector:@selector(damageEnemy)],
                        [CCCallFuncN actionWithTarget:self selector:@selector(removeBullet:)], nil]];
 }
