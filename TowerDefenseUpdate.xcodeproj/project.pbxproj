@@ -14,7 +14,7 @@
 		0A4517CD184C76CE0036477B /* POL-turtle-blues-short.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0A4517CC184C76CE0036477B /* POL-turtle-blues-short.wav */; };
 		0A4517CF184C7B5D0036477B /* bg1-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A4517CE184C7B5D0036477B /* bg1-hd.png */; };
 		CB844E43184D8E0600229721 /* spaceInvader.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E42184D8E0600229721 /* spaceInvader.png */; };
-		CB844E45184D8E4B00229721 /* Waves.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB844E44184D8E4B00229721 /* Waves.plist */; };
+		CB844E45184D8E4B00229721 /* waves.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB844E44184D8E4B00229721 /* waves.plist */; };
 		CB844E49184ED93B00229721 /* towers.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB844E48184ED93A00229721 /* towers.plist */; };
 		CB844E4B184EE1A400229721 /* testWaves.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB844E4A184EE1A200229721 /* testWaves.plist */; };
 		CB844E4F184F460700229721 /* basicAnt.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E4E184F460600229721 /* basicAnt.png */; };
@@ -36,6 +36,8 @@
 		CB844E76184FFECF00229721 /* rangeTower.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E75184FFECF00229721 /* rangeTower.png */; };
 		CB844E78184FFFC500229721 /* rangeBullet.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E77184FFFC500229721 /* rangeBullet.png */; };
 		CB844E8018500C6300229721 /* gridSpot.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E7F18500C6300229721 /* gridSpot.png */; };
+		CB844E8418507FC000229721 /* waypoints.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB844E8318507FC000229721 /* waypoints.plist */; };
+		CB844E881850893A00229721 /* level1.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB844E871850893A00229721 /* level1.plist */; };
 		D34464491712363800255FA3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D34464481712363800255FA3 /* QuartzCore.framework */; };
 		D344644B1712363800255FA3 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D344644A1712363800255FA3 /* OpenGLES.framework */; };
 		D344644D1712363800255FA3 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D344644C1712363800255FA3 /* OpenAL.framework */; };
@@ -177,7 +179,7 @@
 		D34466071712365100255FA3 /* icon_HP.png in Resources */ = {isa = PBXBuildFile; fileRef = D34465FC1712365100255FA3 /* icon_HP.png */; };
 		D34466081712365100255FA3 /* open_spot.png in Resources */ = {isa = PBXBuildFile; fileRef = D34465FD1712365100255FA3 /* open_spot.png */; };
 		D34466091712365100255FA3 /* tower.png in Resources */ = {isa = PBXBuildFile; fileRef = D34465FE1712365100255FA3 /* tower.png */; };
-		D344660A1712365100255FA3 /* TowersPosition.plist in Resources */ = {isa = PBXBuildFile; fileRef = D34465FF1712365100255FA3 /* TowersPosition.plist */; };
+		D344660A1712365100255FA3 /* towerPositions.plist in Resources */ = {isa = PBXBuildFile; fileRef = D34465FF1712365100255FA3 /* towerPositions.plist */; };
 		D3446612171237DF00255FA3 /* 8bitDungeonLevel.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D344660C171237DF00255FA3 /* 8bitDungeonLevel.mp3 */; };
 		D3446613171237DF00255FA3 /* enemy_destroy.wav in Resources */ = {isa = PBXBuildFile; fileRef = D344660D171237DF00255FA3 /* enemy_destroy.wav */; };
 		D3446614171237DF00255FA3 /* enemy_destroy_2.wav in Resources */ = {isa = PBXBuildFile; fileRef = D344660E171237DF00255FA3 /* enemy_destroy_2.wav */; };
@@ -206,7 +208,7 @@
 		0A4517CC184C76CE0036477B /* POL-turtle-blues-short.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "POL-turtle-blues-short.wav"; sourceTree = "<group>"; };
 		0A4517CE184C7B5D0036477B /* bg1-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg1-hd.png"; sourceTree = "<group>"; };
 		CB844E42184D8E0600229721 /* spaceInvader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spaceInvader.png; sourceTree = "<group>"; };
-		CB844E44184D8E4B00229721 /* Waves.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Waves.plist; sourceTree = "<group>"; };
+		CB844E44184D8E4B00229721 /* waves.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = waves.plist; sourceTree = "<group>"; };
 		CB844E48184ED93A00229721 /* towers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = towers.plist; sourceTree = "<group>"; };
 		CB844E4A184EE1A200229721 /* testWaves.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testWaves.plist; sourceTree = "<group>"; };
 		CB844E4E184F460600229721 /* basicAnt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = basicAnt.png; path = ../basicAnt.png; sourceTree = "<group>"; };
@@ -228,6 +230,8 @@
 		CB844E75184FFECF00229721 /* rangeTower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rangeTower.png; sourceTree = "<group>"; };
 		CB844E77184FFFC500229721 /* rangeBullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rangeBullet.png; sourceTree = "<group>"; };
 		CB844E7F18500C6300229721 /* gridSpot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gridSpot.png; path = ../gridSpot.png; sourceTree = "<group>"; };
+		CB844E8318507FC000229721 /* waypoints.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = waypoints.plist; sourceTree = "<group>"; };
+		CB844E871850893A00229721 /* level1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = level1.plist; sourceTree = "<group>"; };
 		D34464451712363800255FA3 /* TowerDefenseUpdate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TowerDefenseUpdate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D34464481712363800255FA3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D344644A1712363800255FA3 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -515,7 +519,7 @@
 		D34465FC1712365100255FA3 /* icon_HP.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_HP.png; sourceTree = "<group>"; };
 		D34465FD1712365100255FA3 /* open_spot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = open_spot.png; sourceTree = "<group>"; };
 		D34465FE1712365100255FA3 /* tower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tower.png; sourceTree = "<group>"; };
-		D34465FF1712365100255FA3 /* TowersPosition.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = TowersPosition.plist; sourceTree = "<group>"; };
+		D34465FF1712365100255FA3 /* towerPositions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = towerPositions.plist; sourceTree = "<group>"; };
 		D344660C171237DF00255FA3 /* 8bitDungeonLevel.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 8bitDungeonLevel.mp3; sourceTree = "<group>"; };
 		D344660D171237DF00255FA3 /* enemy_destroy.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = enemy_destroy.wav; sourceTree = "<group>"; };
 		D344660E171237DF00255FA3 /* enemy_destroy_2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = enemy_destroy_2.wav; sourceTree = "<group>"; };
@@ -573,6 +577,52 @@
 				CB844E7F18500C6300229721 /* gridSpot.png */,
 			);
 			name = art;
+			sourceTree = "<group>";
+		};
+		CB844E8118507C9D00229721 /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				0A4517CC184C76CE0036477B /* POL-turtle-blues-short.wav */,
+				D344660C171237DF00255FA3 /* 8bitDungeonLevel.mp3 */,
+				D344660D171237DF00255FA3 /* enemy_destroy.wav */,
+				D344660E171237DF00255FA3 /* enemy_destroy_2.wav */,
+				D344660F171237DF00255FA3 /* laser_shoot.wav */,
+				D3446610171237DF00255FA3 /* life_lose.wav */,
+				D3446611171237DF00255FA3 /* tower_place.wav */,
+			);
+			name = sounds;
+			sourceTree = "<group>";
+		};
+		CB844E8218507CD000229721 /* enemies */ = {
+			isa = PBXGroup;
+			children = (
+				CB844E54184FCFC500229721 /* basicAnt.plist */,
+				CB844E56184FCFD200229721 /* fireAnt.plist */,
+				CB844E58184FCFDF00229721 /* tankAnt.plist */,
+				CB844E5E184FDA6800229721 /* queenAnt.plist */,
+			);
+			name = enemies;
+			sourceTree = "<group>";
+		};
+		CB844E851850868D00229721 /* levels */ = {
+			isa = PBXGroup;
+			children = (
+				CB844E861850869D00229721 /* level1 */,
+			);
+			name = levels;
+			sourceTree = "<group>";
+		};
+		CB844E861850869D00229721 /* level1 */ = {
+			isa = PBXGroup;
+			children = (
+				CB844E871850893A00229721 /* level1.plist */,
+				CB844E8318507FC000229721 /* waypoints.plist */,
+				D34465FF1712365100255FA3 /* towerPositions.plist */,
+				CB844E48184ED93A00229721 /* towers.plist */,
+				CB844E44184D8E4B00229721 /* waves.plist */,
+				CB844E4A184EE1A200229721 /* testWaves.plist */,
+			);
+			name = level1;
 			sourceTree = "<group>";
 		};
 		D344643C1712363800255FA3 = {
@@ -634,9 +684,11 @@
 			isa = PBXGroup;
 			children = (
 				CB844E6C184FF07A00229721 /* art */,
+				CB844E8118507C9D00229721 /* sounds */,
+				CB844E8218507CD000229721 /* enemies */,
+				CB844E851850868D00229721 /* levels */,
 				0A4517CE184C7B5D0036477B /* bg1-hd.png */,
 				CB844E42184D8E0600229721 /* spaceInvader.png */,
-				0A4517CC184C76CE0036477B /* POL-turtle-blues-short.wav */,
 				0A4517CA184C74D60036477B /* bg1.png */,
 				D34465F61712365100255FA3 /* bg.png */,
 				D3FD2724171E3D19007DD3F6 /* bg-hd.png */,
@@ -648,12 +700,6 @@
 				D3FD272A171E3D19007DD3F6 /* icon_HP-hd.png */,
 				D3FD272B171E3D19007DD3F6 /* open_spot-hd.png */,
 				D3FD272C171E3D19007DD3F6 /* tower-hd.png */,
-				D344660C171237DF00255FA3 /* 8bitDungeonLevel.mp3 */,
-				D344660D171237DF00255FA3 /* enemy_destroy.wav */,
-				D344660E171237DF00255FA3 /* enemy_destroy_2.wav */,
-				D344660F171237DF00255FA3 /* laser_shoot.wav */,
-				D3446610171237DF00255FA3 /* life_lose.wav */,
-				D3446611171237DF00255FA3 /* tower_place.wav */,
 				D34465F71712365100255FA3 /* bullet.png */,
 				D34465F81712365100255FA3 /* enemy.png */,
 				D34465F91712365100255FA3 /* font_red_14.fnt */,
@@ -662,14 +708,6 @@
 				D34465FC1712365100255FA3 /* icon_HP.png */,
 				D34465FD1712365100255FA3 /* open_spot.png */,
 				D34465FE1712365100255FA3 /* tower.png */,
-				CB844E4A184EE1A200229721 /* testWaves.plist */,
-				CB844E44184D8E4B00229721 /* Waves.plist */,
-				CB844E48184ED93A00229721 /* towers.plist */,
-				D34465FF1712365100255FA3 /* TowersPosition.plist */,
-				CB844E54184FCFC500229721 /* basicAnt.plist */,
-				CB844E56184FCFD200229721 /* fireAnt.plist */,
-				CB844E58184FCFDF00229721 /* tankAnt.plist */,
-				CB844E5E184FDA6800229721 /* queenAnt.plist */,
 				D344645C1712363800255FA3 /* Default.png */,
 				D344645E1712363800255FA3 /* Default@2x.png */,
 				D34464601712363800255FA3 /* Default-568h@2x.png */,
@@ -1120,7 +1158,7 @@
 				D34466071712365100255FA3 /* icon_HP.png in Resources */,
 				D34466081712365100255FA3 /* open_spot.png in Resources */,
 				D34466091712365100255FA3 /* tower.png in Resources */,
-				D344660A1712365100255FA3 /* TowersPosition.plist in Resources */,
+				D344660A1712365100255FA3 /* towerPositions.plist in Resources */,
 				D3446612171237DF00255FA3 /* 8bitDungeonLevel.mp3 in Resources */,
 				D3446613171237DF00255FA3 /* enemy_destroy.wav in Resources */,
 				D3446614171237DF00255FA3 /* enemy_destroy_2.wav in Resources */,
@@ -1138,7 +1176,7 @@
 				D3FD2734171E3D19007DD3F6 /* open_spot-hd.png in Resources */,
 				D3FD2735171E3D19007DD3F6 /* tower-hd.png in Resources */,
 				CB844E43184D8E0600229721 /* spaceInvader.png in Resources */,
-				CB844E45184D8E4B00229721 /* Waves.plist in Resources */,
+				CB844E45184D8E4B00229721 /* waves.plist in Resources */,
 				CB844E49184ED93B00229721 /* towers.plist in Resources */,
 				CB844E4B184EE1A400229721 /* testWaves.plist in Resources */,
 				CB844E4F184F460700229721 /* basicAnt.png in Resources */,
@@ -1160,6 +1198,8 @@
 				CB844E76184FFECF00229721 /* rangeTower.png in Resources */,
 				CB844E78184FFFC500229721 /* rangeBullet.png in Resources */,
 				CB844E8018500C6300229721 /* gridSpot.png in Resources */,
+				CB844E8418507FC000229721 /* waypoints.plist in Resources */,
+				CB844E881850893A00229721 /* level1.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

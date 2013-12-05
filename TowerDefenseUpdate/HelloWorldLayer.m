@@ -54,55 +54,60 @@
         self.touchEnabled = YES;
         CGSize winSize = [CCDirector sharedDirector].winSize;
         
+        NSString* levelName = @"level1";
+        NSString* levelPath = [[NSBundle mainBundle] pathForResource:levelName ofType:@"plist"];
+        levelInfo = [NSDictionary dictionaryWithContentsOfFile:levelPath];
+        
         // 2 - set background
         CCSprite* background = [CCSprite spriteWithFile:@"bg1.png"];
+        //CCSprite* background = [CCSprite spriteWithFile:[levelInfo valueForKey:@"background"]];
         [self addChild:background];
         [background setPosition:ccp(winSize.width/2, winSize.height/2)];
         
         // 3 - load tower positions
         [self loadTowerPositions];
         
-        // 4 - load menu with usable towers
-        
-        
-        // 5 - add waypoints
+        // 4 - add waypoints
         [self addWaypoints];
         
-        // 6 - add enemies
+        // 5 - add enemies
         enemies = [[NSMutableArray alloc] init];
         [self loadWave];
         
-        // 7 - create wave label
+        // 6 - create wave label
         ui_wave_lbl = [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"WAVE: %d", wave]
                                              fntFile:@"font_red_14.fnt"];
         [self addChild:ui_wave_lbl z:100];
         [ui_wave_lbl setPosition:ccp(400, winSize.height-12)];
         [ui_wave_lbl setAnchorPoint:ccp(0,0.5)];
         
-        // 8 - player lives
-        playerHP = 5;
+        // 7 - player lives
+        //playerHP = 5;
+        playerHP = [[levelInfo valueForKey:@"initialHealth"]integerValue];
         ui_hp_lbl = [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"HP: %d",playerHP]
                                            fntFile:@"font_red_14.fnt"];
         [self addChild:ui_hp_lbl z:10];
         [ui_hp_lbl setPosition:ccp(35,winSize.height-12)];
         
-        // 9 - gold
-        playerGold = 1000;
+        // 8 - gold
+        //playerGold = 1000;
+        playerGold = [[levelInfo valueForKey:@"initialGold"]integerValue];
         ui_gold_lbl = [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"GOLD: %d",playerGold]
                                              fntFile:@"font_red_14.fnt"];
         [self addChild:ui_gold_lbl z:10];
         [ui_gold_lbl setPosition:ccp(135,winSize.height-12)];
         [ui_gold_lbl setAnchorPoint:ccp(0,0.5)];
         
-        // 10 - sound
-        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"POL-turtle-blues-short.wav" loop:YES];
+        // 9 - sound
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:[levelInfo valueForKey:@"music"] loop:YES];
 	}
 	return self;
 }
 
 -(void)loadTowerPositions
 {
-    NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"TowersPosition" ofType:@"plist"];
+    //NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"towerPositions" ofType:@"plist"];
+    NSString* plistPath = [[NSBundle mainBundle] pathForResource:[levelInfo valueForKey:@"towerPositions"] ofType:@"plist"];
     NSArray * towerPositions = [NSArray arrayWithContentsOfFile:plistPath];
     towerBases = [[NSMutableArray alloc] initWithCapacity:25];
     
@@ -120,7 +125,7 @@
 
 -(BOOL)canBuyTower
 {
-    if (playerGold - kTOWER_COST >=0)
+    if (playerGold - 300 >=0)
         return YES;
     return NO;
 }
@@ -140,20 +145,19 @@
         location = [[CCDirector sharedDirector] convertToGL:location];
     
         for(CCSprite * tb in towerBases) {
-            if (CGRectContainsPoint([tb boundingBox], location) && [self canBuyTower] && !tb.userData) {
+            if (CGRectContainsPoint([tb boundingBox], location) && !tb.userData) { //tb.userData means that theres a tower there
                 
-                //INSTANTIATE THE TOWER
-                //List of all the towers and their attributes in towers.plist
-                
-                NSString* towerListPath = [[NSBundle mainBundle] pathForResource:@"towers" ofType:@"plist"];
+                NSString* towerListPath = [[NSBundle mainBundle] pathForResource:[levelInfo valueForKey:@"towers"] ofType:@"plist"];
                 NSDictionary* towersList = [NSDictionary dictionaryWithContentsOfFile:towerListPath];
-                
-                //NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"testTower" ofType:@"plist"];
-                //NSDictionary* towerData = [NSDictionary dictionaryWithContentsOfFile:plistPath];
                 
                 // MAKE MENU TO RETURN AN NSSTRING OF THE SELECTED TOWER
                 
-                NSString* tName = @"slowTower";
+                NSString* tName = @"basicTower";
+                //NSString* tName = @"rapidTower";
+                //NSString* tName = @"slowTower";
+                //NSString* tName = @"splashTower";
+                //NSString* tName = @"rangeTower";
+                
                 NSDictionary* towerData =[towersList valueForKey:tName];
                                 
                 //Tower* tower = [Tower nodeWithTheGame:self location:tb.position];
@@ -168,13 +172,23 @@
                                         andBulletFile:[towerData valueForKey:@"bulletFile"]
                                        andBulletSpeed:[[towerData objectForKey:@"bulletSpeed"]floatValue]];
                 
-                playerGold -= kTOWER_COST; //NEEDS TO BE ABSTRACTED AWAY
+                if ([self canBuyTower:tower])
+                {
+                    playerGold -= [tower towerCost]; //NEEDS TO BE ABSTRACTED AWAY
                 
                 [ui_gold_lbl setString:[NSString stringWithFormat:@"GOLD: %d",playerGold]];
                 [[SimpleAudioEngine sharedEngine] playEffect:@"tower_place.wav"];
                 
                 [towers addObject:tower];
                 tb.userData = (__bridge void*)(tower);
+                } else {
+                    // Message that you cant buy the tower?
+                }
+            } else if (CGRectContainsPoint([tb boundingBox], location) && tb.userData) {
+                //bring up menu to remove or update
+                [towers removeObject:tb.userData];
+                [self removeChild:tb.userData];
+                tb.userData = Nil;
             }
         }
     }
@@ -182,38 +196,52 @@
 
 -(void)addWaypoints
 {
+    NSString* waypointListPath = [[NSBundle mainBundle] pathForResource:[levelInfo valueForKey:@"waypoints"] ofType:@"plist"];
+    NSMutableArray* waypointList = [NSMutableArray arrayWithContentsOfFile:waypointListPath];
     waypoints = [[NSMutableArray alloc] init];
+    
+    for (NSDictionary* wp in waypointList) {
+        Waypoint * point = [Waypoint nodeWithTheGame:self location:ccp([[wp valueForKey:@"x"]integerValue],[[wp valueForKey:@"y"]integerValue])];
+        [waypoints addObject:point];
+    }
+    
+    NSInteger i = [waypoints count] - 1;
+    while (i > 0) {
+        Waypoint* wp = [waypoints objectAtIndex:i];
+        wp.nextWaypoint = [waypoints objectAtIndex:i-1];
+        i--;
+    }
 
-    Waypoint * waypoint1 = [Waypoint nodeWithTheGame:self location:ccp(480,175)];
-    [waypoints addObject:waypoint1];
+    //Waypoint * waypoint1 = [Waypoint nodeWithTheGame:self location:ccp(480,175)];
+    //[waypoints addObject:waypoint1];
     
-    Waypoint * waypoint2 = [Waypoint nodeWithTheGame:self location:ccp(305,175)];
-    [waypoints addObject:waypoint2];
-    waypoint2.nextWaypoint =waypoint1;
+    //Waypoint * waypoint2 = [Waypoint nodeWithTheGame:self location:ccp(305,175)];
+    //[waypoints addObject:waypoint2];
+    //waypoint2.nextWaypoint =waypoint1;
     
-    Waypoint * waypoint3 = [Waypoint nodeWithTheGame:self location:ccp(305,112)];
-    [waypoints addObject:waypoint3];
-    waypoint3.nextWaypoint =waypoint2;
+    //Waypoint * waypoint3 = [Waypoint nodeWithTheGame:self location:ccp(305,112)];
+    //[waypoints addObject:waypoint3];
+    //waypoint3.nextWaypoint =waypoint2;
     
-    Waypoint * waypoint4 = [Waypoint nodeWithTheGame:self location:ccp(175,112)];
-    [waypoints addObject:waypoint4];
-    waypoint4.nextWaypoint =waypoint3;
+    //Waypoint * waypoint4 = [Waypoint nodeWithTheGame:self location:ccp(175,112)];
+    //[waypoints addObject:waypoint4];
+    //waypoint4.nextWaypoint =waypoint3;
     
-    Waypoint * waypoint5 = [Waypoint nodeWithTheGame:self location:ccp(175,235)];
-    [waypoints addObject:waypoint5];
-    waypoint5.nextWaypoint =waypoint4;
+    //Waypoint * waypoint5 = [Waypoint nodeWithTheGame:self location:ccp(175,235)];
+    //[waypoints addObject:waypoint5];
+    //waypoint5.nextWaypoint =waypoint4;
     
-    Waypoint * waypoint6 = [Waypoint nodeWithTheGame:self location:ccp(78,235)];
-    [waypoints addObject:waypoint6];
-    waypoint6.nextWaypoint =waypoint5;
+    //Waypoint * waypoint6 = [Waypoint nodeWithTheGame:self location:ccp(78,235)];
+    //[waypoints addObject:waypoint6];
+    //waypoint6.nextWaypoint =waypoint5;
     
-    Waypoint * waypoint7 = [Waypoint nodeWithTheGame:self location:ccp(78,140)];
-    [waypoints addObject:waypoint7];
-    waypoint7.nextWaypoint =waypoint6;
+    //Waypoint * waypoint7 = [Waypoint nodeWithTheGame:self location:ccp(78,140)];
+    //[waypoints addObject:waypoint7];
+    //waypoint7.nextWaypoint =waypoint6;
     
-    Waypoint * waypoint8 = [Waypoint nodeWithTheGame:self location:ccp(-40,140)];
-    [waypoints addObject:waypoint8];
-    waypoint8.nextWaypoint =waypoint7;
+    //Waypoint * waypoint8 = [Waypoint nodeWithTheGame:self location:ccp(-40,140)];
+    //[waypoints addObject:waypoint8];
+    //waypoint8.nextWaypoint =waypoint7;
 }
 
 -(BOOL)circle:(CGPoint)circlePoint withRadius:(float)radius collisionWithCircle:(CGPoint)circlePointTwo collisionCircleRadius:(float)radiusTwo
@@ -231,8 +259,8 @@
 
 -(BOOL)loadWave
 {
-    //NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"Waves" ofType:@"plist"];
-    NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"testWaves" ofType:@"plist"];
+    //NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"waves" ofType:@"plist"];
+    NSString* plistPath = [[NSBundle mainBundle] pathForResource:[levelInfo valueForKey:@"waves"] ofType:@"plist"];
     NSArray* waveData = [NSArray arrayWithContentsOfFile:plistPath];
     
     if(wave >= [waveData count])
@@ -253,8 +281,7 @@
                                andAttackPower:[[e objectForKey:@"attackPower"]integerValue]
                                 andSpriteFile:[e valueForKey:@"spriteFile"]];
         [enemies addObject:enemy];
-        [enemy schedule:@selector(doActivate)
-        interval:[[enemyData objectForKey:@"spawnTime"]floatValue]];
+        [enemy schedule:@selector(doActivate) interval:[[enemyData objectForKey:@"spawnTime"]floatValue]];
     }
     
     wave++;

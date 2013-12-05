@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>initialGold</key>
+	<string>1000</string>
+	<key>initialHealth</key>
+	<string>5</string>
+	<key>towers</key>
+	<string>towers</string>
+	<key>towerPositions</key>
+	<string>towerPositions</string>
+	<key>waypoints</key>
+	<string>waypoints</string>
+	<key>waves</key>
+	<string>testWaves</string>
+	<key>background</key>
+	<string>bg1.png</string>
+	<key>music</key>
+	<string>POL-turtle-blues-short.wav</string>
+</dict>
+</plist>

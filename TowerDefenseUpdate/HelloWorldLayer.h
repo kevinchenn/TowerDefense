@@ -19,8 +19,10 @@
     NSMutableArray* towerBases;
     
     CCLabelBMFont* ui_wave_lbl;
-    CCLabelBMFont *ui_hp_lbl;
-    CCLabelBMFont *ui_gold_lbl;
+    CCLabelBMFont* ui_hp_lbl;
+    CCLabelBMFont* ui_gold_lbl;
+    
+    NSDictionary* levelInfo;
     
     int wave;
     int playerHP;

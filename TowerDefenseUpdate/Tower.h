@@ -11,8 +11,6 @@
 #import "HelloWorldLayer.h"
 #import "Enemy.h"
 
-#define kTOWER_COST 300
-
 @class HelloWorldLayer, Enemy;
 
 @interface Tower : CCNode

@@ -11,7 +11,7 @@
 		<key>fireRate</key>
 		<string>1</string>
 		<key>towerCost</key>
-		<string>300</string>
+		<string>100</string>
 		<key>splashRadius</key>
 		<string>0</string>
 		<key>slowEffect</key>
@@ -32,7 +32,7 @@
 		<key>fireRate</key>
 		<string>.3</string>
 		<key>towerCost</key>
-		<string>300</string>
+		<string>200</string>
 		<key>splashRadius</key>
 		<string>0</string>
 		<key>slowEffect</key>
@@ -74,7 +74,7 @@
 		<key>fireRate</key>
 		<string>1.5</string>
 		<key>towerCost</key>
-		<string>300</string>
+		<string>500</string>
 		<key>splashRadius</key>
 		<string>25</string>
 		<key>slowEffect</key>
