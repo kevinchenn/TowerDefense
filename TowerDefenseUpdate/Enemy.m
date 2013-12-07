@@ -49,12 +49,12 @@
 	return self;
 }
 
-+(id)nodeWithTheGame:(HelloWorldLayer *)_game andMaxHP:(int)hp andWalkingSpeed:(float)speed andAttackPower:(int)power andSpriteFile:(NSString*)file
++(id)nodeWithTheGame:(HelloWorldLayer *)_game andMaxHP:(int)hp andWalkingSpeed:(float)speed andAttackPower:(int)power andSpriteFile:(NSMutableArray*)sprites
 {
-    return [[self alloc] initWithTheGame:_game andMaxHP:hp andWalkingSpeed:speed andAttackPower:power andSpriteFile:file];
+    return [[self alloc] initWithTheGame:_game andMaxHP:hp andWalkingSpeed:speed andAttackPower:power andSpriteFile:sprites];
 }
 
--(id)initWithTheGame:(HelloWorldLayer *)_game andMaxHP:(int)hp andWalkingSpeed:(float)speed andAttackPower:(int)power andSpriteFile:(NSString*)file
+-(id)initWithTheGame:(HelloWorldLayer *)_game andMaxHP:(int)hp andWalkingSpeed:(float)speed andAttackPower:(int)power andSpriteFile:(NSMutableArray*)sprites
 {
     if ((self=[super init])) {
 		theGame = _game;
@@ -67,8 +67,15 @@
         active = NO;
         slowTimer = Nil;
         
-        mySprite = [CCSprite spriteWithFile:file];
-		[self addChild:mySprite];
+        spriteList = sprites;
+        animationIndex = 0;
+        mySprite = [CCSprite spriteWithFile:[spriteList objectAtIndex:animationIndex]];
+        [self addChild:mySprite];
+        animationTimer = [NSTimer scheduledTimerWithTimeInterval:(.4/currentSpeed)
+                                                          target:self
+                                                        selector:@selector(animate)
+                                                        userInfo:Nil
+                                                         repeats:NO];
         
         Waypoint * waypoint = (Waypoint *)[theGame.waypoints objectAtIndex:([theGame.waypoints count]-1)];
         destinationWaypoint = waypoint.nextWaypoint;
@@ -115,8 +122,28 @@
                      myPosition.y+normalized.y * movementSpeed);
     
     [mySprite setPosition:myPosition];
-    
-    
+}
+
+-(void)animate
+{
+    if (animationIndex == ([spriteList count] - 1))
+    {
+        animationIndex = 0;
+        [self removeChild:mySprite];
+        mySprite = mySprite = [CCSprite spriteWithFile:[spriteList objectAtIndex:animationIndex]];
+        [self addChild:mySprite];
+    } else {
+        animationIndex++;
+        [self removeChild:mySprite];
+        mySprite = mySprite = [CCSprite spriteWithFile:[spriteList objectAtIndex:animationIndex]];
+        [self addChild:mySprite];
+    }
+    [animationTimer invalidate];
+    animationTimer = [NSTimer scheduledTimerWithTimeInterval:(.4/currentSpeed)
+                                                      target:self
+                                                    selector:@selector(animate)
+                                                    userInfo:Nil
+                                                     repeats:NO];
 }
 
 -(void)getRemoved
@@ -157,13 +184,18 @@
 {
     if ((walkingSpeed * difference) < currentSpeed)
     {
+        NSMutableArray* newSpriteList = [[NSMutableArray alloc] initWithCapacity:[spriteList count]];
+        for (NSString* s in spriteList) {
+            [newSpriteList addObject:[NSString stringWithFormat:@"slow%@", s]];
+        }
+        spriteList = newSpriteList;
         currentSpeed = (walkingSpeed * difference);
         if (slowTimer) {
             [slowTimer invalidate];
             slowTimer = Nil;
-            
         }
         slowTimer = [NSTimer scheduledTimerWithTimeInterval:8.0 target:self selector:@selector(resetSpeed) userInfo:nil repeats:NO];
+        [self animate];
     } else {
         if (slowTimer) {
             [slowTimer invalidate];
@@ -175,8 +207,14 @@
 
 -(void)resetSpeed
 {
+    NSMutableArray* newSpriteList = [[NSMutableArray alloc] initWithCapacity:[spriteList count]];
+    for (NSString* s in spriteList) {
+        [newSpriteList addObject:[s substringFromIndex:4]];
+    }
+    spriteList = newSpriteList;
     currentSpeed = walkingSpeed;
     slowTimer = Nil;
+    [self animate];
 }
 
 -(void)draw

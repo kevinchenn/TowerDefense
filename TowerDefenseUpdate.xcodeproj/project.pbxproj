@@ -17,27 +17,39 @@
 		CB844E45184D8E4B00229721 /* waves.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB844E44184D8E4B00229721 /* waves.plist */; };
 		CB844E49184ED93B00229721 /* towers.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB844E48184ED93A00229721 /* towers.plist */; };
 		CB844E4B184EE1A400229721 /* testWaves.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB844E4A184EE1A200229721 /* testWaves.plist */; };
-		CB844E4F184F460700229721 /* basicAnt.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E4E184F460600229721 /* basicAnt.png */; };
-		CB844E51184F464600229721 /* fireAnt.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E50184F464500229721 /* fireAnt.png */; };
-		CB844E53184F465200229721 /* tankAnt.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E52184F465200229721 /* tankAnt.png */; };
 		CB844E55184FCFC600229721 /* basicAnt.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB844E54184FCFC500229721 /* basicAnt.plist */; };
 		CB844E57184FCFD200229721 /* fireAnt.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB844E56184FCFD200229721 /* fireAnt.plist */; };
 		CB844E59184FCFE000229721 /* tankAnt.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB844E58184FCFDF00229721 /* tankAnt.plist */; };
 		CB844E5F184FDA6800229721 /* queenAnt.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB844E5E184FDA6800229721 /* queenAnt.plist */; };
-		CB844E61184FDBDE00229721 /* queenAnt.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E60184FDBDD00229721 /* queenAnt.png */; };
-		CB844E65184FE10A00229721 /* basicTower.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E64184FE10A00229721 /* basicTower.png */; };
-		CB844E67184FE38B00229721 /* slowTower.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E66184FE38A00229721 /* slowTower.png */; };
-		CB844E69184FE6A100229721 /* splashTower.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E68184FE6A000229721 /* splashTower.png */; };
-		CB844E6B184FEB5500229721 /* rapidTower.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E6A184FEB5500229721 /* rapidTower.png */; };
-		CB844E71184FF39A00229721 /* basicBullet.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E6D184FF39900229721 /* basicBullet.png */; };
-		CB844E72184FF39A00229721 /* rapidBullet.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E6E184FF39900229721 /* rapidBullet.png */; };
-		CB844E73184FF39A00229721 /* slowBullet.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E6F184FF39A00229721 /* slowBullet.png */; };
-		CB844E74184FF39A00229721 /* splashBullet.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E70184FF39A00229721 /* splashBullet.png */; };
-		CB844E76184FFECF00229721 /* rangeTower.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E75184FFECF00229721 /* rangeTower.png */; };
-		CB844E78184FFFC500229721 /* rangeBullet.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E77184FFFC500229721 /* rangeBullet.png */; };
 		CB844E8018500C6300229721 /* gridSpot.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E7F18500C6300229721 /* gridSpot.png */; };
 		CB844E8418507FC000229721 /* waypoints.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB844E8318507FC000229721 /* waypoints.plist */; };
 		CB844E881850893A00229721 /* level1.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB844E871850893A00229721 /* level1.plist */; };
+		CB844E9A1851680700229721 /* basicTower.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E991851680600229721 /* basicTower.png */; };
+		CB844E9C185168F300229721 /* rangeTower.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E9B185168F300229721 /* rangeTower.png */; };
+		CB844E9E1851697D00229721 /* rapidTower.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E9D1851697B00229721 /* rapidTower.png */; };
+		CB844EA418516A6000229721 /* slowTower.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844EA318516A5E00229721 /* slowTower.png */; };
+		CB844EA618516C0900229721 /* splashTower.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844EA518516C0700229721 /* splashTower.png */; };
+		CB844EAC18516DF400229721 /* basicBullet.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844EA718516DF000229721 /* basicBullet.png */; };
+		CB844EAD18516DF400229721 /* rangeBullet.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844EA818516DF100229721 /* rangeBullet.png */; };
+		CB844EAE18516DF400229721 /* rapidBullet.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844EA918516DF100229721 /* rapidBullet.png */; };
+		CB844EAF18516DF400229721 /* slowBullet.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844EAA18516DF200229721 /* slowBullet.png */; };
+		CB844EB018516DF400229721 /* splashBullet.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844EAB18516DF400229721 /* splashBullet.png */; };
+		CB844EBB1851B83F00229721 /* basicAnt.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844EB91851B83D00229721 /* basicAnt.png */; };
+		CB844EBC1851B83F00229721 /* basicAnt2.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844EBA1851B83D00229721 /* basicAnt2.png */; };
+		CB844EBF1851BA9E00229721 /* fireAnt.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844EBD1851BA9100229721 /* fireAnt.png */; };
+		CB844EC01851BA9E00229721 /* fireAnt2.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844EBE1851BA9400229721 /* fireAnt2.png */; };
+		CB844EC31851BC2800229721 /* tankAnt.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844EC11851BC2700229721 /* tankAnt.png */; };
+		CB844EC41851BC2800229721 /* tankAnt2.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844EC21851BC2700229721 /* tankAnt2.png */; };
+		CB844EC71851BD4F00229721 /* queenAnt.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844EC51851BD4D00229721 /* queenAnt.png */; };
+		CB844EC81851BD4F00229721 /* queenAnt2.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844EC61851BD4E00229721 /* queenAnt2.png */; };
+		CB844ECF1851C34900229721 /* slowbasicAnt.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844ECD1851C34600229721 /* slowbasicAnt.png */; };
+		CB844ED01851C34900229721 /* slowbasicAnt2.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844ECE1851C34700229721 /* slowbasicAnt2.png */; };
+		CB844ED31851C7C800229721 /* slowfireAnt.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844ED11851C7C500229721 /* slowfireAnt.png */; };
+		CB844ED41851C7C800229721 /* slowfireAnt2.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844ED21851C7C700229721 /* slowfireAnt2.png */; };
+		CB844ED71852E83300229721 /* slowtankAnt.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844ED51852E83000229721 /* slowtankAnt.png */; };
+		CB844ED81852E83300229721 /* slowtankAnt2.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844ED61852E83100229721 /* slowtankAnt2.png */; };
+		CB844EDB1852EC2300229721 /* slowqueenAnt.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844ED91852EC1E00229721 /* slowqueenAnt.png */; };
+		CB844EDC1852EC2300229721 /* slowqueenAnt2.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844EDA1852EC2000229721 /* slowqueenAnt2.png */; };
 		D34464491712363800255FA3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D34464481712363800255FA3 /* QuartzCore.framework */; };
 		D344644B1712363800255FA3 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D344644A1712363800255FA3 /* OpenGLES.framework */; };
 		D344644D1712363800255FA3 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D344644C1712363800255FA3 /* OpenAL.framework */; };
@@ -211,27 +223,39 @@
 		CB844E44184D8E4B00229721 /* waves.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = waves.plist; sourceTree = "<group>"; };
 		CB844E48184ED93A00229721 /* towers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = towers.plist; sourceTree = "<group>"; };
 		CB844E4A184EE1A200229721 /* testWaves.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = testWaves.plist; sourceTree = "<group>"; };
-		CB844E4E184F460600229721 /* basicAnt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = basicAnt.png; path = ../basicAnt.png; sourceTree = "<group>"; };
-		CB844E50184F464500229721 /* fireAnt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fireAnt.png; sourceTree = "<group>"; };
-		CB844E52184F465200229721 /* tankAnt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tankAnt.png; sourceTree = "<group>"; };
 		CB844E54184FCFC500229721 /* basicAnt.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = basicAnt.plist; sourceTree = "<group>"; };
 		CB844E56184FCFD200229721 /* fireAnt.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = fireAnt.plist; sourceTree = "<group>"; };
 		CB844E58184FCFDF00229721 /* tankAnt.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = tankAnt.plist; sourceTree = "<group>"; };
 		CB844E5E184FDA6800229721 /* queenAnt.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = queenAnt.plist; sourceTree = "<group>"; };
-		CB844E60184FDBDD00229721 /* queenAnt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = queenAnt.png; path = ../queenAnt.png; sourceTree = "<group>"; };
-		CB844E64184FE10A00229721 /* basicTower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = basicTower.png; path = ../basicTower.png; sourceTree = "<group>"; };
-		CB844E66184FE38A00229721 /* slowTower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slowTower.png; sourceTree = "<group>"; };
-		CB844E68184FE6A000229721 /* splashTower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splashTower.png; sourceTree = "<group>"; };
-		CB844E6A184FEB5500229721 /* rapidTower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rapidTower.png; sourceTree = "<group>"; };
-		CB844E6D184FF39900229721 /* basicBullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = basicBullet.png; sourceTree = "<group>"; };
-		CB844E6E184FF39900229721 /* rapidBullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rapidBullet.png; sourceTree = "<group>"; };
-		CB844E6F184FF39A00229721 /* slowBullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slowBullet.png; sourceTree = "<group>"; };
-		CB844E70184FF39A00229721 /* splashBullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splashBullet.png; sourceTree = "<group>"; };
-		CB844E75184FFECF00229721 /* rangeTower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rangeTower.png; sourceTree = "<group>"; };
-		CB844E77184FFFC500229721 /* rangeBullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rangeBullet.png; sourceTree = "<group>"; };
 		CB844E7F18500C6300229721 /* gridSpot.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gridSpot.png; path = ../gridSpot.png; sourceTree = "<group>"; };
 		CB844E8318507FC000229721 /* waypoints.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = waypoints.plist; sourceTree = "<group>"; };
 		CB844E871850893A00229721 /* level1.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = level1.plist; sourceTree = "<group>"; };
+		CB844E991851680600229721 /* basicTower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = basicTower.png; sourceTree = "<group>"; };
+		CB844E9B185168F300229721 /* rangeTower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rangeTower.png; sourceTree = "<group>"; };
+		CB844E9D1851697B00229721 /* rapidTower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rapidTower.png; sourceTree = "<group>"; };
+		CB844EA318516A5E00229721 /* slowTower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slowTower.png; sourceTree = "<group>"; };
+		CB844EA518516C0700229721 /* splashTower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splashTower.png; sourceTree = "<group>"; };
+		CB844EA718516DF000229721 /* basicBullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = basicBullet.png; sourceTree = "<group>"; };
+		CB844EA818516DF100229721 /* rangeBullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rangeBullet.png; sourceTree = "<group>"; };
+		CB844EA918516DF100229721 /* rapidBullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rapidBullet.png; sourceTree = "<group>"; };
+		CB844EAA18516DF200229721 /* slowBullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slowBullet.png; sourceTree = "<group>"; };
+		CB844EAB18516DF400229721 /* splashBullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = splashBullet.png; sourceTree = "<group>"; };
+		CB844EB91851B83D00229721 /* basicAnt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = basicAnt.png; sourceTree = "<group>"; };
+		CB844EBA1851B83D00229721 /* basicAnt2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = basicAnt2.png; sourceTree = "<group>"; };
+		CB844EBD1851BA9100229721 /* fireAnt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fireAnt.png; sourceTree = "<group>"; };
+		CB844EBE1851BA9400229721 /* fireAnt2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fireAnt2.png; sourceTree = "<group>"; };
+		CB844EC11851BC2700229721 /* tankAnt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tankAnt.png; sourceTree = "<group>"; };
+		CB844EC21851BC2700229721 /* tankAnt2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tankAnt2.png; sourceTree = "<group>"; };
+		CB844EC51851BD4D00229721 /* queenAnt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = queenAnt.png; sourceTree = "<group>"; };
+		CB844EC61851BD4E00229721 /* queenAnt2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = queenAnt2.png; sourceTree = "<group>"; };
+		CB844ECD1851C34600229721 /* slowbasicAnt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slowbasicAnt.png; sourceTree = "<group>"; };
+		CB844ECE1851C34700229721 /* slowbasicAnt2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slowbasicAnt2.png; sourceTree = "<group>"; };
+		CB844ED11851C7C500229721 /* slowfireAnt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slowfireAnt.png; sourceTree = "<group>"; };
+		CB844ED21851C7C700229721 /* slowfireAnt2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slowfireAnt2.png; sourceTree = "<group>"; };
+		CB844ED51852E83000229721 /* slowtankAnt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slowtankAnt.png; sourceTree = "<group>"; };
+		CB844ED61852E83100229721 /* slowtankAnt2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slowtankAnt2.png; sourceTree = "<group>"; };
+		CB844ED91852EC1E00229721 /* slowqueenAnt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slowqueenAnt.png; sourceTree = "<group>"; };
+		CB844EDA1852EC2000229721 /* slowqueenAnt2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = slowqueenAnt2.png; sourceTree = "<group>"; };
 		D34464451712363800255FA3 /* TowerDefenseUpdate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TowerDefenseUpdate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D34464481712363800255FA3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		D344644A1712363800255FA3 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -560,20 +584,32 @@
 		CB844E6C184FF07A00229721 /* art */ = {
 			isa = PBXGroup;
 			children = (
-				CB844E4E184F460600229721 /* basicAnt.png */,
-				CB844E50184F464500229721 /* fireAnt.png */,
-				CB844E52184F465200229721 /* tankAnt.png */,
-				CB844E60184FDBDD00229721 /* queenAnt.png */,
-				CB844E64184FE10A00229721 /* basicTower.png */,
-				CB844E6A184FEB5500229721 /* rapidTower.png */,
-				CB844E66184FE38A00229721 /* slowTower.png */,
-				CB844E68184FE6A000229721 /* splashTower.png */,
-				CB844E75184FFECF00229721 /* rangeTower.png */,
-				CB844E6D184FF39900229721 /* basicBullet.png */,
-				CB844E6E184FF39900229721 /* rapidBullet.png */,
-				CB844E6F184FF39A00229721 /* slowBullet.png */,
-				CB844E70184FF39A00229721 /* splashBullet.png */,
-				CB844E77184FFFC500229721 /* rangeBullet.png */,
+				CB844EB91851B83D00229721 /* basicAnt.png */,
+				CB844EBA1851B83D00229721 /* basicAnt2.png */,
+				CB844ECD1851C34600229721 /* slowbasicAnt.png */,
+				CB844ECE1851C34700229721 /* slowbasicAnt2.png */,
+				CB844EBD1851BA9100229721 /* fireAnt.png */,
+				CB844EBE1851BA9400229721 /* fireAnt2.png */,
+				CB844ED11851C7C500229721 /* slowfireAnt.png */,
+				CB844ED21851C7C700229721 /* slowfireAnt2.png */,
+				CB844EC11851BC2700229721 /* tankAnt.png */,
+				CB844EC21851BC2700229721 /* tankAnt2.png */,
+				CB844ED51852E83000229721 /* slowtankAnt.png */,
+				CB844ED61852E83100229721 /* slowtankAnt2.png */,
+				CB844EC51851BD4D00229721 /* queenAnt.png */,
+				CB844EC61851BD4E00229721 /* queenAnt2.png */,
+				CB844ED91852EC1E00229721 /* slowqueenAnt.png */,
+				CB844EDA1852EC2000229721 /* slowqueenAnt2.png */,
+				CB844E991851680600229721 /* basicTower.png */,
+				CB844E9D1851697B00229721 /* rapidTower.png */,
+				CB844EA318516A5E00229721 /* slowTower.png */,
+				CB844EA518516C0700229721 /* splashTower.png */,
+				CB844E9B185168F300229721 /* rangeTower.png */,
+				CB844EA718516DF000229721 /* basicBullet.png */,
+				CB844EA918516DF100229721 /* rapidBullet.png */,
+				CB844EAA18516DF200229721 /* slowBullet.png */,
+				CB844EAB18516DF400229721 /* splashBullet.png */,
+				CB844EA818516DF100229721 /* rangeBullet.png */,
 				CB844E7F18500C6300229721 /* gridSpot.png */,
 			);
 			name = art;
@@ -1179,27 +1215,39 @@
 				CB844E45184D8E4B00229721 /* waves.plist in Resources */,
 				CB844E49184ED93B00229721 /* towers.plist in Resources */,
 				CB844E4B184EE1A400229721 /* testWaves.plist in Resources */,
-				CB844E4F184F460700229721 /* basicAnt.png in Resources */,
-				CB844E51184F464600229721 /* fireAnt.png in Resources */,
-				CB844E53184F465200229721 /* tankAnt.png in Resources */,
 				CB844E55184FCFC600229721 /* basicAnt.plist in Resources */,
 				CB844E57184FCFD200229721 /* fireAnt.plist in Resources */,
 				CB844E59184FCFE000229721 /* tankAnt.plist in Resources */,
 				CB844E5F184FDA6800229721 /* queenAnt.plist in Resources */,
-				CB844E61184FDBDE00229721 /* queenAnt.png in Resources */,
-				CB844E65184FE10A00229721 /* basicTower.png in Resources */,
-				CB844E67184FE38B00229721 /* slowTower.png in Resources */,
-				CB844E69184FE6A100229721 /* splashTower.png in Resources */,
-				CB844E6B184FEB5500229721 /* rapidTower.png in Resources */,
-				CB844E71184FF39A00229721 /* basicBullet.png in Resources */,
-				CB844E72184FF39A00229721 /* rapidBullet.png in Resources */,
-				CB844E73184FF39A00229721 /* slowBullet.png in Resources */,
-				CB844E74184FF39A00229721 /* splashBullet.png in Resources */,
-				CB844E76184FFECF00229721 /* rangeTower.png in Resources */,
-				CB844E78184FFFC500229721 /* rangeBullet.png in Resources */,
 				CB844E8018500C6300229721 /* gridSpot.png in Resources */,
 				CB844E8418507FC000229721 /* waypoints.plist in Resources */,
 				CB844E881850893A00229721 /* level1.plist in Resources */,
+				CB844E9A1851680700229721 /* basicTower.png in Resources */,
+				CB844E9C185168F300229721 /* rangeTower.png in Resources */,
+				CB844E9E1851697D00229721 /* rapidTower.png in Resources */,
+				CB844EA418516A6000229721 /* slowTower.png in Resources */,
+				CB844EA618516C0900229721 /* splashTower.png in Resources */,
+				CB844EAC18516DF400229721 /* basicBullet.png in Resources */,
+				CB844EAD18516DF400229721 /* rangeBullet.png in Resources */,
+				CB844EAE18516DF400229721 /* rapidBullet.png in Resources */,
+				CB844EAF18516DF400229721 /* slowBullet.png in Resources */,
+				CB844EB018516DF400229721 /* splashBullet.png in Resources */,
+				CB844EBB1851B83F00229721 /* basicAnt.png in Resources */,
+				CB844EBC1851B83F00229721 /* basicAnt2.png in Resources */,
+				CB844EBF1851BA9E00229721 /* fireAnt.png in Resources */,
+				CB844EC01851BA9E00229721 /* fireAnt2.png in Resources */,
+				CB844EC31851BC2800229721 /* tankAnt.png in Resources */,
+				CB844EC41851BC2800229721 /* tankAnt2.png in Resources */,
+				CB844EC71851BD4F00229721 /* queenAnt.png in Resources */,
+				CB844EC81851BD4F00229721 /* queenAnt2.png in Resources */,
+				CB844ECF1851C34900229721 /* slowbasicAnt.png in Resources */,
+				CB844ED01851C34900229721 /* slowbasicAnt2.png in Resources */,
+				CB844ED31851C7C800229721 /* slowfireAnt.png in Resources */,
+				CB844ED41851C7C800229721 /* slowfireAnt2.png in Resources */,
+				CB844ED71852E83300229721 /* slowtankAnt.png in Resources */,
+				CB844ED81852E83300229721 /* slowtankAnt2.png in Resources */,
+				CB844EDB1852EC2300229721 /* slowqueenAnt.png in Resources */,
+				CB844EDC1852EC2300229721 /* slowqueenAnt2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

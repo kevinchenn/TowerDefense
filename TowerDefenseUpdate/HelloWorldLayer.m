@@ -99,7 +99,7 @@
         [ui_gold_lbl setAnchorPoint:ccp(0,0.5)];
         
         // 9 - sound
-        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:[levelInfo valueForKey:@"music"] loop:YES];
+        //[[SimpleAudioEngine sharedEngine] playBackgroundMusic:[levelInfo valueForKey:@"music"] loop:YES];
 	}
 	return self;
 }
@@ -152,9 +152,9 @@
                 
                 // MAKE MENU TO RETURN AN NSSTRING OF THE SELECTED TOWER
                 
-                NSString* tName = @"basicTower";
+                //NSString* tName = @"basicTower";
                 //NSString* tName = @"rapidTower";
-                //NSString* tName = @"slowTower";
+                NSString* tName = @"slowTower";
                 //NSString* tName = @"splashTower";
                 //NSString* tName = @"rangeTower";
                 
@@ -203,7 +203,7 @@
     for (NSDictionary* wp in waypointList) {
         Waypoint * point = [Waypoint nodeWithTheGame:self location:ccp([[wp valueForKey:@"x"]integerValue],[[wp valueForKey:@"y"]integerValue])];
         [waypoints addObject:point];
-    }
+    } 
     
     NSInteger i = [waypoints count] - 1;
     while (i > 0) {
@@ -211,37 +211,6 @@
         wp.nextWaypoint = [waypoints objectAtIndex:i-1];
         i--;
     }
-
-    //Waypoint * waypoint1 = [Waypoint nodeWithTheGame:self location:ccp(480,175)];
-    //[waypoints addObject:waypoint1];
-    
-    //Waypoint * waypoint2 = [Waypoint nodeWithTheGame:self location:ccp(305,175)];
-    //[waypoints addObject:waypoint2];
-    //waypoint2.nextWaypoint =waypoint1;
-    
-    //Waypoint * waypoint3 = [Waypoint nodeWithTheGame:self location:ccp(305,112)];
-    //[waypoints addObject:waypoint3];
-    //waypoint3.nextWaypoint =waypoint2;
-    
-    //Waypoint * waypoint4 = [Waypoint nodeWithTheGame:self location:ccp(175,112)];
-    //[waypoints addObject:waypoint4];
-    //waypoint4.nextWaypoint =waypoint3;
-    
-    //Waypoint * waypoint5 = [Waypoint nodeWithTheGame:self location:ccp(175,235)];
-    //[waypoints addObject:waypoint5];
-    //waypoint5.nextWaypoint =waypoint4;
-    
-    //Waypoint * waypoint6 = [Waypoint nodeWithTheGame:self location:ccp(78,235)];
-    //[waypoints addObject:waypoint6];
-    //waypoint6.nextWaypoint =waypoint5;
-    
-    //Waypoint * waypoint7 = [Waypoint nodeWithTheGame:self location:ccp(78,140)];
-    //[waypoints addObject:waypoint7];
-    //waypoint7.nextWaypoint =waypoint6;
-    
-    //Waypoint * waypoint8 = [Waypoint nodeWithTheGame:self location:ccp(-40,140)];
-    //[waypoints addObject:waypoint8];
-    //waypoint8.nextWaypoint =waypoint7;
 }
 
 -(BOOL)circle:(CGPoint)circlePoint withRadius:(float)radius collisionWithCircle:(CGPoint)circlePointTwo collisionCircleRadius:(float)radiusTwo

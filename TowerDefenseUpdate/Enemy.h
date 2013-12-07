@@ -23,6 +23,9 @@
     NSString* spriteFile;
     float currentSpeed;
     NSTimer* slowTimer;
+    int animationIndex;
+    NSTimer* animationTimer;
+    NSMutableArray* spriteList;
 }
 
 @property (nonatomic,assign) HelloWorldLayer *theGame;
@@ -30,8 +33,8 @@
 
 +(id)nodeWithTheGame:(HelloWorldLayer*)_game;
 -(id)initWithTheGame:(HelloWorldLayer *)_game;
-+(id)nodeWithTheGame:(HelloWorldLayer *)_game andMaxHP:(int)hp andWalkingSpeed:(float)speed andAttackPower:(int)power andSpriteFile:(NSString*)file;
--(id)initWithTheGame:(HelloWorldLayer *)_game andMaxHP:(int)hp andWalkingSpeed:(float)speed andAttackPower:(int)power andSpriteFile:(NSString*)file;
++(id)nodeWithTheGame:(HelloWorldLayer *)_game andMaxHP:(int)hp andWalkingSpeed:(float)speed andAttackPower:(int)power andSpriteFile:(NSMutableArray*)sprites;
+-(id)initWithTheGame:(HelloWorldLayer *)_game andMaxHP:(int)hp andWalkingSpeed:(float)speed andAttackPower:(int)power andSpriteFile:(NSMutableArray*)sprites;
 -(void)doActivate;
 -(void)getRemoved;
 -(void)getAttacked:(Tower *)attacker;

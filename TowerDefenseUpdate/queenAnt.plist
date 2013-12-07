@@ -9,6 +9,9 @@
 	<key>attackPower</key>
 	<string>5</string>
 	<key>spriteFile</key>
-	<string>queenAnt.png</string>
+	<array>
+		<string>queenAnt.png</string>
+		<string>queenAnt2.png</string>
+	</array>
 </dict>
 </plist>
