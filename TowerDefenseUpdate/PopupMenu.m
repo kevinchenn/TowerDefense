@@ -7,6 +7,7 @@
 //
 
 #import "PopupMenu.h"
+#import "HelloWorldLayer.h"
 #define USE_CUSTOM_DRAWING 1
 
 @implementation PopupMenu
@@ -50,6 +51,7 @@
 {
     [super viewDidLoad];
     hidden = YES;
+    towerIndex = -1;
 }
 
 #endif
@@ -102,7 +104,11 @@
 //    // Display Alert Message
 //    [messageAlert show];
 //    [self toggleHidden];
+    if (HWL != nil){
+        [HWL placeTower:selectedTower atIndex:towerIndex];
+    }
     self.tableView.hidden = YES;
+    
 }
 
 - (NSString*) getSelectedTower
@@ -113,6 +119,15 @@
 - (BOOL) isHidden
 {
     return hidden;
+}
+
+- (void) setTowerIndex: (NSInteger) index{
+    towerIndex = index;
+}
+
+- (void) setHelloWorldLayer: (HelloWorldLayer*) temp
+{
+    HWL = temp;
 }
 
 - (void) toggleHidden

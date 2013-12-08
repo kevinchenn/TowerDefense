@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HelloWorldLayer.h"
 
 @interface PopupMenu : UIViewController <UITableViewDelegate>
 {
@@ -14,6 +15,8 @@
 	UIImageView *imageView;
     NSString* selectedTower;
     BOOL hidden;
+    NSInteger towerIndex;
+    HelloWorldLayer* HWL;
 }
 
 @property (nonatomic, retain) UITableView *tableView;
@@ -23,4 +26,6 @@
 - (BOOL) isHidden;
 - (NSString*) getSelectedTower;
 - (void) toggleHidden;
+- (void) setTowerIndex: (NSInteger) index;
+- (void) setHelloWorldLayer: (HelloWorldLayer*) temp;
 @end

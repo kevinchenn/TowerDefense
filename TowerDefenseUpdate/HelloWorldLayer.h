@@ -11,9 +11,9 @@
 
 // When you import this file, you import all the cocos2d classes
 #import "cocos2d.h"
-#import "PopupMenu.h"
 
 // HelloWorldLayer
+@class PopupMenu;
 @interface HelloWorldLayer : CCLayer 
 {
     NSMutableArray* towerBases;
@@ -46,5 +46,5 @@
 -(void) getHpDamage;
 -(void) doGameOver;
 -(void) awardGold:(int)gold;
-
+-(void) placeTower: (NSString*) tName atIndex: (NSInteger) index;
 @end

@@ -150,7 +150,7 @@
         CGPoint location = [touch locationInView:[touch view]];
         
         location = [[CCDirector sharedDirector] convertToGL:location];
-    
+        int count = 0;
         for(CCSprite * tb in towerBases) {
             if (CGRectContainsPoint([tb boundingBox], location) && !tb.userData) { //tb.userData means that theres a tower there
                 
@@ -158,63 +158,111 @@
                 NSDictionary* towersList = [NSDictionary dictionaryWithContentsOfFile:towerListPath];
                 
                 // MAKE MENU TO RETURN AN NSSTRING OF THE SELECTED TOWER
-//                if ([popupController isHidden] == nil){
-//                    UIView* cocosView = [[CCDirector sharedDirector] openGLView];
-//                    [cocosView addSubview: popupController.view];
-//                }
-//                else{
-//                    
-//                }
-                //AppController *app = (AppController*)[UIApplication sharedApplication].delegate;
-                
-                //[app.window bringSubviewToFront:popupController.view];
+                if ([popupController isHidden] == nil){
+                    UIView* cocosView = [[CCDirector sharedDirector] openGLView];
+                    [cocosView addSubview: popupController.view];
+                }
+                else{
+                    
+                }
 
                 NSLog (@"Value of my BOOL = %@", [popupController isHidden] ? @"YES" : @"NO");
-                
+                [popupController setTowerIndex:count];
+                [popupController setHelloWorldLayer:self];
                 [popupController toggleHidden];
                
                 //NSString* tName = @"basicTower";
-                NSString* tName = @"rapidTower";
+                //NSString* tName = @"rapidTower";
                 //NSString* tName = @"slowTower";
                 //NSString* tName = @"splashTower";
                 //NSString* tName = @"rangeTower";
                 
-               //NSString* tName = [popupController getSelectedTower];
+                //NSString* tName = [popupController getSelectedTower];
                 
-                NSDictionary* towerData =[towersList valueForKey:tName];
+                //NSDictionary* towerData =[towersList valueForKey:tName];
                                 
                 //Tower* tower = [Tower nodeWithTheGame:self location:tb.position];
-                Tower* tower = [Tower nodeWithTheGame:self location:tb.position
-                                       andAttackRange:[[towerData objectForKey:@"attackRange"]integerValue]
-                                       andDamagePower:[[towerData objectForKey:@"damagePower"]integerValue]
-                                          andFireRate:[[towerData objectForKey:@"fireRate"]floatValue]
-                                         andTowerCost:[[towerData objectForKey:@"towerCost"]integerValue]
-                                      andSplashRadius:[[towerData objectForKey:@"splashRadius"]floatValue]
-                                        andSlowEffect:[[towerData objectForKey:@"slowEffect"]floatValue]
-                                        andSpriteFile:[towerData valueForKey:@"spriteFile"]
-                                        andBulletFile:[towerData valueForKey:@"bulletFile"]
-                                       andBulletSpeed:[[towerData objectForKey:@"bulletSpeed"]floatValue]];
-                
-                if ([self canBuyTower:tower])
-                {
-                    playerGold -= [tower towerCost]; //NEEDS TO BE ABSTRACTED AWAY
-                
-                [ui_gold_lbl setString:[NSString stringWithFormat:@"GOLD: %d",playerGold]];
-                [[SimpleAudioEngine sharedEngine] playEffect:@"tower_place.wav"];
-                
-                [towers addObject:tower];
-                tb.userData = (__bridge void*)(tower);
-                } else {
-                    // Message that you cant buy the tower?
-                }
+//                Tower* tower = [Tower nodeWithTheGame:self location:tb.position
+//                                       andAttackRange:[[towerData objectForKey:@"attackRange"]integerValue]
+//                                       andDamagePower:[[towerData objectForKey:@"damagePower"]integerValue]
+//                                          andFireRate:[[towerData objectForKey:@"fireRate"]floatValue]
+//                                         andTowerCost:[[towerData objectForKey:@"towerCost"]integerValue]
+//                                      andSplashRadius:[[towerData objectForKey:@"splashRadius"]floatValue]
+//                                        andSlowEffect:[[towerData objectForKey:@"slowEffect"]floatValue]
+//                                        andSpriteFile:[towerData valueForKey:@"spriteFile"]
+//                                        andBulletFile:[towerData valueForKey:@"bulletFile"]
+//                                       andBulletSpeed:[[towerData objectForKey:@"bulletSpeed"]floatValue]];
+//                
+//                if ([self canBuyTower:tower])
+//                {
+//                    playerGold -= [tower towerCost]; //NEEDS TO BE ABSTRACTED AWAY
+//                
+//                [ui_gold_lbl setString:[NSString stringWithFormat:@"GOLD: %d",playerGold]];
+//                [[SimpleAudioEngine sharedEngine] playEffect:@"tower_place.wav"];
+//                
+//                [towers addObject:tower];
+//                tb.userData = (__bridge void*)(tower);
+//                } else {
+//                    // Message that you cant buy the tower?
+//                    UIAlertView *messageAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You do not have enough gold" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+//                    // Display Alert Message
+//                    [messageAlert show];
+//                }
             } else if (CGRectContainsPoint([tb boundingBox], location) && tb.userData) {
                 //bring up menu to remove or update
                 [towers removeObject:tb.userData];
                 [self removeChild:tb.userData];
                 tb.userData = Nil;
             }
+            count += 1;
         }
     }
+}
+
+-(void)placeTower: (NSString*) tName atIndex: (NSInteger)index
+{
+    NSString* towerListPath = [[NSBundle mainBundle] pathForResource:[levelInfo valueForKey:@"towers"] ofType:@"plist"];
+    NSDictionary* towersList = [NSDictionary dictionaryWithContentsOfFile:towerListPath];
+    
+    
+    //NSString* tName = @"basicTower";
+    //NSString* tName = @"rapidTower";
+    //NSString* tName = @"slowTower";
+    //NSString* tName = @"splashTower";
+    //NSString* tName = @"rangeTower";
+    
+    //NSString* tName = [popupController getSelectedTower];
+    
+    NSDictionary* towerData =[towersList valueForKey:tName];
+    CCSprite* tb = [towerBases objectAtIndex:index];
+    //Tower* tower = [Tower nodeWithTheGame:self location:tb.position];
+    Tower* tower = [Tower nodeWithTheGame:self location:tb.position
+                           andAttackRange:[[towerData objectForKey:@"attackRange"]integerValue]
+                           andDamagePower:[[towerData objectForKey:@"damagePower"]integerValue]
+                              andFireRate:[[towerData objectForKey:@"fireRate"]floatValue]
+                             andTowerCost:[[towerData objectForKey:@"towerCost"]integerValue]
+                          andSplashRadius:[[towerData objectForKey:@"splashRadius"]floatValue]
+                            andSlowEffect:[[towerData objectForKey:@"slowEffect"]floatValue]
+                            andSpriteFile:[towerData valueForKey:@"spriteFile"]
+                            andBulletFile:[towerData valueForKey:@"bulletFile"]
+                           andBulletSpeed:[[towerData objectForKey:@"bulletSpeed"]floatValue]];
+    
+    if ([self canBuyTower:tower])
+    {
+        playerGold -= [tower towerCost]; //NEEDS TO BE ABSTRACTED AWAY
+        
+        [ui_gold_lbl setString:[NSString stringWithFormat:@"GOLD: %d",playerGold]];
+        [[SimpleAudioEngine sharedEngine] playEffect:@"tower_place.wav"];
+        
+        [towers addObject:tower];
+        tb.userData = (__bridge void*)(tower);
+    } else {
+        // Message that you cant buy the tower?
+        UIAlertView *messageAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You do not have enough gold" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        // Display Alert Message
+        [messageAlert show];
+    }
+
 }
 
 -(void)addWaypoints
@@ -226,7 +274,7 @@
     for (NSDictionary* wp in waypointList) {
         Waypoint * point = [Waypoint nodeWithTheGame:self location:ccp([[wp valueForKey:@"x"]integerValue],[[wp valueForKey:@"y"]integerValue])];
         [waypoints addObject:point];
-    } 
+    }
     
     NSInteger i = [waypoints count] - 1;
     while (i > 0) {
