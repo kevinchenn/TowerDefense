@@ -28,4 +28,5 @@
 - (void) toggleHidden;
 - (void) setTowerIndex: (NSInteger) index;
 - (void) setHelloWorldLayer: (HelloWorldLayer*) temp;
+- (void) setHidden;
 @end

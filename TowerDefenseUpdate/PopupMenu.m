@@ -141,5 +141,11 @@
         self.tableView.hidden = YES;
     }
 }
+
+- (void) setHidden
+{
+    self.tableView.hidden = YES;
+    hidden = YES;
+}
 @end
 
