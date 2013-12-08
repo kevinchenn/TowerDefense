@@ -11,7 +11,7 @@
 
 // When you import this file, you import all the cocos2d classes
 #import "cocos2d.h"
-//#import "Enemy.h"
+#import "PopupMenu.h"
 
 // HelloWorldLayer
 @interface HelloWorldLayer : CCLayer 
@@ -29,6 +29,8 @@
     int playerGold;
     
     BOOL gameEnded;
+    
+    PopupMenu* popupController;
 }
 
 @property (nonatomic, strong) NSMutableArray *towers;

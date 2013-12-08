@@ -11,13 +11,15 @@
 #import "HelloWorldLayer.h"
 
 // Needed to obtain the Navigation Controller
-#import "AppDelegate.h"
+
 
 #pragma mark - HelloWorldLayer
 
 #import "Tower.h"
 #import "Waypoint.h"
 #import "Enemy.h"
+#import "PopupMenu.h"
+#import "AppDelegate.h"
 
 #import "SimpleAudioEngine.h"
 
@@ -100,6 +102,11 @@
         
         // 9 - sound
         //[[SimpleAudioEngine sharedEngine] playBackgroundMusic:[levelInfo valueForKey:@"music"] loop:YES];
+        
+        // 10 - popup menu
+        popupController = [[PopupMenu alloc] init];
+        UIView* cocosView = [[CCDirector sharedDirector] openGLView];
+        [cocosView addSubview: popupController.view];
 	}
 	return self;
 }
@@ -151,12 +158,28 @@
                 NSDictionary* towersList = [NSDictionary dictionaryWithContentsOfFile:towerListPath];
                 
                 // MAKE MENU TO RETURN AN NSSTRING OF THE SELECTED TOWER
+//                if ([popupController isHidden] == nil){
+//                    UIView* cocosView = [[CCDirector sharedDirector] openGLView];
+//                    [cocosView addSubview: popupController.view];
+//                }
+//                else{
+//                    
+//                }
+                //AppController *app = (AppController*)[UIApplication sharedApplication].delegate;
                 
+                //[app.window bringSubviewToFront:popupController.view];
+
+                NSLog (@"Value of my BOOL = %@", [popupController isHidden] ? @"YES" : @"NO");
+                
+                [popupController toggleHidden];
+               
                 //NSString* tName = @"basicTower";
-                //NSString* tName = @"rapidTower";
-                NSString* tName = @"slowTower";
+                NSString* tName = @"rapidTower";
+                //NSString* tName = @"slowTower";
                 //NSString* tName = @"splashTower";
                 //NSString* tName = @"rangeTower";
+                
+               //NSString* tName = [popupController getSelectedTower];
                 
                 NSDictionary* towerData =[towersList valueForKey:tName];
                                 
@@ -306,5 +329,6 @@
     playerGold = playerGold + gold;
     [ui_gold_lbl setString:[NSString stringWithFormat:@"HP: %d",playerGold]];
 }
+
 
 @end

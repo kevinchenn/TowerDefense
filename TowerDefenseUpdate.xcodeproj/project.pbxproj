@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A29385E1853C93B00600EC4 /* PopupMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A29385D1853C93B00600EC4 /* PopupMenu.m */; };
+		0A2938611853CA8D00600EC4 /* load.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A29385F1853CA8D00600EC4 /* load.png */; };
+		0A2938621853CA8D00600EC4 /* load@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A2938601853CA8D00600EC4 /* load@2x.png */; };
 		0A4517C3184BBECE0036477B /* Tower.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A4517C2184BBECE0036477B /* Tower.m */; };
 		0A4517C6184BC1160036477B /* Waypoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A4517C5184BC1160036477B /* Waypoint.m */; };
 		0A4517C9184BC26E0036477B /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A4517C8184BC26E0036477B /* Enemy.m */; };
@@ -210,6 +213,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A29385C1853C93B00600EC4 /* PopupMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupMenu.h; sourceTree = "<group>"; };
+		0A29385D1853C93B00600EC4 /* PopupMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupMenu.m; sourceTree = "<group>"; };
+		0A29385F1853CA8D00600EC4 /* load.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = load.png; sourceTree = "<group>"; };
+		0A2938601853CA8D00600EC4 /* load@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "load@2x.png"; sourceTree = "<group>"; };
 		0A4517C1184BBECE0036477B /* Tower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tower.h; sourceTree = "<group>"; };
 		0A4517C2184BBECE0036477B /* Tower.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tower.m; sourceTree = "<group>"; };
 		0A4517C4184BC1160036477B /* Waypoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Waypoint.h; sourceTree = "<group>"; };
@@ -697,6 +704,8 @@
 		D344645A1712363800255FA3 /* TowerDefenseUpdate */ = {
 			isa = PBXGroup;
 			children = (
+				0A29385C1853C93B00600EC4 /* PopupMenu.h */,
+				0A29385D1853C93B00600EC4 /* PopupMenu.m */,
 				D34465E81712363A00255FA3 /* AppDelegate.h */,
 				D34465E91712363A00255FA3 /* AppDelegate.m */,
 				0A4517C1184BBECE0036477B /* Tower.h */,
@@ -720,42 +729,44 @@
 			isa = PBXGroup;
 			children = (
 				CB844E6C184FF07A00229721 /* art */,
-				CB844E8118507C9D00229721 /* sounds */,
-				CB844E8218507CD000229721 /* enemies */,
-				CB844E851850868D00229721 /* levels */,
-				0A4517CE184C7B5D0036477B /* bg1-hd.png */,
-				CB844E42184D8E0600229721 /* spaceInvader.png */,
-				0A4517CA184C74D60036477B /* bg1.png */,
-				D34465F61712365100255FA3 /* bg.png */,
 				D3FD2724171E3D19007DD3F6 /* bg-hd.png */,
+				D34465F61712365100255FA3 /* bg.png */,
+				0A4517CE184C7B5D0036477B /* bg1-hd.png */,
+				0A4517CA184C74D60036477B /* bg1.png */,
 				D3FD2725171E3D19007DD3F6 /* bullet-hd.png */,
-				D3FD2726171E3D19007DD3F6 /* enemy-hd.png */,
-				D3FD2727171E3D19007DD3F6 /* font_red_28.png */,
-				D3FD2728171E3D19007DD3F6 /* font_red-hd.fnt */,
-				D3FD2729171E3D19007DD3F6 /* icon_gold-hd.png */,
-				D3FD272A171E3D19007DD3F6 /* icon_HP-hd.png */,
-				D3FD272B171E3D19007DD3F6 /* open_spot-hd.png */,
-				D3FD272C171E3D19007DD3F6 /* tower-hd.png */,
 				D34465F71712365100255FA3 /* bullet.png */,
-				D34465F81712365100255FA3 /* enemy.png */,
-				D34465F91712365100255FA3 /* font_red_14.fnt */,
-				D34465FA1712365100255FA3 /* font_red_14.png */,
-				D34465FB1712365100255FA3 /* icon_gold.png */,
-				D34465FC1712365100255FA3 /* icon_HP.png */,
-				D34465FD1712365100255FA3 /* open_spot.png */,
-				D34465FE1712365100255FA3 /* tower.png */,
-				D344645C1712363800255FA3 /* Default.png */,
-				D344645E1712363800255FA3 /* Default@2x.png */,
 				D34464601712363800255FA3 /* Default-568h@2x.png */,
 				D34464621712363800255FA3 /* Default-Landscape~ipad.png */,
+				D344645C1712363800255FA3 /* Default.png */,
+				D344645E1712363800255FA3 /* Default@2x.png */,
+				CB844E8218507CD000229721 /* enemies */,
+				D3FD2726171E3D19007DD3F6 /* enemy-hd.png */,
+				D34465F81712365100255FA3 /* enemy.png */,
+				D3FD2728171E3D19007DD3F6 /* font_red-hd.fnt */,
+				D34465F91712365100255FA3 /* font_red_14.fnt */,
+				D34465FA1712365100255FA3 /* font_red_14.png */,
+				D3FD2727171E3D19007DD3F6 /* font_red_28.png */,
 				D34464641712363800255FA3 /* Icon-72.png */,
 				D34464661712363800255FA3 /* Icon-Small-50.png */,
 				D34464681712363800255FA3 /* Icon-Small.png */,
 				D344646A1712363800255FA3 /* Icon-Small@2x.png */,
 				D344646C1712363800255FA3 /* Icon.png */,
 				D344646E1712363800255FA3 /* Icon@2x.png */,
+				D3FD2729171E3D19007DD3F6 /* icon_gold-hd.png */,
+				D34465FB1712365100255FA3 /* icon_gold.png */,
+				D3FD272A171E3D19007DD3F6 /* icon_HP-hd.png */,
+				D34465FC1712365100255FA3 /* icon_HP.png */,
 				D34464701712363800255FA3 /* Info.plist */,
 				D34464711712363800255FA3 /* iTunesArtwork */,
+				CB844E851850868D00229721 /* levels */,
+				0A29385F1853CA8D00600EC4 /* load.png */,
+				0A2938601853CA8D00600EC4 /* load@2x.png */,
+				D3FD272B171E3D19007DD3F6 /* open_spot-hd.png */,
+				D34465FD1712365100255FA3 /* open_spot.png */,
+				CB844E8118507C9D00229721 /* sounds */,
+				CB844E42184D8E0600229721 /* spaceInvader.png */,
+				D3FD272C171E3D19007DD3F6 /* tower-hd.png */,
+				D34465FE1712365100255FA3 /* tower.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1206,6 +1217,7 @@
 				D3FD272E171E3D19007DD3F6 /* bullet-hd.png in Resources */,
 				D3FD272F171E3D19007DD3F6 /* enemy-hd.png in Resources */,
 				D3FD2730171E3D19007DD3F6 /* font_red_28.png in Resources */,
+				0A2938611853CA8D00600EC4 /* load.png in Resources */,
 				D3FD2731171E3D19007DD3F6 /* font_red-hd.fnt in Resources */,
 				D3FD2732171E3D19007DD3F6 /* icon_gold-hd.png in Resources */,
 				D3FD2733171E3D19007DD3F6 /* icon_HP-hd.png in Resources */,
@@ -1246,6 +1258,7 @@
 				CB844ED41851C7C800229721 /* slowfireAnt2.png in Resources */,
 				CB844ED71852E83300229721 /* slowtankAnt.png in Resources */,
 				CB844ED81852E83300229721 /* slowtankAnt2.png in Resources */,
+				0A2938621853CA8D00600EC4 /* load@2x.png in Resources */,
 				CB844EDB1852EC2300229721 /* slowqueenAnt.png in Resources */,
 				CB844EDC1852EC2300229721 /* slowqueenAnt2.png in Resources */,
 			);
@@ -1300,6 +1313,7 @@
 				D34464EB1712363900255FA3 /* CCParticleBatchNode.m in Sources */,
 				D34464EE1712363900255FA3 /* CCParticleExamples.m in Sources */,
 				D34464F11712363900255FA3 /* CCParticleSystem.m in Sources */,
+				0A29385E1853C93B00600EC4 /* PopupMenu.m in Sources */,
 				D34464F41712363900255FA3 /* CCParticleSystemQuad.m in Sources */,
 				D34464F71712363900255FA3 /* CCPhysicsDebugNode.m in Sources */,
 				D34464FA1712363900255FA3 /* CCPhysicsSprite.mm in Sources */,
