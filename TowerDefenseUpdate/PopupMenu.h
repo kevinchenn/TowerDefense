@@ -13,20 +13,22 @@
 {
 	UITableView *tableView;
 	UIImageView *imageView;
-    NSString* selectedTower;
-    BOOL hidden;
+    NSString *selectedTower;
+    //BOOL hidden;
     NSInteger towerIndex;
     HelloWorldLayer* HWL;
 }
 
 @property (nonatomic, retain) UITableView *tableView;
 @property (nonatomic, retain) UIImageView *imageView;
-@property (nonatomic,retain) NSArray *towers;
+@property (nonatomic, retain) NSArray *towers;
 
+- (id) initWithTowers:(NSDictionary*)towerlist;
 - (BOOL) isHidden;
 - (NSString*) getSelectedTower;
 - (void) toggleHidden;
 - (void) setTowerIndex: (NSInteger) index;
 - (void) setHelloWorldLayer: (HelloWorldLayer*) temp;
 - (void) setHidden;
+
 @end

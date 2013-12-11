@@ -104,7 +104,10 @@
         //[[SimpleAudioEngine sharedEngine] playBackgroundMusic:[levelInfo valueForKey:@"music"] loop:YES];
         
         // 10 - popup menu
-        popupController = [[PopupMenu alloc] init];
+        NSString* towerListPath = [[NSBundle mainBundle] pathForResource:[levelInfo valueForKey:@"towers"] ofType:@"plist"];
+        NSDictionary* towersDictionary = [NSDictionary dictionaryWithContentsOfFile:towerListPath];
+        NSArray* towerList = [towersDictionary allKeys];
+        popupController = [[PopupMenu alloc] initWithTowers:towerList];
         UIView* cocosView = [[CCDirector sharedDirector] openGLView];
         [cocosView addSubview: popupController.view];
 	}
@@ -151,13 +154,15 @@
         
         location = [[CCDirector sharedDirector] convertToGL:location];
         int count = 0;
+        BOOL notBase = YES;
         for(CCSprite * tb in towerBases) {
             if (CGRectContainsPoint([tb boundingBox], location) && !tb.userData) { //tb.userData means that theres a tower there
                 
-                NSString* towerListPath = [[NSBundle mainBundle] pathForResource:[levelInfo valueForKey:@"towers"] ofType:@"plist"];
-                NSDictionary* towersList = [NSDictionary dictionaryWithContentsOfFile:towerListPath];
+                //NSString* towerListPath = [[NSBundle mainBundle] pathForResource:[levelInfo valueForKey:@"towers"] ofType:@"plist"];
+                //NSDictionary* towersList = [NSDictionary dictionaryWithContentsOfFile:towerListPath];
                 
                 // MAKE MENU TO RETURN AN NSSTRING OF THE SELECTED TOWER
+                notBase = NO;
                 if ([popupController isHidden] == nil){
                     UIView* cocosView = [[CCDirector sharedDirector] openGLView];
                     [cocosView addSubview: popupController.view];
@@ -210,11 +215,21 @@
 //                }
             } else if (CGRectContainsPoint([tb boundingBox], location) && tb.userData) {
                 //bring up menu to remove or update
+                notBase = NO;
                 [towers removeObject:tb.userData];
                 [self removeChild:tb.userData];
                 tb.userData = Nil;
             }
             count += 1;
+        }
+        if (notBase)
+        {
+            NSLog(@"NOT A BASE SPOT");
+            NSLog (@"Value of popupcontroller isHidden = %@", [popupController isHidden] ? @"YES" : @"NO");
+            if (![popupController isHidden])
+            {
+                [popupController setHidden];
+            }
         }
     }
 }
@@ -249,7 +264,7 @@
     
     if ([self canBuyTower:tower])
     {
-        playerGold -= [tower towerCost]; //NEEDS TO BE ABSTRACTED AWAY
+        playerGold -= [tower towerCost];
         
         [ui_gold_lbl setString:[NSString stringWithFormat:@"GOLD: %d",playerGold]];
         [[SimpleAudioEngine sharedEngine] playEffect:@"tower_place.wav"];
@@ -336,6 +351,7 @@
         if(![self loadWave])
         {
             NSLog(@"You win!");
+            [popupController setHidden];
             [[CCDirector sharedDirector] replaceScene:[CCTransitionSplitCols
                                                        transitionWithDuration:1
                                                        scene:[HelloWorldLayer scene]]];
@@ -366,6 +382,7 @@
 -(void)doGameOver {
     if (!gameEnded) {
         gameEnded = YES;
+        [popupController setHidden];
         [[CCDirector sharedDirector]
          replaceScene:[CCTransitionRotoZoom transitionWithDuration:1
                                                              scene:[HelloWorldLayer scene]]];

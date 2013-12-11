@@ -18,20 +18,30 @@
 
 #if USE_CUSTOM_DRAWING
 
+- (id) initWithTowers:(NSArray*)towerlist
+{
+    if (self = [super init])
+    {
+        self.towers = towerlist;
+    }
+    return self;
+}
+
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     //load name of towers
-    NSString* levelName = @"level1";
-    NSString* levelPath = [[NSBundle mainBundle] pathForResource:levelName ofType:@"plist"];
-    NSDictionary* levelInfo = [NSDictionary dictionaryWithContentsOfFile:levelPath];
-    NSString* towerListPath = [[NSBundle mainBundle] pathForResource:[levelInfo valueForKey:@"towers"] ofType:@"plist"];
-    NSDictionary* towersList = [NSDictionary dictionaryWithContentsOfFile:towerListPath];
-    self.towers = [towersList allKeys];
-    NSLog(@"array: %@", towers);
+    //NSString* levelName = @"level1";
+    //NSString* levelPath = [[NSBundle mainBundle] pathForResource:levelName ofType:@"plist"];
+    //NSDictionary* levelInfo = [NSDictionary dictionaryWithContentsOfFile:levelPath];
+    //NSString* towerListPath = [[NSBundle mainBundle] pathForResource:[levelInfo valueForKey:@"towers"] ofType:@"plist"];
+    //NSDictionary* towersList = [NSDictionary dictionaryWithContentsOfFile:towerListPath];
+    //self.towers = [towersList allKeys];
+    //NSLog(@"array: %@", towers);
     
     //load tableView
     NSLog(@"view did load logging");
+    towerIndex = -1;
     self.tableView = [[UITableView alloc] initWithFrame: CGRectMake(10, 45, 320, 500)];
     self.tableView.hidden = YES;
     self.tableView.backgroundColor = [UIColor clearColor];
@@ -42,17 +52,27 @@
     [self.view addSubview:self.tableView];
 }
 
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    NSArray * cells = [self.tableView visibleCells];
+    NSLog(@"Length is : %d", [cells count]);
+    int i = 0;
+    while (i < [self.towers count])
+    {
+        NSString* imagePath = [NSString stringWithFormat:@"%@.png", [self.towers objectAtIndex:i]];
+        UITableViewCell* cell = [cells objectAtIndex:i];
+        cell.imageView.image = [UIImage imageNamed:imagePath];
+        i++;
+    }
+}
+
 //
 // viewDidLoad
 //
-// Configures the table after it is loaded.
+// Configures the table after it is loaded. NO IT DOESNT
 //
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    hidden = YES;
-    towerIndex = -1;
-}
+
 
 #endif
 
@@ -118,7 +138,7 @@
 
 - (BOOL) isHidden
 {
-    return hidden;
+    return self.tableView.hidden;
 }
 
 - (void) setTowerIndex: (NSInteger) index{
@@ -132,7 +152,7 @@
 
 - (void) toggleHidden
 {
-    if (hidden == YES)
+    if (self.tableView.hidden == YES)
     {
         self.tableView.hidden = NO;
     }
@@ -145,7 +165,7 @@
 - (void) setHidden
 {
     self.tableView.hidden = YES;
-    hidden = YES;
+    //hidden = YES;
 }
 @end
 
