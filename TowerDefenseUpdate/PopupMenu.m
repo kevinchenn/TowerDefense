@@ -52,20 +52,20 @@
     [self.view addSubview:self.tableView];
 }
 
-- (void) viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    NSArray * cells = [self.tableView visibleCells];
-    NSLog(@"Length is : %d", [cells count]);
-    int i = 0;
-    while (i < [self.towers count])
-    {
-        NSString* imagePath = [NSString stringWithFormat:@"%@.png", [self.towers objectAtIndex:i]];
-        UITableViewCell* cell = [cells objectAtIndex:i];
-        cell.imageView.image = [UIImage imageNamed:imagePath];
-        i++;
-    }
-}
+//- (void) viewDidAppear:(BOOL)animated
+//{
+//    [super viewDidAppear:animated];
+//    NSArray * cells = [self.tableView visibleCells];
+//    NSLog(@"Length is : %d", [cells count]);
+//    int i = 0;
+//    while (i < [self.towers count])
+//    {
+//        NSString* imagePath = [NSString stringWithFormat:@"%@.png", [self.towers objectAtIndex:i]];
+//        UITableViewCell* cell = [cells objectAtIndex:i];
+//        cell.imageView.image = [UIImage imageNamed:imagePath];
+//        i++;
+//    }
+//}
 
 //
 // viewDidLoad
@@ -110,6 +110,8 @@
     }
     
     cell.textLabel.text = [self.towers objectAtIndex:indexPath.row];
+    NSString* imagePath = [NSString stringWithFormat:@"%@.png", [self.towers objectAtIndex:indexPath.row]];
+    cell.imageView.image = [UIImage imageNamed:imagePath];
     return cell;
 }
 
