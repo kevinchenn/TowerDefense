@@ -10,6 +10,9 @@
 		0A29385E1853C93B00600EC4 /* PopupMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A29385D1853C93B00600EC4 /* PopupMenu.m */; };
 		0A2938611853CA8D00600EC4 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A29385F1853CA8D00600EC4 /* Default.png */; };
 		0A2938621853CA8D00600EC4 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A2938601853CA8D00600EC4 /* Default@2x.png */; };
+		0A43E5DB1859620300740A7C /* StartMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A43E5DA1859620300740A7C /* StartMenu.m */; };
+		0A43E5DE1859649C00740A7C /* startButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A43E5DC1859649C00740A7C /* startButton.png */; };
+		0A43E5DF1859649C00740A7C /* startButtonSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A43E5DD1859649C00740A7C /* startButtonSelected.png */; };
 		0A4517C3184BBECE0036477B /* Tower.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A4517C2184BBECE0036477B /* Tower.m */; };
 		0A4517C6184BC1160036477B /* Waypoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A4517C5184BC1160036477B /* Waypoint.m */; };
 		0A4517C9184BC26E0036477B /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A4517C8184BC26E0036477B /* Enemy.m */; };
@@ -214,6 +217,10 @@
 		0A29385D1853C93B00600EC4 /* PopupMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupMenu.m; sourceTree = "<group>"; };
 		0A29385F1853CA8D00600EC4 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		0A2938601853CA8D00600EC4 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		0A43E5D91859620300740A7C /* StartMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StartMenu.h; path = ../StartMenu.h; sourceTree = "<group>"; };
+		0A43E5DA1859620300740A7C /* StartMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StartMenu.m; path = ../StartMenu.m; sourceTree = "<group>"; };
+		0A43E5DC1859649C00740A7C /* startButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startButton.png; sourceTree = "<group>"; };
+		0A43E5DD1859649C00740A7C /* startButtonSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = startButtonSelected.png; sourceTree = "<group>"; };
 		0A4517C1184BBECE0036477B /* Tower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tower.h; sourceTree = "<group>"; };
 		0A4517C2184BBECE0036477B /* Tower.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tower.m; sourceTree = "<group>"; };
 		0A4517C4184BC1160036477B /* Waypoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Waypoint.h; sourceTree = "<group>"; };
@@ -698,6 +705,8 @@
 		D344645A1712363800255FA3 /* TowerDefenseUpdate */ = {
 			isa = PBXGroup;
 			children = (
+				0A43E5D91859620300740A7C /* StartMenu.h */,
+				0A43E5DA1859620300740A7C /* StartMenu.m */,
 				0A29385C1853C93B00600EC4 /* PopupMenu.h */,
 				0A29385D1853C93B00600EC4 /* PopupMenu.m */,
 				D34465E81712363A00255FA3 /* AppDelegate.h */,
@@ -722,6 +731,8 @@
 		D344645B1712363800255FA3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0A43E5DC1859649C00740A7C /* startButton.png */,
+				0A43E5DD1859649C00740A7C /* startButtonSelected.png */,
 				CB844E6C184FF07A00229721 /* art */,
 				D3FD2724171E3D19007DD3F6 /* bg-hd.png */,
 				D34465F61712365100255FA3 /* bg.png */,
@@ -1229,6 +1240,7 @@
 				CB844EA618516C0900229721 /* splashTower.png in Resources */,
 				CB844EAC18516DF400229721 /* basicBullet.png in Resources */,
 				CB844EAD18516DF400229721 /* rangeBullet.png in Resources */,
+				0A43E5DE1859649C00740A7C /* startButton.png in Resources */,
 				CB844EAE18516DF400229721 /* rapidBullet.png in Resources */,
 				CB844EAF18516DF400229721 /* slowBullet.png in Resources */,
 				CB844EB018516DF400229721 /* splashBullet.png in Resources */,
@@ -1243,6 +1255,7 @@
 				CB844ECF1851C34900229721 /* slowbasicAnt.png in Resources */,
 				CB844ED01851C34900229721 /* slowbasicAnt2.png in Resources */,
 				CB844ED31851C7C800229721 /* slowfireAnt.png in Resources */,
+				0A43E5DF1859649C00740A7C /* startButtonSelected.png in Resources */,
 				CB844ED41851C7C800229721 /* slowfireAnt2.png in Resources */,
 				CB844ED71852E83300229721 /* slowtankAnt.png in Resources */,
 				CB844ED81852E83300229721 /* slowtankAnt2.png in Resources */,
@@ -1324,6 +1337,7 @@
 				D344653A1712363900255FA3 /* CCTMXLayer.m in Sources */,
 				D344653D1712363900255FA3 /* CCTMXObjectGroup.m in Sources */,
 				D34465401712363900255FA3 /* CCTMXTiledMap.m in Sources */,
+				0A43E5DB1859620300740A7C /* StartMenu.m in Sources */,
 				D34465431712363900255FA3 /* CCTMXXMLParser.m in Sources */,
 				D34465461712363900255FA3 /* CCTransition.m in Sources */,
 				D34465491712363900255FA3 /* CCTransitionPageTurn.m in Sources */,
