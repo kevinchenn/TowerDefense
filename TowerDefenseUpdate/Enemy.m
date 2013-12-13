@@ -3,7 +3,7 @@
 //  TowerDefenseUpdate
 //
 //  Created by Vincent Oe on 12/1/13.
-//  Copyright (c) 2013 Brian Broom. All rights reserved.
+//  Copyright (c) 2013 Kevin Chen and Vincent Oe. All rights reserved.
 //
 
 #import "Enemy.h"

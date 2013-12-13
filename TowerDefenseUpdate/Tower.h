@@ -3,7 +3,7 @@
 //  TowerDefenseUpdate
 //
 //  Created by Vincent Oe on 11/30/13.
-//  Copyright (c) 2013 Brian Broom. All rights reserved.
+//  Copyright (c) 2013 Kevin Chen and Vincent Oe. All rights reserved.
 //
 
 #import "CCNode.h"

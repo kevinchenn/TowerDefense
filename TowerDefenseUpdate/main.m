@@ -2,8 +2,8 @@
 //  main.m
 //  TowerDefenseUpdate
 //
-//  Created by Brian Broom on 4/7/13.
-//  Copyright Brian Broom 2013. All rights reserved.
+//  Created by Kevin Chen and Vincent Oe on 12/12/13.
+//  Copyright Kevin Chen and Vincent Oe 2013. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

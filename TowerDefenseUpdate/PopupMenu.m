@@ -3,7 +3,7 @@
 //  TowerDefenseUpdate
 //
 //  Created by Kevin Chen on 12/7/13.
-//  Copyright (c) 2013 Brian Broom. All rights reserved.
+//  Copyright (c) 2013 Kevin Chen and Vincent Oe. All rights reserved.
 //
 
 #import "PopupMenu.h"
