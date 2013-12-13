@@ -31,14 +31,12 @@
         CCLabelTTF *title = [CCLabelTTF labelWithString:@"Bees vs. Ants" fontName:@"Courier" fontSize:60];
         title.position =  ccp(240, 240);
         [self addChild: title];
-<<<<<<< HEAD
 
         CCMenuItemImage *startLevel1 = [CCMenuItemImage itemWithNormalImage:@"level1Button.png" selectedImage:@"level1ButtonSelected.png" block:^(id sender) { [self startGame:sender withLevel:@"level1"]; }];
         
         CCMenuItemImage *startLevel2 = [CCMenuItemImage itemWithNormalImage:@"level2Button.png" selectedImage:@"level2ButtonSelected.png" block:^(id sender) { [self startGame:sender withLevel:@"level2"]; }];
         
         CCMenuItemImage *startLevel3 = [CCMenuItemImage itemWithNormalImage:@"level3Button.png" selectedImage:@"level3ButtonSelected.png" block:^(id sender) { [self startGame:sender withLevel:@"level3"]; }];
-=======
         
         
         //CCMenuItemImage *startButton = [CCMenuItemImage itemWithNormalImage:@"startButton.png" selectedImage:@"startButtonSelected.png" target:self selector:@selector(startGame:)];
@@ -49,7 +47,7 @@
         //levelOne.position = ccp(130, 75);
         //CCMenu* menu = [CCMenu menuWithItems:startButton, levelOne, nil];
         //menu.position = CGPointZero;
->>>>>>> a2c46040b1a6a409964fb768546f271a841e374f
+        
         
         //startLevel1.position = ccp(10,150);
         //startLevel2.position = ccp(20,150);
