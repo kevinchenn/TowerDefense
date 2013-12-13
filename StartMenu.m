@@ -33,17 +33,10 @@
         [self addChild: title];
         
         CCMenuItemImage *startButton = [CCMenuItemImage itemWithNormalImage:@"startButton.png" selectedImage:@"startButtonSelected.png" target:self selector:@selector(startGame:)];
-        
-//        CCMenuItemImage *startButton = [CCMenuItemImage
-//                                        itemFromNormalImage:@"startButton.png"
-//                                        selectedImage:@"startButtonSelected.png"
-//                                        target:self
-//                                        selector:@selector(startGame:)];
-        
-        startButton.position = ccp(200,200);
+
+        startButton.position = ccp(230,150);
         CCMenu* menu = [CCMenu menuWithItems:startButton, nil];
         menu.position = CGPointZero;
-        //menu.touchEnabled = YES;
         
         [self addChild: menu];
     }
