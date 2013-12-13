@@ -5,7 +5,7 @@
 	<key>initialGold</key>
 	<string>1000</string>
 	<key>initialHealth</key>
-	<string>5</string>
+	<string>1</string>
 	<key>towers</key>
 	<string>towers</string>
 	<key>towerPositions</key>

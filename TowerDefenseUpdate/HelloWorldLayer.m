@@ -20,6 +20,8 @@
 #import "Enemy.h"
 #import "PopupMenu.h"
 #import "AppDelegate.h"
+#import "GameOverMenu.h"
+#import "VictoryMenu.h"
 
 #import "SimpleAudioEngine.h"
 
@@ -292,15 +294,6 @@
     NSString* towerListPath = [[NSBundle mainBundle] pathForResource:[levelInfo valueForKey:@"towers"] ofType:@"plist"];
     NSDictionary* towersList = [NSDictionary dictionaryWithContentsOfFile:towerListPath];
     
-    
-    //NSString* tName = @"basicTower";
-    //NSString* tName = @"rapidTower";
-    //NSString* tName = @"slowTower";
-    //NSString* tName = @"splashTower";
-    //NSString* tName = @"rangeTower";
-    
-    //NSString* tName = [popupController getSelectedTower];
-    
     NSDictionary* towerData =[towersList valueForKey:tName];
     int towerCost = [[towerData objectForKey:@"towerCost"]integerValue];
     
@@ -370,7 +363,6 @@
 
 -(BOOL)loadWave
 {
-    //NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"waves" ofType:@"plist"];
     NSString* plistPath = [[NSBundle mainBundle] pathForResource:[levelInfo valueForKey:@"waves"] ofType:@"plist"];
     NSArray* waveData = [NSArray arrayWithContentsOfFile:plistPath];
     
@@ -406,11 +398,10 @@
     {
         if(![self loadWave])
         {
-            NSLog(@"You win!");
             [popupController setHidden];
             [[CCDirector sharedDirector] replaceScene:[CCTransitionSplitCols
                                                        transitionWithDuration:1
-                                                       scene:[HelloWorldLayer scene]]];
+                                                       scene:[VictoryMenu scene]]];
         }
     }
 }
@@ -440,8 +431,8 @@
         gameEnded = YES;
         [popupController setHidden];
         [[CCDirector sharedDirector]
-         replaceScene:[CCTransitionRotoZoom transitionWithDuration:1
-                                                             scene:[HelloWorldLayer scene]]];
+         replaceScene:[CCTransitionRotoZoom transitionWithDuration:2
+                                                             scene:[GameOverMenu scene]]];
     }
 }
 

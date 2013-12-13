@@ -24,6 +24,8 @@
 		CB6499BD185AB5F30009842C /* level2ButtonSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = CB6499B7185AB5F30009842C /* level2ButtonSelected.png */; };
 		CB6499BE185AB5F30009842C /* level3Button.png in Resources */ = {isa = PBXBuildFile; fileRef = CB6499B8185AB5F30009842C /* level3Button.png */; };
 		CB6499BF185AB5F30009842C /* level3ButtonSelected.png in Resources */ = {isa = PBXBuildFile; fileRef = CB6499B9185AB5F30009842C /* level3ButtonSelected.png */; };
+		CB6499C5185AB9170009842C /* GameOverMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CB6499C4185AB9170009842C /* GameOverMenu.m */; };
+		CB6499C8185ABDCC0009842C /* VictoryMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CB6499C7185ABDCC0009842C /* VictoryMenu.m */; };
 		CB844E43184D8E0600229721 /* spaceInvader.png in Resources */ = {isa = PBXBuildFile; fileRef = CB844E42184D8E0600229721 /* spaceInvader.png */; };
 		CB844E45184D8E4B00229721 /* waves.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB844E44184D8E4B00229721 /* waves.plist */; };
 		CB844E49184ED93B00229721 /* towers.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB844E48184ED93A00229721 /* towers.plist */; };
@@ -240,6 +242,10 @@
 		CB6499B7185AB5F30009842C /* level2ButtonSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = level2ButtonSelected.png; sourceTree = "<group>"; };
 		CB6499B8185AB5F30009842C /* level3Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = level3Button.png; sourceTree = "<group>"; };
 		CB6499B9185AB5F30009842C /* level3ButtonSelected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = level3ButtonSelected.png; sourceTree = "<group>"; };
+		CB6499C3185AB9170009842C /* GameOverMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOverMenu.h; sourceTree = "<group>"; };
+		CB6499C4185AB9170009842C /* GameOverMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOverMenu.m; sourceTree = "<group>"; };
+		CB6499C6185ABDCC0009842C /* VictoryMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VictoryMenu.h; sourceTree = "<group>"; };
+		CB6499C7185ABDCC0009842C /* VictoryMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VictoryMenu.m; sourceTree = "<group>"; };
 		CB844E42184D8E0600229721 /* spaceInvader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spaceInvader.png; sourceTree = "<group>"; };
 		CB844E44184D8E4B00229721 /* waves.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = waves.plist; sourceTree = "<group>"; };
 		CB844E48184ED93A00229721 /* towers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = towers.plist; sourceTree = "<group>"; };
@@ -723,6 +729,10 @@
 			children = (
 				0A43E5D91859620300740A7C /* StartMenu.h */,
 				0A43E5DA1859620300740A7C /* StartMenu.m */,
+				CB6499C3185AB9170009842C /* GameOverMenu.h */,
+				CB6499C4185AB9170009842C /* GameOverMenu.m */,
+				CB6499C6185ABDCC0009842C /* VictoryMenu.h */,
+				CB6499C7185ABDCC0009842C /* VictoryMenu.m */,
 				0A29385C1853C93B00600EC4 /* PopupMenu.h */,
 				0A29385D1853C93B00600EC4 /* PopupMenu.m */,
 				D34465E81712363A00255FA3 /* AppDelegate.h */,
@@ -1327,6 +1337,7 @@
 				D34464D51712363900255FA3 /* CCLayer.m in Sources */,
 				D34464D91712363900255FA3 /* CCMenu.m in Sources */,
 				D34464DC1712363900255FA3 /* CCMenuItem.m in Sources */,
+				CB6499C5185AB9170009842C /* GameOverMenu.m in Sources */,
 				D34464DF1712363900255FA3 /* CCMotionStreak.m in Sources */,
 				D34464E21712363900255FA3 /* CCNode+Debug.m in Sources */,
 				D34464E51712363900255FA3 /* CCNode.m in Sources */,
@@ -1354,6 +1365,7 @@
 				D34465311712363900255FA3 /* CCTextureCache.m in Sources */,
 				D34465341712363900255FA3 /* CCTexturePVR.m in Sources */,
 				D34465371712363900255FA3 /* CCTileMapAtlas.m in Sources */,
+				CB6499C8185ABDCC0009842C /* VictoryMenu.m in Sources */,
 				D344653A1712363900255FA3 /* CCTMXLayer.m in Sources */,
 				D344653D1712363900255FA3 /* CCTMXObjectGroup.m in Sources */,
 				D34465401712363900255FA3 /* CCTMXTiledMap.m in Sources */,
