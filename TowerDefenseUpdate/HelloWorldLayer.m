@@ -46,6 +46,22 @@
 	return scene;
 }
 
++(CCScene *) sceneWithLevel:(NSString *)level
+{
+	// 'scene' is an autorelease object.
+	CCScene *scene = [CCScene node];
+	
+	// 'layer' is an autorelease object.
+	HelloWorldLayer *layer = [HelloWorldLayer nodeWithLevel:level];
+	
+	// add layer as a child to scene
+	[scene addChild: layer];
+	
+	// return the scene
+	return scene;
+}
+
+
 // on "init" you need to initialize your instance
 -(id) init
 {
@@ -57,6 +73,79 @@
         CGSize winSize = [CCDirector sharedDirector].winSize;
         
         NSString* levelName = @"level1";
+        NSString* levelPath = [[NSBundle mainBundle] pathForResource:levelName ofType:@"plist"];
+        levelInfo = [NSDictionary dictionaryWithContentsOfFile:levelPath];
+        
+        // 2 - set background
+        CCSprite* background = [CCSprite spriteWithFile:@"bg1.png"];
+        //CCSprite* background = [CCSprite spriteWithFile:[levelInfo valueForKey:@"background"]];
+        [self addChild:background];
+        [background setPosition:ccp(winSize.width/2, winSize.height/2)];
+        
+        // 3 - load tower positions
+        [self loadTowerPositions];
+        
+        // 4 - add waypoints
+        [self addWaypoints];
+        
+        // 5 - add enemies
+        enemies = [[NSMutableArray alloc] init];
+        [self loadWave];
+        
+        // 6 - create wave label
+        ui_wave_lbl = [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"WAVE: %d", wave]
+                                             fntFile:@"font_red_14.fnt"];
+        [self addChild:ui_wave_lbl z:100];
+        [ui_wave_lbl setPosition:ccp(400, winSize.height-12)];
+        [ui_wave_lbl setAnchorPoint:ccp(0,0.5)];
+        
+        // 7 - player lives
+        //playerHP = 5;
+        playerHP = [[levelInfo valueForKey:@"initialHealth"]integerValue];
+        ui_hp_lbl = [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"HP: %d",playerHP]
+                                           fntFile:@"font_red_14.fnt"];
+        [self addChild:ui_hp_lbl z:10];
+        [ui_hp_lbl setPosition:ccp(35,winSize.height-12)];
+        
+        // 8 - gold
+        //playerGold = 1000;
+        playerGold = [[levelInfo valueForKey:@"initialGold"]integerValue];
+        ui_gold_lbl = [CCLabelBMFont labelWithString:[NSString stringWithFormat:@"GOLD: %d",playerGold]
+                                             fntFile:@"font_red_14.fnt"];
+        [self addChild:ui_gold_lbl z:10];
+        [ui_gold_lbl setPosition:ccp(135,winSize.height-12)];
+        [ui_gold_lbl setAnchorPoint:ccp(0,0.5)];
+        
+        // 9 - sound
+        //[[SimpleAudioEngine sharedEngine] playBackgroundMusic:[levelInfo valueForKey:@"music"] loop:YES];
+        
+        // 10 - popup menu
+        NSString* towerListPath = [[NSBundle mainBundle] pathForResource:[levelInfo valueForKey:@"towers"] ofType:@"plist"];
+        NSDictionary* towersDictionary = [NSDictionary dictionaryWithContentsOfFile:towerListPath];
+        NSArray* towerList = [towersDictionary allKeys];
+        popupController = [[PopupMenu alloc] initWithTowers:towerList];
+        UIView* cocosView = [[CCDirector sharedDirector] openGLView];
+        [cocosView addSubview: popupController.view];
+	}
+	return self;
+}
+
++(id)nodeWithLevel:(NSString*)level
+{
+    return [[self alloc] initWithLevel:level];
+}
+
+// on "init" you need to initialize your instance
+-(id) initWithLevel:(NSString *)level
+{
+	// always call "super" init
+	// Apple recommends to re-assign "self" with the "super's" return value
+	if( (self=[super init]) ) {
+		// 1 - initialize
+        self.touchEnabled = YES;
+        CGSize winSize = [CCDirector sharedDirector].winSize;
+        
+        NSString* levelName = level;
         NSString* levelPath = [[NSBundle mainBundle] pathForResource:levelName ofType:@"plist"];
         levelInfo = [NSDictionary dictionaryWithContentsOfFile:levelPath];
         

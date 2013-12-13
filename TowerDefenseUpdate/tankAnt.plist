@@ -8,6 +8,8 @@
 	<string>.7</string>
 	<key>attackPower</key>
 	<string>1</string>
+	<key>reward</key>
+	<string>200</string>
 	<key>spriteFile</key>
 	<array>
 		<string>tankAnt.png</string>

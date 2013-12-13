@@ -14,5 +14,5 @@
 }
 
 +(id) scene;
--(void) startGame: (id) sender;
+-(void) startGame: (id) sender withLevel: (NSString *) level;
 @end

@@ -39,6 +39,9 @@
 
 // returns a CCScene that contains the HelloWorldLayer as the only child
 +(CCScene *) scene;
++(CCScene *) sceneWithLevel:(NSString*)level;
++(id) nodeWithLevel:(NSString*)level;
+-(id) initWithLevel:(NSString*)level;
 -(BOOL)circle:(CGPoint)circlePoint withRadius:(float)radius
     collisionWithCircle:(CGPoint)circlePointTwo collisionCircleRadius:(float)radiusTwo;
 //void ccFillPoly(CGPoint *poli, int points, BOOL closePolygon);
