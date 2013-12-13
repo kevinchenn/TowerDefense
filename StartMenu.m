@@ -32,10 +32,14 @@
         title.position =  ccp(240, 240);
         [self addChild: title];
         
+        
         CCMenuItemImage *startButton = [CCMenuItemImage itemWithNormalImage:@"startButton.png" selectedImage:@"startButtonSelected.png" target:self selector:@selector(startGame:)];
+        CCMenuItemFont *levelOne = [CCMenuItemFont itemFromString:@"Level 1" target:self selector:@selector(startGame:)];
 
+        [levelOne setFontName:@"Courier"];
         startButton.position = ccp(230,150);
-        CCMenu* menu = [CCMenu menuWithItems:startButton, nil];
+        levelOne.position = ccp(130, 75);
+        CCMenu* menu = [CCMenu menuWithItems:startButton, levelOne, nil];
         menu.position = CGPointZero;
         
         [self addChild: menu];
