@@ -8,7 +8,7 @@
 	<string>2</string>
 	<key>attackPower</key>
 	<string>1</string>
-	<key>reward</key>
+	<key>goldReward</key>
 	<string>200</string>
 	<key>spriteFile</key>
 	<array>

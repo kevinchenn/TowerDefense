@@ -29,6 +29,7 @@
         currentHp = maxHp;
         walkingSpeed = 0.5;
         currentSpeed = walkingSpeed;
+        goldReward = 100;
         attackedBy = [[NSMutableArray alloc] initWithCapacity:5];
         active = NO;
         slowTimer = Nil;
@@ -49,12 +50,12 @@
 	return self;
 }
 
-+(id)nodeWithTheGame:(HelloWorldLayer *)_game andMaxHP:(int)hp andWalkingSpeed:(float)speed andAttackPower:(int)power andSpriteFile:(NSMutableArray*)sprites
++(id)nodeWithTheGame:(HelloWorldLayer *)_game andMaxHP:(int)hp andWalkingSpeed:(float)speed andAttackPower:(int)power andGoldReward:(int)rewardAmount andSpriteFile:(NSMutableArray*)sprites
 {
-    return [[self alloc] initWithTheGame:_game andMaxHP:hp andWalkingSpeed:speed andAttackPower:power andSpriteFile:sprites];
+    return [[self alloc] initWithTheGame:_game andMaxHP:hp andWalkingSpeed:speed andAttackPower:power andGoldReward:rewardAmount andSpriteFile:sprites];
 }
 
--(id)initWithTheGame:(HelloWorldLayer *)_game andMaxHP:(int)hp andWalkingSpeed:(float)speed andAttackPower:(int)power andSpriteFile:(NSMutableArray*)sprites
+-(id)initWithTheGame:(HelloWorldLayer *)_game andMaxHP:(int)hp andWalkingSpeed:(float)speed andAttackPower:(int)power andGoldReward:(int)rewardAmount andSpriteFile:(NSMutableArray*)sprites
 {
     if ((self=[super init])) {
 		theGame = _game;
@@ -63,6 +64,7 @@
         currentSpeed = walkingSpeed;
         attackPower = power;
         currentHp = maxHp;
+        goldReward = rewardAmount;
         attackedBy = [[NSMutableArray alloc] initWithCapacity:5];
         active = NO;
         slowTimer = Nil;
@@ -121,6 +123,8 @@
     myPosition = ccp(myPosition.x+normalized.x * movementSpeed,
                      myPosition.y+normalized.y * movementSpeed);
     
+    NSLog(@"x: %f, y: %f", mySprite.position.x, mySprite.position.y);
+    
     [mySprite setPosition:myPosition];
 }
 
@@ -129,15 +133,15 @@
     if (animationIndex == ([spriteList count] - 1))
     {
         animationIndex = 0;
-        [self removeChild:mySprite];
-        mySprite = mySprite = [CCSprite spriteWithFile:[spriteList objectAtIndex:animationIndex]];
-        [self addChild:mySprite];
     } else {
         animationIndex++;
-        [self removeChild:mySprite];
-        mySprite = mySprite = [CCSprite spriteWithFile:[spriteList objectAtIndex:animationIndex]];
-        [self addChild:mySprite];
     }
+    CCSprite* tempToAdd = [CCSprite spriteWithFile:[spriteList objectAtIndex:animationIndex]];
+    [tempToAdd setPosition:myPosition];
+    CCSprite* tempToDelete = mySprite;
+    [self addChild:tempToAdd];
+    [self removeChild:tempToDelete];
+    mySprite = tempToAdd;
     [animationTimer invalidate];
     animationTimer = [NSTimer scheduledTimerWithTimeInterval:(.4/currentSpeed)
                                                       target:self
@@ -148,6 +152,7 @@
 
 -(void)getRemoved
 {
+    NSLog(@"Enemy: getRemoved");
     for(Tower* attacker in attackedBy)
     {
         [attacker targetKilled];
@@ -161,21 +166,25 @@
 // Add the following methods
 -(void)getAttacked:(Tower *)attacker
 {
+    NSLog(@"Enemy: getAttacked");
     [attackedBy addObject:attacker];
 }
 
 -(void)gotLostSight:(Tower *)attacker
 {
+    NSLog(@"Enemy: getLostSight");
+    //NSLog(@"INSIDE ENEMY-GOTLOSTSIGHT x: %f, y: %f", mySprite.position.x, mySprite.position.y);
     [attackedBy removeObject:attacker];
 }
 
 -(void)getDamaged:(int)damage
 {
+    NSLog(@"Enemy: getDamaged");
     [[SimpleAudioEngine sharedEngine] playEffect:@"laser_shoot.wav"];
     currentHp -=damage;
     if(currentHp <=0)
     {
-        [theGame awardGold:200];
+        [theGame awardGold:goldReward];
         [self getRemoved];
     }
 }

@@ -363,6 +363,12 @@
 
 -(BOOL)loadWave
 {
+    for (Tower *t in towers)
+    {
+        [t clearEnemyQueue];
+    }
+    [enemies removeAllObjects];
+    
     NSString* plistPath = [[NSBundle mainBundle] pathForResource:[levelInfo valueForKey:@"waves"] ofType:@"plist"];
     NSArray* waveData = [NSArray arrayWithContentsOfFile:plistPath];
     
@@ -378,11 +384,24 @@
         NSString* enemyType = [[NSBundle mainBundle] pathForResource:[enemyData valueForKey:@"enemyType"] ofType:@"plist"];
         NSDictionary* e = [NSDictionary dictionaryWithContentsOfFile:enemyType];
         
+        int enemyLevel = [[e objectForKey:@"level"]integerValue];
+        if (enemyLevel == 0)
+        {
+            enemyLevel = 1;
+        }
+            
+        int maxHP = [[e objectForKey:@"maxHP"]integerValue] * enemyLevel;
+        float walkingSpeed = [[e objectForKey:@"walkingSpeed"]floatValue];
+        int attackPower = [[e objectForKey:@"attackPower"]integerValue];
+        int goldReward = [[e objectForKey:@"goldReward"]integerValue];
+        NSMutableArray* spriteFile = [e valueForKey:@"spriteFile"];
+        
         Enemy* enemy = [Enemy nodeWithTheGame:self
-                                     andMaxHP:[[e objectForKey:@"maxHP"]integerValue]
-                              andWalkingSpeed:[[e objectForKey:@"walkingSpeed"]floatValue]
-                               andAttackPower:[[e objectForKey:@"attackPower"]integerValue]
-                                andSpriteFile:[e valueForKey:@"spriteFile"]];
+                                     andMaxHP:maxHP
+                              andWalkingSpeed:walkingSpeed
+                               andAttackPower:attackPower
+                                andGoldReward:goldReward
+                                andSpriteFile:spriteFile];
         [enemies addObject:enemy];
         [enemy schedule:@selector(doActivate) interval:[[enemyData objectForKey:@"spawnTime"]floatValue]];
     }

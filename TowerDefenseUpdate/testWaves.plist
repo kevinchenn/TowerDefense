@@ -10,30 +10,32 @@
 			<string>1</string>
 			<key>enemyType</key>
 			<string>fireAnt</string>
+			<key>level</key>
+			<string>1</string>
 		</dict>
+	</array>
+	<array>
 		<dict>
 			<key>data</key>
 			<string></string>
 			<key>spawnTime</key>
 			<string>3</string>
 			<key>enemyType</key>
-			<string>basicAnt</string>
+			<string>fireAnt</string>
+			<key>level</key>
+			<string>2</string>
 		</dict>
+	</array>
+	<array>
 		<dict>
 			<key>data</key>
 			<string></string>
 			<key>spawnTime</key>
-			<integer>5</integer>
+			<string>5</string>
 			<key>enemyType</key>
-			<string>tankAnt</string>
-		</dict>
-		<dict>
-			<key>data</key>
-			<string></string>
-			<key>spawnTime</key>
-			<string>7</string>
-			<key>enemyType</key>
-			<string>queenAnt</string>
+			<string>fireAnt</string>
+			<key>level</key>
+			<string>2</string>
 		</dict>
 	</array>
 </array>

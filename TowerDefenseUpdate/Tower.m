@@ -74,6 +74,7 @@
 
 -(void)update:(ccTime)dt
 {
+    //NSLog(@"Update");
     if (chosenEnemy){
         
         //We make it turn to target the enemy chosen
@@ -81,9 +82,12 @@
                                               chosenEnemy.mySprite.position.y-mySprite.position.y));
         mySprite.rotation = CC_RADIANS_TO_DEGREES(atan2(normalized.y,-normalized.x))+90;
         
+        //NSLog(@"x: %f, y: %f", chosenEnemy.mySprite.position.x, chosenEnemy.mySprite.position.y);
+        
         if(![theGame circle:mySprite.position withRadius:attackRange
             collisionWithCircle:chosenEnemy.mySprite.position collisionCircleRadius:1])
         {
+            NSLog(@"@about to call lostSightOfEnemy");
             [self lostSightOfEnemy];
         }
     } else {
@@ -92,6 +96,7 @@
             if([theGame circle:mySprite.position withRadius:attackRange
                 collisionWithCircle:enemy.mySprite.position collisionCircleRadius:1])
             {
+                NSLog(@"about to choose enemy for attack");
                 [self chosenEnemyForAttack:enemy];
                 break;
             }
@@ -101,19 +106,23 @@
 
 -(void)attackEnemy
 {
+    NSLog(@"Tower: attackEnemy");
     [self schedule:@selector(shootWeapon) interval:fireRate];
 }
 
 -(void)chosenEnemyForAttack:(Enemy *)enemy
 {
+    NSLog(@"Tower: chosenEnemyForAttack");
     chosenEnemy = nil;
     chosenEnemy = enemy;
+    //NSLog(@"chosenEnemy == nil: %d", chosenEnemy == nil);
     [self attackEnemy];
     [enemy getAttacked:self];
 }
 
 -(void)shootWeapon
 {
+    NSLog(@"Tower: shootWeapon");
     CCSprite * bullet = [CCSprite spriteWithFile:bulletName];
     [theGame addChild:bullet];
     [bullet setPosition:mySprite.position];
@@ -130,6 +139,7 @@
 
 -(void)damageEnemy
 {
+    NSLog(@"Tower: damageEnemy");
     // look within the circle radius and also damage those enemies
     NSMutableArray* inRange = [[NSMutableArray alloc] init];
     if (splashRadius > 0) {
@@ -156,6 +166,7 @@
 
 -(void)targetKilled
 {
+    NSLog(@"Tower: targetKilled");
     if(chosenEnemy)
         chosenEnemy = nil;
     
@@ -164,9 +175,11 @@
 
 -(void)lostSightOfEnemy
 {
+    NSLog(@"Tower: lostSightOfEnemy");
+    //NSLog(@"Inside TOWER-LOSTSIGHTOFENEMY x: %f, y: %f", chosenEnemy.mySprite.position.x, chosenEnemy.mySprite.position.y);
     [chosenEnemy gotLostSight:self];
     if(chosenEnemy)
-        chosenEnemy =nil;
+        chosenEnemy = nil;
     
     [self unschedule:@selector(shootWeapon)];
 }
@@ -174,6 +187,11 @@
 -(int)towerCost
 {
     return towerCost;
+}
+
+-(void)clearEnemyQueue
+{
+    chosenEnemy = Nil;
 }
 
 -(void)draw

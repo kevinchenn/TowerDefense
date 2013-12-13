@@ -22,6 +22,7 @@
     NSMutableArray *attackedBy;
     NSString* spriteFile;
     float currentSpeed;
+    int goldReward;
     NSTimer* slowTimer;
     int animationIndex;
     NSTimer* animationTimer;
@@ -33,8 +34,8 @@
 
 +(id)nodeWithTheGame:(HelloWorldLayer*)_game;
 -(id)initWithTheGame:(HelloWorldLayer *)_game;
-+(id)nodeWithTheGame:(HelloWorldLayer *)_game andMaxHP:(int)hp andWalkingSpeed:(float)speed andAttackPower:(int)power andSpriteFile:(NSMutableArray*)sprites;
--(id)initWithTheGame:(HelloWorldLayer *)_game andMaxHP:(int)hp andWalkingSpeed:(float)speed andAttackPower:(int)power andSpriteFile:(NSMutableArray*)sprites;
++(id)nodeWithTheGame:(HelloWorldLayer *)_game andMaxHP:(int)hp andWalkingSpeed:(float)speed andAttackPower:(int)power andGoldReward:(int)rewardAmount andSpriteFile:(NSMutableArray*)sprites;
+-(id)initWithTheGame:(HelloWorldLayer *)_game andMaxHP:(int)hp andWalkingSpeed:(float)speed andAttackPower:(int)power andGoldReward:(int)rewardAmount andSpriteFile:(NSMutableArray*)sprites;
 -(void)doActivate;
 -(void)getRemoved;
 -(void)getAttacked:(Tower *)attacker;

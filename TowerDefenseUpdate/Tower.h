@@ -40,5 +40,6 @@
 
 -(void)targetKilled;
 -(int)towerCost;
+-(void)clearEnemyQueue;
 
 @end
