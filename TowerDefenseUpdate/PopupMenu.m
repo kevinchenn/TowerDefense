@@ -44,7 +44,7 @@
     towerIndex = -1;
     self.tableView = [[UITableView alloc] initWithFrame: CGRectMake(10, 45, 320, 500)];
     self.tableView.hidden = YES;
-    self.tableView.backgroundColor = [UIColor clearColor];
+    self.tableView.backgroundColor = [UIColor whiteColor];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;

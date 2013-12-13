@@ -4,75 +4,249 @@
 <array>
 	<dict>
 		<key>x</key>
-		<integer>80</integer>
+		<integer>40</integer>
 		<key>y</key>
-		<integer>266</integer>
+		<integer>271</integer>
 	</dict>
 	<dict>
 		<key>x</key>
-		<integer>170</integer>
+		<integer>84</integer>
 		<key>y</key>
-		<integer>266</integer>
+		<integer>271</integer>
+	</dict>
+	<dict>
+		<key>x</key>
+		<integer>128</integer>
+		<key>y</key>
+		<integer>271</integer>
+	</dict>
+	<dict>
+		<key>x</key>
+		<integer>172</integer>
+		<key>y</key>
+		<integer>271</integer>
+	</dict>
+	<dict>
+		<key>x</key>
+		<string>216</string>
+		<key>y</key>
+		<string>271</string>
+	</dict>
+	<dict>
+		<key>x</key>
+		<string>260</string>
+		<key>y</key>
+		<string>271</string>
+	</dict>
+	<dict>
+		<key>x</key>
+		<string>304</string>
+		<key>y</key>
+		<string>271</string>
+	</dict>
+	<dict>
+		<key>x</key>
+		<string>348</string>
+		<key>y</key>
+		<string>271</string>
+	</dict>
+	<dict>
+		<key>x</key>
+		<string>392</string>
+		<key>y</key>
+		<string>271</string>
+	</dict>
+	<dict>
+		<key>x</key>
+		<string>436</string>
+		<key>y</key>
+		<string>271</string>
+	</dict>
+	<dict>
+		<key>x</key>
+		<integer>40</integer>
+		<key>y</key>
+		<integer>227</integer>
+	</dict>
+	<dict>
+		<key>x</key>
+		<integer>216</integer>
+		<key>y</key>
+		<integer>207</integer>
 	</dict>
 	<dict>
 		<key>x</key>
 		<integer>260</integer>
 		<key>y</key>
-		<integer>266</integer>
+		<integer>207</integer>
 	</dict>
 	<dict>
 		<key>x</key>
-		<integer>350</integer>
+		<integer>304</integer>
 		<key>y</key>
-		<integer>266</integer>
-	</dict>
-    <dict>
-		<key>x</key>
-		<integer>125</integer>
-		<key>y</key>
-		<integer>174</integer>
+		<integer>207</integer>
 	</dict>
 	<dict>
 		<key>x</key>
-		<integer>215</integer>
+		<integer>348</integer>
 		<key>y</key>
-		<integer>174</integer>
+		<integer>207</integer>
 	</dict>
 	<dict>
 		<key>x</key>
-		<integer>305</integer>
+		<integer>392</integer>
 		<key>y</key>
-		<integer>174</integer>
+		<integer>207</integer>
 	</dict>
 	<dict>
 		<key>x</key>
-		<integer>395</integer>
+		<integer>436</integer>
 		<key>y</key>
-		<integer>174</integer>
-	</dict>
-    <dict>
-		<key>x</key>
-		<integer>80</integer>
-		<key>y</key>
-		<integer>80</integer>
+		<integer>207</integer>
 	</dict>
 	<dict>
 		<key>x</key>
-		<integer>170</integer>
+		<integer>40</integer>
 		<key>y</key>
-		<integer>80</integer>
+		<integer>180</integer>
 	</dict>
 	<dict>
 		<key>x</key>
-		<integer>260</integer>
+		<string>216</string>
 		<key>y</key>
-		<integer>80</integer>
+		<string>143</string>
 	</dict>
 	<dict>
 		<key>x</key>
-		<integer>350</integer>
+		<string>265</string>
 		<key>y</key>
-		<integer>80</integer>
+		<string>143</string>
+	</dict>
+	<dict>
+		<key>x</key>
+		<integer>40</integer>
+		<key>y</key>
+		<integer>95</integer>
+	</dict>
+	<dict>
+		<key>x</key>
+		<integer>84</integer>
+		<key>y</key>
+		<integer>95</integer>
+	</dict>
+	<dict>
+		<key>x</key>
+		<integer>128</integer>
+		<key>y</key>
+		<integer>95</integer>
+	</dict>
+	<dict>
+		<key>x</key>
+		<string>348</string>
+		<key>y</key>
+		<string>130</string>
+	</dict>
+	<dict>
+		<key>x</key>
+		<string>392</string>
+		<key>y</key>
+		<string>130</string>
+	</dict>
+	<dict>
+		<key>x</key>
+		<string>436</string>
+		<key>y</key>
+		<string>130</string>
+	</dict>
+	<dict>
+		<key>x</key>
+		<integer>172</integer>
+		<key>y</key>
+		<integer>65</integer>
+	</dict>
+	<dict>
+		<key>x</key>
+		<string>216</string>
+		<key>y</key>
+		<string>65</string>
+	</dict>
+	<dict>
+		<key>x</key>
+		<string>260</string>
+		<key>y</key>
+		<string>65</string>
+	</dict>
+	<dict>
+		<key>x</key>
+		<string>304</string>
+		<key>y</key>
+		<string>65</string>
+	</dict>
+	<dict>
+		<key>x</key>
+		<string>348</string>
+		<key>y</key>
+		<string>85</string>
+	</dict>
+	<dict>
+		<key>x</key>
+		<string>392</string>
+		<key>y</key>
+		<string>85</string>
+	</dict>
+	<dict>
+		<key>x</key>
+		<string>436</string>
+		<key>y</key>
+		<string>85</string>
+	</dict>
+	<dict>
+		<key>x</key>
+		<integer>40</integer>
+		<key>y</key>
+		<integer>50</integer>
+	</dict>
+	<dict>
+		<key>x</key>
+		<integer>84</integer>
+		<key>y</key>
+		<integer>50</integer>
+	</dict>
+	<dict>
+		<key>x</key>
+		<integer>128</integer>
+		<key>y</key>
+		<integer>50</integer>
+	</dict>
+	<dict>
+		<key>x</key>
+		<string>348</string>
+		<key>y</key>
+		<string>40</string>
+	</dict>
+	<dict>
+		<key>x</key>
+		<string>392</string>
+		<key>y</key>
+		<string>40</string>
+	</dict>
+	<dict>
+		<key>x</key>
+		<string>436</string>
+		<key>y</key>
+		<string>40</string>
+	</dict>
+	<dict>
+		<key>x</key>
+		<integer>128</integer>
+		<key>y</key>
+		<integer>195</integer>
+	</dict>
+	<dict>
+		<key>x</key>
+		<integer>128</integer>
+		<key>y</key>
+		<integer>150</integer>
 	</dict>
 </array>
 </plist>

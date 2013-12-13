@@ -40,12 +40,13 @@
 //                                        target:self
 //                                        selector:@selector(startGame:)];
         
-        startButton.position = ccp(0,200);
+        startButton.position = ccp(200,200);
         CCMenu* menu = [CCMenu menuWithItems:startButton, nil];
-        menu.isTouchEnabled = YES;
+        menu.position = CGPointZero;
+        //menu.touchEnabled = YES;
+        
         
         [self addChild: menu];
-        
     }
     return self;
 }
