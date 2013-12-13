@@ -45,7 +45,6 @@
         menu.position = CGPointZero;
         //menu.touchEnabled = YES;
         
-        
         [self addChild: menu];
     }
     return self;

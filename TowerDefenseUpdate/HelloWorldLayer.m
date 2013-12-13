@@ -133,9 +133,9 @@
     }
 }
 
--(BOOL)canBuyTower
+-(BOOL)canBuyTowerOfCost:(int) cost
 {
-    if (playerGold - 300 >=0)
+    if (playerGold - cost >=0)
         return YES;
     return NO;
 }
@@ -176,43 +176,7 @@
                 [popupController setHelloWorldLayer:self];
                 [popupController toggleHidden];
                
-                //NSString* tName = @"basicTower";
-                //NSString* tName = @"rapidTower";
-                //NSString* tName = @"slowTower";
-                //NSString* tName = @"splashTower";
-                //NSString* tName = @"rangeTower";
-                
-                //NSString* tName = [popupController getSelectedTower];
-                
-                //NSDictionary* towerData =[towersList valueForKey:tName];
-                                
-                //Tower* tower = [Tower nodeWithTheGame:self location:tb.position];
-//                Tower* tower = [Tower nodeWithTheGame:self location:tb.position
-//                                       andAttackRange:[[towerData objectForKey:@"attackRange"]integerValue]
-//                                       andDamagePower:[[towerData objectForKey:@"damagePower"]integerValue]
-//                                          andFireRate:[[towerData objectForKey:@"fireRate"]floatValue]
-//                                         andTowerCost:[[towerData objectForKey:@"towerCost"]integerValue]
-//                                      andSplashRadius:[[towerData objectForKey:@"splashRadius"]floatValue]
-//                                        andSlowEffect:[[towerData objectForKey:@"slowEffect"]floatValue]
-//                                        andSpriteFile:[towerData valueForKey:@"spriteFile"]
-//                                        andBulletFile:[towerData valueForKey:@"bulletFile"]
-//                                       andBulletSpeed:[[towerData objectForKey:@"bulletSpeed"]floatValue]];
-//                
-//                if ([self canBuyTower:tower])
-//                {
-//                    playerGold -= [tower towerCost]; //NEEDS TO BE ABSTRACTED AWAY
-//                
-//                [ui_gold_lbl setString:[NSString stringWithFormat:@"GOLD: %d",playerGold]];
-//                [[SimpleAudioEngine sharedEngine] playEffect:@"tower_place.wav"];
-//                
-//                [towers addObject:tower];
-//                tb.userData = (__bridge void*)(tower);
-//                } else {
-//                    // Message that you cant buy the tower?
-//                    UIAlertView *messageAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"You do not have enough gold" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-//                    // Display Alert Message
-//                    [messageAlert show];
-//                }
+
             } else if (CGRectContainsPoint([tb boundingBox], location) && tb.userData) {
                 //bring up menu to remove or update
                 notBase = NO;
@@ -249,21 +213,24 @@
     //NSString* tName = [popupController getSelectedTower];
     
     NSDictionary* towerData =[towersList valueForKey:tName];
-    CCSprite* tb = [towerBases objectAtIndex:index];
-    //Tower* tower = [Tower nodeWithTheGame:self location:tb.position];
-    Tower* tower = [Tower nodeWithTheGame:self location:tb.position
-                           andAttackRange:[[towerData objectForKey:@"attackRange"]integerValue]
-                           andDamagePower:[[towerData objectForKey:@"damagePower"]integerValue]
-                              andFireRate:[[towerData objectForKey:@"fireRate"]floatValue]
-                             andTowerCost:[[towerData objectForKey:@"towerCost"]integerValue]
-                          andSplashRadius:[[towerData objectForKey:@"splashRadius"]floatValue]
-                            andSlowEffect:[[towerData objectForKey:@"slowEffect"]floatValue]
-                            andSpriteFile:[towerData valueForKey:@"spriteFile"]
-                            andBulletFile:[towerData valueForKey:@"bulletFile"]
-                           andBulletSpeed:[[towerData objectForKey:@"bulletSpeed"]floatValue]];
+    int towerCost = [[towerData objectForKey:@"towerCost"]integerValue];
     
-    if ([self canBuyTower:tower])
+    if ([self canBuyTowerOfCost:towerCost])
     {
+        
+        CCSprite* tb = [towerBases objectAtIndex:index];
+        //Tower* tower = [Tower nodeWithTheGame:self location:tb.position];
+        Tower* tower = [Tower nodeWithTheGame:self location:tb.position
+                               andAttackRange:[[towerData objectForKey:@"attackRange"]integerValue]
+                               andDamagePower:[[towerData objectForKey:@"damagePower"]integerValue]
+                                  andFireRate:[[towerData objectForKey:@"fireRate"]floatValue]
+                                 andTowerCost:[[towerData objectForKey:@"towerCost"]integerValue]
+                              andSplashRadius:[[towerData objectForKey:@"splashRadius"]floatValue]
+                                andSlowEffect:[[towerData objectForKey:@"slowEffect"]floatValue]
+                                andSpriteFile:[towerData valueForKey:@"spriteFile"]
+                                andBulletFile:[towerData valueForKey:@"bulletFile"]
+                               andBulletSpeed:[[towerData objectForKey:@"bulletSpeed"]floatValue]];
+        
         playerGold -= [tower towerCost];
         
         [ui_gold_lbl setString:[NSString stringWithFormat:@"GOLD: %d",playerGold]];
