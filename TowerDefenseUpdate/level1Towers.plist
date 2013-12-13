@@ -5,13 +5,13 @@
 	<key>basicTower</key>
 	<dict>
 		<key>attackRange</key>
-		<string>75</string>
+		<string>100</string>
 		<key>damagePower</key>
 		<string>10</string>
 		<key>fireRate</key>
 		<string>1</string>
 		<key>towerCost</key>
-		<string>100</string>
+		<string>10</string>
 		<key>splashRadius</key>
 		<string>0</string>
 		<key>slowEffect</key>
@@ -26,13 +26,13 @@
 	<key>rapidTower</key>
 	<dict>
 		<key>attackRange</key>
-		<string>80</string>
+		<string>75</string>
 		<key>damagePower</key>
-		<string>3</string>
+		<string>5</string>
 		<key>fireRate</key>
 		<string>.3</string>
 		<key>towerCost</key>
-		<string>200</string>
+		<string>30</string>
 		<key>splashRadius</key>
 		<string>0</string>
 		<key>slowEffect</key>
@@ -47,13 +47,13 @@
 	<key>slowTower</key>
 	<dict>
 		<key>attackRange</key>
-		<string>80</string>
+		<string>75</string>
 		<key>damagePower</key>
 		<string>1</string>
 		<key>fireRate</key>
 		<string>1</string>
 		<key>towerCost</key>
-		<string>300</string>
+		<string>40</string>
 		<key>splashRadius</key>
 		<string>0</string>
 		<key>slowEffect</key>
@@ -68,13 +68,13 @@
 	<key>splashTower</key>
 	<dict>
 		<key>attackRange</key>
-		<string>100</string>
+		<string>120</string>
 		<key>damagePower</key>
 		<string>25</string>
 		<key>fireRate</key>
 		<string>1.5</string>
 		<key>towerCost</key>
-		<string>500</string>
+		<string>75</string>
 		<key>splashRadius</key>
 		<string>25</string>
 		<key>slowEffect</key>
@@ -95,7 +95,7 @@
 		<key>fireRate</key>
 		<string>2</string>
 		<key>towerCost</key>
-		<string>300</string>
+		<string>40</string>
 		<key>splashRadius</key>
 		<string>0</string>
 		<key>slowEffect</key>

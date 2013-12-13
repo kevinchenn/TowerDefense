@@ -3,19 +3,19 @@
 <plist version="1.0">
 <dict>
 	<key>initialGold</key>
-	<string>1000</string>
+	<string>25</string>
 	<key>initialHealth</key>
 	<string>5</string>
 	<key>towers</key>
-	<string>towers</string>
+	<string>level1Towers</string>
 	<key>towerPositions</key>
-	<string>towerPositions</string>
+	<string>level1TowerPositions</string>
 	<key>waypoints</key>
-	<string>waypoints</string>
+	<string>level1Waypoints</string>
 	<key>waves</key>
-	<string>testWaves</string>
+	<string>level1Waves</string>
 	<key>background</key>
-	<string>bg1.png</string>
+	<string>level1Background.png</string>
 	<key>music</key>
 	<string>POL-turtle-blues-short.wav</string>
 </dict>

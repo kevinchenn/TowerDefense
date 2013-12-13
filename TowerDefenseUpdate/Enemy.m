@@ -123,7 +123,7 @@
     myPosition = ccp(myPosition.x+normalized.x * movementSpeed,
                      myPosition.y+normalized.y * movementSpeed);
     
-    NSLog(@"x: %f, y: %f", mySprite.position.x, mySprite.position.y);
+    //NSLog(@"x: %f, y: %f", mySprite.position.x, mySprite.position.y);
     
     [mySprite setPosition:myPosition];
 }
@@ -152,7 +152,7 @@
 
 -(void)getRemoved
 {
-    NSLog(@"Enemy: getRemoved");
+    //NSLog(@"Enemy: getRemoved");
     for(Tower* attacker in attackedBy)
     {
         [attacker targetKilled];
@@ -166,20 +166,20 @@
 // Add the following methods
 -(void)getAttacked:(Tower *)attacker
 {
-    NSLog(@"Enemy: getAttacked");
+    //NSLog(@"Enemy: getAttacked");
     [attackedBy addObject:attacker];
 }
 
 -(void)gotLostSight:(Tower *)attacker
 {
-    NSLog(@"Enemy: getLostSight");
+    //NSLog(@"Enemy: getLostSight");
     //NSLog(@"INSIDE ENEMY-GOTLOSTSIGHT x: %f, y: %f", mySprite.position.x, mySprite.position.y);
     [attackedBy removeObject:attacker];
 }
 
 -(void)getDamaged:(int)damage
 {
-    NSLog(@"Enemy: getDamaged");
+    //NSLog(@"Enemy: getDamaged");
     [[SimpleAudioEngine sharedEngine] playEffect:@"laser_shoot.wav"];
     currentHp -=damage;
     if(currentHp <=0)

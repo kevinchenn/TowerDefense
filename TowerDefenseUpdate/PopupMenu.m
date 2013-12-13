@@ -18,11 +18,12 @@
 
 #if USE_CUSTOM_DRAWING
 
-- (id) initWithTowers:(NSArray*)towerlist
+- (id) initWithTowers:(NSArray*)towerlist andTowerCosts:(NSDictionary*)costs
 {
     if (self = [super init])
     {
-        self.towers = towerlist;
+        towers = towerlist;
+        towerCosts = costs;
     }
     return self;
 }
@@ -30,42 +31,19 @@
 - (void) viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    //load name of towers
-    //NSString* levelName = @"level1";
-    //NSString* levelPath = [[NSBundle mainBundle] pathForResource:levelName ofType:@"plist"];
-    //NSDictionary* levelInfo = [NSDictionary dictionaryWithContentsOfFile:levelPath];
-    //NSString* towerListPath = [[NSBundle mainBundle] pathForResource:[levelInfo valueForKey:@"towers"] ofType:@"plist"];
-    //NSDictionary* towersList = [NSDictionary dictionaryWithContentsOfFile:towerListPath];
-    //self.towers = [towersList allKeys];
-    //NSLog(@"array: %@", towers);
-    
-    //load tableView
+
     NSLog(@"view did load logging");
     towerIndex = -1;
-    self.tableView = [[UITableView alloc] initWithFrame: CGRectMake(10, 45, 320, 500)];
+    //self.tableView = [[UITableView alloc] initWithFrame: CGRectMake(10, 45, 320, 500)];
+    self.tableView = [[UITableView alloc] initWithFrame: CGRectMake(45, 50, 250, 230)];
     self.tableView.hidden = YES;
     self.tableView.backgroundColor = [UIColor whiteColor];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.separatorStyle=UITableViewCellSeparatorStyleNone;
-    self.tableView.showsVerticalScrollIndicator=NO;
+    self.tableView.showsVerticalScrollIndicator=YES;
     [self.view addSubview:self.tableView];
 }
-
-//- (void) viewDidAppear:(BOOL)animated
-//{
-//    [super viewDidAppear:animated];
-//    NSArray * cells = [self.tableView visibleCells];
-//    NSLog(@"Length is : %d", [cells count]);
-//    int i = 0;
-//    while (i < [self.towers count])
-//    {
-//        NSString* imagePath = [NSString stringWithFormat:@"%@.png", [self.towers objectAtIndex:i]];
-//        UITableViewCell* cell = [cells objectAtIndex:i];
-//        cell.imageView.image = [UIImage imageNamed:imagePath];
-//        i++;
-//    }
-//}
 
 //
 // viewDidLoad
@@ -112,6 +90,13 @@
     cell.textLabel.text = [self.towers objectAtIndex:indexPath.row];
     NSString* imagePath = [NSString stringWithFormat:@"%@.png", [self.towers objectAtIndex:indexPath.row]];
     cell.imageView.image = [UIImage imageNamed:imagePath];
+    UILabel* mainLabel = [[UILabel alloc] initWithFrame:CGRectMake(200, 10.0, 50.0, 20.0)];
+    mainLabel.font = [UIFont systemFontOfSize:14.0];
+    mainLabel.textColor = [UIColor blackColor];
+    int cost = [[towerCosts objectForKey:[self.towers objectAtIndex:indexPath.row]]integerValue];
+    mainLabel.text = [NSString stringWithFormat:@"%d", cost];
+    [cell.contentView addSubview:mainLabel];
+    
     return cell;
 }
 

@@ -87,7 +87,7 @@
         if(![theGame circle:mySprite.position withRadius:attackRange
             collisionWithCircle:chosenEnemy.mySprite.position collisionCircleRadius:1])
         {
-            NSLog(@"@about to call lostSightOfEnemy");
+            //NSLog(@"@about to call lostSightOfEnemy");
             [self lostSightOfEnemy];
         }
     } else {
@@ -96,7 +96,7 @@
             if([theGame circle:mySprite.position withRadius:attackRange
                 collisionWithCircle:enemy.mySprite.position collisionCircleRadius:1])
             {
-                NSLog(@"about to choose enemy for attack");
+                //NSLog(@"about to choose enemy for attack");
                 [self chosenEnemyForAttack:enemy];
                 break;
             }
@@ -106,13 +106,13 @@
 
 -(void)attackEnemy
 {
-    NSLog(@"Tower: attackEnemy");
+    //NSLog(@"Tower: attackEnemy");
     [self schedule:@selector(shootWeapon) interval:fireRate];
 }
 
 -(void)chosenEnemyForAttack:(Enemy *)enemy
 {
-    NSLog(@"Tower: chosenEnemyForAttack");
+    //NSLog(@"Tower: chosenEnemyForAttack");
     chosenEnemy = nil;
     chosenEnemy = enemy;
     //NSLog(@"chosenEnemy == nil: %d", chosenEnemy == nil);
@@ -122,7 +122,7 @@
 
 -(void)shootWeapon
 {
-    NSLog(@"Tower: shootWeapon");
+    //NSLog(@"Tower: shootWeapon");
     CCSprite * bullet = [CCSprite spriteWithFile:bulletName];
     [theGame addChild:bullet];
     [bullet setPosition:mySprite.position];
@@ -139,7 +139,7 @@
 
 -(void)damageEnemy
 {
-    NSLog(@"Tower: damageEnemy");
+    //NSLog(@"Tower: damageEnemy");
     // look within the circle radius and also damage those enemies
     NSMutableArray* inRange = [[NSMutableArray alloc] init];
     if (splashRadius > 0) {
@@ -166,7 +166,7 @@
 
 -(void)targetKilled
 {
-    NSLog(@"Tower: targetKilled");
+    //NSLog(@"Tower: targetKilled");
     if(chosenEnemy)
         chosenEnemy = nil;
     
@@ -175,7 +175,7 @@
 
 -(void)lostSightOfEnemy
 {
-    NSLog(@"Tower: lostSightOfEnemy");
+    //NSLog(@"Tower: lostSightOfEnemy");
     //NSLog(@"Inside TOWER-LOSTSIGHTOFENEMY x: %f, y: %f", chosenEnemy.mySprite.position.x, chosenEnemy.mySprite.position.y);
     [chosenEnemy gotLostSight:self];
     if(chosenEnemy)

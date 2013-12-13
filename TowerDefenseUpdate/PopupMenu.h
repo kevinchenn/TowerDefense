@@ -17,13 +17,14 @@
     //BOOL hidden;
     NSInteger towerIndex;
     HelloWorldLayer* HWL;
+    NSDictionary* towerCosts;
 }
 
 @property (nonatomic, retain) UITableView *tableView;
 @property (nonatomic, retain) UIImageView *imageView;
 @property (nonatomic, retain) NSArray *towers;
 
-- (id) initWithTowers:(NSDictionary*)towerlist;
+- (id) initWithTowers:(NSDictionary*)towerlist andTowerCosts:(NSDictionary*)costs;
 - (BOOL) isHidden;
 - (NSString*) getSelectedTower;
 - (void) toggleHidden;

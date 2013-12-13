@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>maxHP</key>
-	<string>100</string>
+	<string>80</string>
 	<key>walkingSpeed</key>
 	<string>.7</string>
 	<key>attackPower</key>
 	<string>1</string>
 	<key>goldReward</key>
-	<string>200</string>
+	<string>10</string>
 	<key>spriteFile</key>
 	<array>
 		<string>tankAnt.png</string>

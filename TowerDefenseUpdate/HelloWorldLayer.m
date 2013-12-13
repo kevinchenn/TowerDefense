@@ -125,7 +125,7 @@
         NSString* towerListPath = [[NSBundle mainBundle] pathForResource:[levelInfo valueForKey:@"towers"] ofType:@"plist"];
         NSDictionary* towersDictionary = [NSDictionary dictionaryWithContentsOfFile:towerListPath];
         NSArray* towerList = [towersDictionary allKeys];
-        popupController = [[PopupMenu alloc] initWithTowers:towerList];
+        popupController = [[PopupMenu alloc] init];
         UIView* cocosView = [[CCDirector sharedDirector] openGLView];
         [cocosView addSubview: popupController.view];
 	}
@@ -152,8 +152,7 @@
         levelInfo = [NSDictionary dictionaryWithContentsOfFile:levelPath];
         
         // 2 - set background
-        CCSprite* background = [CCSprite spriteWithFile:@"bg1.png"];
-        //CCSprite* background = [CCSprite spriteWithFile:[levelInfo valueForKey:@"background"]];
+        CCSprite* background = [CCSprite spriteWithFile:[levelInfo valueForKey:@"background"]];
         [self addChild:background];
         [background setPosition:ccp(winSize.width/2, winSize.height/2)];
         
@@ -198,7 +197,14 @@
         NSString* towerListPath = [[NSBundle mainBundle] pathForResource:[levelInfo valueForKey:@"towers"] ofType:@"plist"];
         NSDictionary* towersDictionary = [NSDictionary dictionaryWithContentsOfFile:towerListPath];
         NSArray* towerList = [towersDictionary allKeys];
-        popupController = [[PopupMenu alloc] initWithTowers:towerList];
+        NSMutableDictionary* towerCostList = [[NSMutableDictionary alloc] init];
+        for (NSString* t in towerList)
+        {
+            NSDictionary* towerInfo = [towersDictionary valueForKey:t];
+            int cost = [[towerInfo valueForKey:@"towerCost"] integerValue];
+            [towerCostList setObject:[NSNumber numberWithInteger:cost] forKey:t];
+        }
+        popupController = [[PopupMenu alloc] initWithTowers:towerList andTowerCosts:towerCostList];
         UIView* cocosView = [[CCDirector sharedDirector] openGLView];
         [cocosView addSubview: popupController.view];
 	}
@@ -384,7 +390,7 @@
         NSString* enemyType = [[NSBundle mainBundle] pathForResource:[enemyData valueForKey:@"enemyType"] ofType:@"plist"];
         NSDictionary* e = [NSDictionary dictionaryWithContentsOfFile:enemyType];
         
-        int enemyLevel = [[e objectForKey:@"level"]integerValue];
+        int enemyLevel = [[enemyData objectForKey:@"level"]integerValue];
         if (enemyLevel == 0)
         {
             enemyLevel = 1;
