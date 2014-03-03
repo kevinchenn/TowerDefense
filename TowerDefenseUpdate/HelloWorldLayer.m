@@ -191,7 +191,7 @@
         [ui_gold_lbl setAnchorPoint:ccp(0,0.5)];
         
         // 9 - sound
-        //[[SimpleAudioEngine sharedEngine] playBackgroundMusic:[levelInfo valueForKey:@"music"] loop:YES];
+        [[SimpleAudioEngine sharedEngine] playBackgroundMusic:[levelInfo valueForKey:@"music"] loop:YES];
         
         // 10 - popup menu
         NSString* towerListPath = [[NSBundle mainBundle] pathForResource:[levelInfo valueForKey:@"towers"] ofType:@"plist"];
@@ -464,7 +464,7 @@
 -(void)awardGold:(int)gold
 {
     playerGold = playerGold + gold;
-    [ui_gold_lbl setString:[NSString stringWithFormat:@"HP: %d",playerGold]];
+    [ui_gold_lbl setString:[NSString stringWithFormat:@"GOLD: %d",playerGold]];
 }
 
 

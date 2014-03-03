@@ -6,7 +6,7 @@
 	<string>20</string>
 	<key>walkingSpeed</key>
 	<string>.75</string>
-	<key>AttackPower</key>
+	<key>attackPower</key>
 	<string>1</string>
 	<key>goldReward</key>
 	<string>3</string>

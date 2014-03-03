@@ -25,6 +25,7 @@
 		CB6499C5185AB9170009842C /* GameOverMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CB6499C4185AB9170009842C /* GameOverMenu.m */; };
 		CB6499C8185ABDCC0009842C /* VictoryMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = CB6499C7185ABDCC0009842C /* VictoryMenu.m */; };
 		CB6499D0185B7DAB0009842C /* level1Background.png in Resources */ = {isa = PBXBuildFile; fileRef = CB6499CF185B7DAB0009842C /* level1Background.png */; };
+		CB6499D2185B91840009842C /* level1Background-hd.png in Resources */ = {isa = PBXBuildFile; fileRef = CB6499D1185B91840009842C /* level1Background-hd.png */; };
 		CB844E45184D8E4B00229721 /* level1Waves.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB844E44184D8E4B00229721 /* level1Waves.plist */; };
 		CB844E49184ED93B00229721 /* level1Towers.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB844E48184ED93A00229721 /* level1Towers.plist */; };
 		CB844E4B184EE1A400229721 /* level1TestWaves.plist in Resources */ = {isa = PBXBuildFile; fileRef = CB844E4A184EE1A200229721 /* level1TestWaves.plist */; };
@@ -237,6 +238,7 @@
 		CB6499C6185ABDCC0009842C /* VictoryMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VictoryMenu.h; sourceTree = "<group>"; };
 		CB6499C7185ABDCC0009842C /* VictoryMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VictoryMenu.m; sourceTree = "<group>"; };
 		CB6499CF185B7DAB0009842C /* level1Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = level1Background.png; sourceTree = "<group>"; };
+		CB6499D1185B91840009842C /* level1Background-hd.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "level1Background-hd.png"; path = "../../../../../Desktop/tdImages/level1Background-hd.png"; sourceTree = "<group>"; };
 		CB844E44184D8E4B00229721 /* level1Waves.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = level1Waves.plist; sourceTree = "<group>"; };
 		CB844E48184ED93A00229721 /* level1Towers.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = level1Towers.plist; sourceTree = "<group>"; };
 		CB844E4A184EE1A200229721 /* level1TestWaves.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = level1TestWaves.plist; sourceTree = "<group>"; };
@@ -593,6 +595,7 @@
 			isa = PBXGroup;
 			children = (
 				CB6499CF185B7DAB0009842C /* level1Background.png */,
+				CB6499D1185B91840009842C /* level1Background-hd.png */,
 				CB6499B4185AB5F30009842C /* level1Button.png */,
 				CB6499B5185AB5F30009842C /* level1ButtonSelected.png */,
 				CB6499B6185AB5F30009842C /* level2Button.png */,
@@ -1213,6 +1216,7 @@
 				D3446616171237DF00255FA3 /* life_lose.wav in Resources */,
 				D3446617171237DF00255FA3 /* tower_place.wav in Resources */,
 				D3FD272F171E3D19007DD3F6 /* enemy-hd.png in Resources */,
+				CB6499D2185B91840009842C /* level1Background-hd.png in Resources */,
 				D3FD2730171E3D19007DD3F6 /* font_red_28.png in Resources */,
 				0A2938611853CA8D00600EC4 /* Default.png in Resources */,
 				D3FD2731171E3D19007DD3F6 /* font_red-hd.fnt in Resources */,
